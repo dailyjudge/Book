@@ -23,9 +23,7 @@
         <a href="" class="menu-item">베스트셀러</a>
         <a href="" class="menu-item">서적 검색</a>
         <a href="" class="menu-item">중고 서적 게시판</a>
-        <a href="" class="menu-item">서점 찾기</a>
-        <a href="" class="menu-item">서점 찾기</a>
-        <a href="" class="menu-item">서점 찾기</a>
+        <a href="Map_Controller" class="menu-item">서점 찾기</a>
     </div>
     
     <div>
