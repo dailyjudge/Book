@@ -12,6 +12,5 @@
 </head>
 <body>
 <h1>index</h1>
-<jsp:include page="jsp/book_search.jsp"></jsp:include>
 </body>
 </html>
