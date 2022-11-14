@@ -11,12 +11,19 @@ import com.book.account.AccountDAO;
 
 @WebServlet("/Account_register_controller")
 public class Account_register_controller extends HttpServlet {
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	private AccountDAO a = AccountDAO.getAdao();
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		a.getAdao().loginCheck(request);
 		request.setAttribute("contentPage", "jsp/lhg/reg.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		AccountDAO.regAccount(request);
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		a.getAdao().regAccount(request);
 		request.setAttribute("contentPage", "jsp/bb.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}

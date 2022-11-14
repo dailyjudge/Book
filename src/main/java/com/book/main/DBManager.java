@@ -1,4 +1,4 @@
-package com.book.account;
+package com.book.main;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
