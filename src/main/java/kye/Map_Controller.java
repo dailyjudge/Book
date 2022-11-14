@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Map_Controller")
 public class Map_Controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	request.setAttribute("contentpage", "map.jsp");
+	request.setAttribute("contentPage", "jsp/kye/map.jsp");
 	request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
