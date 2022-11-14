@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-메인화면!!
+${r }<br>
+<h1>메인화면!!</h1>
 </body>
 </html>

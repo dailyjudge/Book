@@ -15,7 +15,7 @@
         </div>
         <div class="item-container">
             <a class="account-item" href="">로그인</a>
-            <a class="account-item" href="">회원가입</a>
+            <a class="account-item" href="Account_register_controller">회원가입</a>
         </div>
     </div>
 
@@ -31,7 +31,5 @@
     <div>
   	  <jsp:include page="${contentPage }"></jsp:include>
     </div>
-    
-    
 </body>
 </html>
