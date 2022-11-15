@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +16,10 @@
 
 		<script type="text/javascript"
 			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a0775458e66dc2a17eed12803ecfa867&libraries=services"></script>
+
+		<script type="module" src="js/book_search.js"></script>
+
+
 		<script>
 			// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
 			var infowindow = new kakao.maps.InfoWindow({
@@ -34,6 +39,8 @@
 			// 장소 검색 객체를 생성합니다
 			var ps = new kakao.maps.services.Places();
 
+			var file = require('bookstoreinfo.json');
+			console.log(file);
 			// 키워드로 장소를 검색합니다
 			/* ps.keywordSearch('서점', placesSearchCB);
 			ps.keywordSearch('책방', placesSearchCB);
@@ -42,7 +49,7 @@
 			ps.keywordSearch('알라딘', placesSearchCB);
 			ps.keywordSearch('yes24', placesSearchCB);
 			ps.keywordSearch('중고서점', placesSearchCB); */
-			ps.keywordSearch('C&S서점', placesSearchCB);
+			data.DATA.map((it) => ps.keywordSearch(it.store_name, placesSearchCB););
 
 			// 키워드 검색 완료 시 호출되는 콜백함수 입니다
 			function placesSearchCB(data, status, pagination) {
@@ -92,3 +99,4 @@
 
 </body>
 </html>
+

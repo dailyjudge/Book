@@ -1,4 +1,4 @@
-{
+export default{
 "DESCRIPTION" : {"STORE_TYPE_NAME":"책방 구분명","CODE_VALUE":"구 이름","STORE_TYPE":"책방 구분","XCNTS":"위도","STORE_SEQ_NO":"연번","STORE_NAME":"책방 이름","HMPG_URL":"홈페이지 url","TEL_NO":"전화번호","SNS":"SNS url","YDNTS":"경도","ADRES":"주소","GU_CODE":"구 코드"},
 "DATA" : [
 {"tel_no":"02-325-1984","gu_code":"313","adres":"마포구 동교로 194 혜원빌딩 1층","store_seq_no":2283,"store_type_name":"새책방      ","ydnts":"126.922886096614","xcnts":"37.5573847248586","hmpg_url":null,"code_value":"마포구","store_type":"0002","store_name":"1984","sns":"https://www.instagram.com/1984store"},
