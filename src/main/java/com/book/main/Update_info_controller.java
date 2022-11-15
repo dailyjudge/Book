@@ -8,15 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.book.account.AccountDAO;
-
-@WebServlet("/HC")
-public class HC extends HttpServlet {
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-		request.setAttribute("contentPage", "jsp/bb.jsp");
+@WebServlet("/Update_info_controller")
+public class Update_info_controller extends HttpServlet {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setAttribute("contentPage", "jsp/lhg/Update_info.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		AccountDAO.getAdao().updateAccount(request);
 	}
 
 }

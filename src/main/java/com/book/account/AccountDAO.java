@@ -73,16 +73,17 @@ public class AccountDAO {
 	}
 
 	public boolean loginCheck(HttpServletRequest request) {
-
+		
 		HttpSession hs = request.getSession();
 		Account a = (Account) hs.getAttribute("accountInfo");
 		if (a == null) {
-			request.setAttribute("loginPage", "jsp/login.jsp");
+			request.setAttribute("contentPage", "jsp/lhg/login.jsp");
 			return false;
 		} else {
-			request.setAttribute("loginPage", "jsp/loginOk.jsp");
+			request.setAttribute("contentPage", "jsp/lhg/loginOk.jsp");
 			return true;
 		}
+
 	}
 
 	public void login(HttpServletRequest request) {
@@ -102,7 +103,7 @@ public class AccountDAO {
 			if (rs.next()) {
 				if (userPW.equals(rs.getString("b_pw"))) {
 					request.setAttribute("r", "로그인 성공!");
-
+					
 					Account a = new Account();
 					a.setB_id(rs.getString("b_id"));
 					a.setB_name(rs.getString("b_name"));
@@ -133,5 +134,9 @@ public class AccountDAO {
 	public void logout(HttpServletRequest request) {
 		HttpSession hs = request.getSession();
 		hs.setAttribute("accountInfo", null);
+	}
+
+	public void updateAccount(HttpServletRequest request) {
+		
 	}
 }
