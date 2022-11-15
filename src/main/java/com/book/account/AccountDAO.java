@@ -72,16 +72,14 @@ public class AccountDAO {
 		}
 	}
 
-	public boolean loginCheck(HttpServletRequest request) {
-		
+	public void loginCheck(HttpServletRequest request) {
+
 		HttpSession hs = request.getSession();
 		Account a = (Account) hs.getAttribute("accountInfo");
 		if (a == null) {
-			request.setAttribute("contentPage", "jsp/lhg/login.jsp");
-			return false;
+			request.setAttribute("loginPage", "jsp/lhg/login.jsp");
 		} else {
-			request.setAttribute("contentPage", "jsp/lhg/loginOk.jsp");
-			return true;
+			request.setAttribute("loginPage", "jsp/lhg/loginOk.jsp");
 		}
 
 	}
@@ -102,24 +100,26 @@ public class AccountDAO {
 
 			if (rs.next()) {
 				if (userPW.equals(rs.getString("b_pw"))) {
-					request.setAttribute("r", "로그인 성공!");
-					
+					request.setAttribute("r", "로그인 성공");
+
 					Account a = new Account();
 					a.setB_id(rs.getString("b_id"));
 					a.setB_name(rs.getString("b_name"));
 					a.setB_email(rs.getString("b_email"));
 					a.setB_pw(rs.getString("b_pw"));
-					a.setB_likes(rs.getString("b_likes"));
+					String likes = rs.getString("b_likes");
+					likes = likes.replace("!", "&nbsp;");
+					a.setB_likes(likes);
 					a.setB_pic(rs.getString("b_pic"));
 
 					request.setAttribute("account", a);
 
 					HttpSession hs = request.getSession();
 					hs.setAttribute("accountInfo", a);
-					hs.setMaxInactiveInterval(10);
+					hs.setMaxInactiveInterval(60);
 
 				} else {
-					request.setAttribute("r", "비밀번호 오류!");
+					request.setAttribute("r", "비밀번호 오류");
 				}
 			} else {
 				request.setAttribute("r", "존재하지 않는 회원");
@@ -136,7 +136,70 @@ public class AccountDAO {
 		hs.setAttribute("accountInfo", null);
 	}
 
-	public void updateAccount(HttpServletRequest request) {
+	public void updateAccount(HttpServletRequest request) throws IOException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "update book set b_name=?,b_email=?,b_pw=?,b_likes=?,b_pic=? where b_id=?";
+		String path = request.getSession().getServletContext().getRealPath("fileFolder");
+		MultipartRequest mr;
+		mr = new MultipartRequest(request, path, 30 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
+
+		Account a = (Account) request.getSession().getAttribute("accountInfo");
+		String id = mr.getParameter("id");
+		String name = mr.getParameter("name");
+		String email = mr.getParameter("email");
+		String pw = mr.getParameter("pw");
+		String check[] = mr.getParameterValues("chk");
+		String oldChk = mr.getParameter("textcheck");
+		String textcheck = new String();
+		if (check != null) {
+			for (int i = 0; i < check.length; i++) {
+				for (String s : check) {
+					textcheck += "!";
+				}
+				textcheck += check[i] + " ";
+			}
+		} else {
+			textcheck = oldChk;
+		}
+
+		String oldfile = mr.getParameter("file");
+		String newfile = mr.getFilesystemName("file");
+		try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, email);
+			pstmt.setString(3, pw);
+			pstmt.setString(4, textcheck);
+			
+			if (newfile == null) {				
+				pstmt.setString(5, oldfile);
+			} else {
+				pstmt.setString(5, newfile);
+			}
+			pstmt.setString(6, id);
+			
+			if (pstmt.executeUpdate()==1) {
+				request.setAttribute("r", "수정 완료");
+				request.setAttribute("id", a.getB_id());
+				request.setAttribute("pw", a.getB_pw());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, pstmt, null);
+		}
+	}
+
+	public int updateCheck(HttpServletRequest request) {
+		Account a = (Account) request.getSession().getAttribute("accountInfo");
+		
+		if (a != null) {
+			return 1;
+		}else {
+			return 0;
+		}
 		
 	}
 }

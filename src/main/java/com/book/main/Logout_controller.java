@@ -13,6 +13,7 @@ import com.book.account.AccountDAO;
 public class Logout_controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	AccountDAO.getAdao().logout(request);
+	request.setAttribute("loginPage", "jsp/lhg/login.jsp");
 	request.setAttribute("contentPage", "jsp/bb.jsp");
 	request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
