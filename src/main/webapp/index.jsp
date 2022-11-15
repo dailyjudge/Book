@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/index.css">
 <link rel="stylesheet" href="css/default.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/slide.js"></script>
+<link rel="styleshhet" href="css/slide.css"> 
 </head>
 <body>
 	<div class="account-container">
