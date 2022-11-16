@@ -16,6 +16,7 @@ public class Account_register_controller extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setAttribute("loginPage", "jsp/lhg/login.jsp");
 		request.setAttribute("contentPage", "jsp/lhg/reg.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
@@ -23,6 +24,7 @@ public class Account_register_controller extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		a.getAdao().regAccount(request);
+		request.setAttribute("loginPage", "jsp/lhg/login.jsp");
 		request.setAttribute("contentPage", "jsp/bb.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}

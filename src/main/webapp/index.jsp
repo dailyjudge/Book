@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="css/default.css">
 <script type="text/javascript" src="js/check.js"></script>
 <script type="text/javascript" src="js/validCheck.js"></script>
+<script type="text/javascript" src="js/delCheck.js"></script>
 </head>
 <body>
 	<div>

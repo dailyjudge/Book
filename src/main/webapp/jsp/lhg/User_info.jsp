@@ -17,6 +17,6 @@
 	<div>LIKES ${sessionScope.accountInfo.b_likes }</div>
 	<button onclick="location.href='Logout_controller'">로그아웃</button>
 	<button onclick="location.href='Update_info_controller'">정보수정</button>
-	<button onclick="location.href=''">회원탈퇴</button>
+	<button onclick="location.href='Delete_info_controller'">회원탈퇴</button>
 </body>
 </html>
