@@ -65,6 +65,7 @@
 }
 
 .book-item {
+	cursor: pointer;
     width: 21%;
     height: 300px;
     margin: 50px 20px;
@@ -104,5 +105,43 @@
     color: rgb(227, 223, 223);
 }
 
+.item-more {
+    width: 150px;
+    height: 50px;
+    margin-bottom: 20px;
+    color: #646464;
+    border: none;
+    border: 1px solid #646464;
+    border-radius: 20px;
+    cursor: pointer;
+}
 
+.search {
+    position: relative;
+    margin: 50px 0px;
+  }
+  
+.search-input {
+    width: 30%;
+    margin-top: 30px;
+    margin-left: 35%;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    padding: 12px 12px;
+    font-size: 14px;
+  }
+  
+.search-img {
+    position : absolute;
+    width: 17px;
+    top: 40px;
+    left: 65%;
+    margin: 0;
+    cursor: pointer;
+}
 
+.more-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
