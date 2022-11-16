@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>메인화면!!</h1>
+<form action="Delete_info_controller">
+
+</form>
 </body>
 </html>
