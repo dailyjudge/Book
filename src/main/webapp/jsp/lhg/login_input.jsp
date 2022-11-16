@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>메인화면!!</h1>
+<form action="Login_controller" method="post">
+<div>
+ID <input name="id">
+PW <input name="pw">
+<button>로그인</button>
+</div>
+</form>
 </body>
 </html>
