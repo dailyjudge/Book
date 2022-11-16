@@ -9,18 +9,17 @@
 </head>
 
 
-<body>
+<!-- <body>
 	<h1>지도</h1>
 	<div>
-		<div id="map" style="width: 100%; height: 500px;"></div>
+		<div id="map" style="width: 80%; height: 700px;"></div>
 
 		<script type="text/javascript"
 			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a0775458e66dc2a17eed12803ecfa867&libraries=services"></script>
+ -->
+<script src="bookstoreinfo.js"></script>
 
-		<script type="module" src="js/book_search.js"></script>
-
-
-		<script>
+<!-- 		<script>
 			// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
 			var infowindow = new kakao.maps.InfoWindow({
 				zIndex : 1
@@ -38,19 +37,26 @@
 
 			// 장소 검색 객체를 생성합니다
 			var ps = new kakao.maps.services.Places();
-
-			var file = require('bookstoreinfo.json');
-			console.log(file);
+	
+			console.log("aaaa");
+			
+			async function regPlace(data) {
+			data.map((it)=> {
+				const a = await ps.keywordSearch(it.store_name, placesSearchCB);
+			})
+			}
+			
+			regPlace(list);
 			// 키워드로 장소를 검색합니다
 			/* ps.keywordSearch('서점', placesSearchCB);
 			ps.keywordSearch('책방', placesSearchCB);
 			ps.keywordSearch('영풍문고', placesSearchCB);
 			ps.keywordSearch('교보문고', placesSearchCB);
 			ps.keywordSearch('알라딘', placesSearchCB);
-			ps.keywordSearch('yes24', placesSearchCB);
+			ps.keywordSearch('가가77페이지(gaga77page)', placesSearchCB);
 			ps.keywordSearch('중고서점', placesSearchCB); */
-			data.DATA.map((it) => ps.keywordSearch(it.store_name, placesSearchCB););
-
+			
+			
 			// 키워드 검색 완료 시 호출되는 콜백함수 입니다
 			function placesSearchCB(data, status, pagination) {
 				if (status === kakao.maps.services.Status.OK) {
@@ -95,7 +101,68 @@
 			}
 		</script>
 
-	</div>
+	</div> -->
+
+
+<body>
+	<p style="margin-top: -12px">
+		<em class="link"> <a href="javascript:void(0);"
+			onclick="window.open('http://fiy.daum.net/fiy/map/CsGeneral.daum', '_blank', 'width=981, height=650')">
+				혹시 주소 결과가 잘못 나오는 경우에는 여기에 제보해주세요. </a>
+		</em>
+	</p>
+	<div id="map" style="width: 100%; height: 350px;"></div>
+
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a0775458e66dc2a17eed12803ecfa867&libraries=services"></script>
+	<script>
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+		mapOption = {
+			center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+			level : 3
+		// 지도의 확대 레벨
+		};
+
+		// 지도를 생성합니다    
+		var map = new kakao.maps.Map(mapContainer, mapOption);
+
+		// 주소-좌표 변환 객체를 생성합니다
+		var geocoder = new kakao.maps.services.Geocoder();
+
+		// 주소로 좌표를 검색합니다
+		data.map((it)=>{
+		geocoder.addressSearch(it.adres,
+						
+						function(result, status) {
+
+							// 정상적으로 검색이 완료됐으면 
+							if (status === kakao.maps.services.Status.OK) {
+
+								var coords = new kakao.maps.LatLng(result[0].y,
+										result[0].x);
+
+								// 결과값으로 받은 위치를 마커로 표시합니다
+								var marker = new kakao.maps.Marker({
+									map : map,
+									position : coords
+								});
+
+								// 인포윈도우로 장소에 대한 설명을 표시합니다
+								var infowindow = new kakao.maps.InfoWindow(
+										{
+											content : '<div style="width:150px;text-align:center;padding:6px 0;">ggg</div>'
+										});
+								infowindow.open(map, marker);
+
+								// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+								map.setCenter(coords);
+							}
+						})};
+	</script>
+</body>
+
+
+
 
 </body>
 </html>

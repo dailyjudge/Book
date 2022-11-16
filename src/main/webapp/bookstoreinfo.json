@@ -1,5 +1,6 @@
-
-let list =[
+{
+"DESCRIPTION" : {"STORE_TYPE_NAME":"책방 구분명","CODE_VALUE":"구 이름","STORE_TYPE":"책방 구분","XCNTS":"위도","STORE_SEQ_NO":"연번","STORE_NAME":"책방 이름","HMPG_URL":"홈페이지 url","TEL_NO":"전화번호","SNS":"SNS url","YDNTS":"경도","ADRES":"주소","GU_CODE":"구 코드"},
+"DATA" : [
 {"tel_no":"02-325-1984","gu_code":"313","adres":"마포구 동교로 194 혜원빌딩 1층","store_seq_no":2283,"store_type_name":"새책방      ","ydnts":"126.922886096614","xcnts":"37.5573847248586","hmpg_url":null,"code_value":"마포구","store_type":"0002","store_name":"1984","sns":"https://www.instagram.com/1984store"},
 {"tel_no":"02-3463-1880  ","gu_code":"322","adres":"강남구 남부순환로359길 31","store_seq_no":2284,"store_type_name":"새책방      ","ydnts":"127.035565303937","xcnts":"37.486832613278","hmpg_url":null,"code_value":"강남구","store_type":"0002","store_name":"21세기문고","sns":null},
 {"tel_no":"02-2190-2178","gu_code":"322","adres":"강남구 남부순환로 2806 군인공제회관 지하 1층","store_seq_no":2285,"store_type_name":"새책방      ","ydnts":"127.052914072356","xcnts":"37.489109180937","hmpg_url":null,"code_value":"강남구","store_type":"0002","store_name":"C&S서점","sns":null},
@@ -609,3 +610,4 @@ let list =[
 {"tel_no":"02-2696-2320","gu_code":"315","adres":"강서구 화곡로24길 40","store_seq_no":2750,"store_type_name":"새책방      ","ydnts":"126.838880842524","xcnts":"37.5391829813138","hmpg_url":null,"code_value":"강서구","store_type":"0002","store_name":"흥인서점","sns":null},
 {"tel_no":"02-744-9534","gu_code":"307","adres":"성북구 성북로2길 27","store_seq_no":2751,"store_type_name":"새책방      ","ydnts":"127.007180502879","xcnts":"37.5895642139586","hmpg_url":null,"code_value":"성북구","store_type":"0002","store_name":"희망문고","sns":null}
 ]
+}
