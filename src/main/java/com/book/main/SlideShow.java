@@ -24,7 +24,7 @@ public class SlideShow {
 		
 		HttpsURLConnection huc = null;
 		try {
-			String url = "https://book.interpark.com/api/recommend.api?key=9D94365668C72FEE72038FC3AF671C5CF7E548299872BFA5789AA93394BBEA58&categoryId=100&output=json&totalResults=4";
+			String url = "https://book.interpark.com/api/bestSeller.api?key=9D94365668C72FEE72038FC3AF671C5CF7E548299872BFA5789AA93394BBEA58&categoryId=100&output=json&totalResults=10";
 			
 			URL u = new URL(url);
 			huc = (HttpsURLConnection) u.openConnection();
@@ -45,7 +45,7 @@ public class SlideShow {
 			Recommend b = null;
 			JSONArray items = (JSONArray)recommend.get("item");
 			System.out.println(items.size());
-			if(items.size()>= 4) {
+			if(items.size()>= 10) {
 				for(int i=0; i<items.size(); i++) {
 					JSONObject book = (JSONObject)items.get(i);
 					b = new Recommend();
@@ -68,7 +68,7 @@ public class SlideShow {
 					System.out.println(b.getTitle());
 				}
 			}else {
-				System.out.println("4개가 안올라옴");
+				System.out.println("10개가 안올라옴");
 			}
 			
 			
