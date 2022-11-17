@@ -99,10 +99,8 @@
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a0775458e66dc2a17eed12803ecfa867&libraries=services"></script>
 	<script src="js/bookstoreinfo.js"></script>
 
-	<h1>지도</h1>
-
 	<div id="map"
-		style="width: 80%; height: 700px; margin-left: auto; margin-right: auto;"></div>
+		style="width: 65%; height: 500px; margin: 30px auto;"></div>
 
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a0775458e66dc2a17eed12803ecfa867&libraries=services"></script>
