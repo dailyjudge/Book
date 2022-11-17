@@ -114,6 +114,9 @@ $(document).ready(function () {
               	</div>    
            		    `);
             }
+            
+            
+            
             if(size == 8) {
 	        	  $("#search-result").append("<div class='more-container'><button class='item-more'>더보기</button></div>");
 			}
