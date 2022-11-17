@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<style>
+<!-- <style>
 .wrap {
 	position: absolute;
 	left: 0;
@@ -94,16 +94,14 @@
 	background:
 		url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
 }
-</style>
+</style> -->
 
 </head>
 
 
 <body>
-	<h1>지도</h1>
 
-	<div id="map"
-		style="width: 80%; height: 700px; margin-left: auto; margin-right: auto;"></div>
+	<div id="map" style="width: 65%; height: 500px; margin: 30px auto;"></div>
 
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a0775458e66dc2a17eed12803ecfa867&libraries=services"></script>
@@ -237,10 +235,52 @@
 		
 		});
 		
+		function getDistance(lat, lon, y, x, unit) {
+	        var radlat = Math.PI * lat/180
+	        var radlaty = Math.PI * laty/180
+	        var radlon = Math.PI * lon/180
+	        var radlonx = Math.PI * lonx/180
+	        var theta = lon-x
+	        var radtheta = Math.PI * theta/180
+	        var dist = Math.sin(radlat) * Math.sin(radlaty) + Math.cos(radlat) * Math.cos(radlaty) * Math.cos(radtheta);
+	        dist = Math.acos(dist)
+	        dist = dist * 180/Math.PI
+	        dist = dist * 60 * 1.1515
+	        if (unit=="K") { dist = dist * 1.609344 }
+	        if (unit=="N") { dist = dist * 0.8684 }
+	        return dist
+	}		
+		navigator.geolocation.getCurrentPosition(position)=>{
+			let latitude =position.coords.latitude;
+			let longitude= position.coords.longitude;
+			
+			console.log('latitude',latitude);
+			console.log('longitude',longitude);
+			
+			for(let i=0; i<it.length; i++ ){
+				let distance= getDistance()
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		// 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
 		 function closeOverlay() {
              overlay.setMap(null);   
          }
+		
 	</script>
 
 </body>
