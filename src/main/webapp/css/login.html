@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css"
+    />
+  </head>
+  <body>
+    <div class="account_area">
+      <form action="Login_controller" method="post">
+        <h1>어서오세요</h1>
+        <input class="input_id" name="id" placeholder="아이디" />
+        <input class="input_pw" name="pw" placeholder="비밀번호" />
+        <div class="login_sns">
+          <li>
+            <a id="naver" href=""><i class="xi-naver"></i></a>
+          </li>
+          <li>
+            <a id="kakao" href=""><i class="xi-kakaotalk"></i></a>
+          </li>
+          <li>
+            <a href=""><img id="google" src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png"></i></a>
+          </li>
+        </div>
+        <div class="button_area">
+          <button name="login_button">로그인</button>
+        </div>
+        <div class="register_area">
+          <h3>처음 오셨나요</h3>
+          <a type="button" href="Account_register_controller"> 회원가입</a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
