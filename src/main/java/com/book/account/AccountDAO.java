@@ -81,7 +81,7 @@ public class AccountDAO {
 		} else {
 			request.setAttribute("loginPage", "jsp/lhg/loginOk.jsp");
 		}
-
+		
 	}
 
 	public void login(HttpServletRequest request) {
