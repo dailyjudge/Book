@@ -13,8 +13,6 @@
 <script type="text/javascript" src="js/check.js"></script>
 <script type="text/javascript" src="js/validCheck.js"></script>
 <script type="text/javascript" src="js/delCheck.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/slide.js"></script>
 <link rel="stylesheet" href="css/slide.css">
 
@@ -24,10 +22,10 @@
 		<jsp:include page="${loginPage }"></jsp:include>
 	</div>
 	<div class="menu-container">
-		<a href="" class="menu-item">베스트셀러</a> <a
-			href="Book_search_controller" class="menu-item">서적 검색</a> <a href=""
-			class="menu-item">중고 서적 게시판</a> <a href="Map_Controller"
-			class="menu-item">서점 찾기</a>
+		<a href="Book_bestSeller_controller" class="menu-item">베스트셀러</a> 
+		<a href="Book_search_controller" class="menu-item">서적 검색</a> 
+		<a href="" class="menu-item">중고 서적 게시판</a> 
+		<a href="Map_Controller" class="menu-item">서점 찾기</a>
 	</div>
 
 	<div>
