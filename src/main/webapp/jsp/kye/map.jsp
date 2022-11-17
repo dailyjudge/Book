@@ -83,23 +83,6 @@
 	white-space: nowrap;
 }
 
-.desc .jibun {
-	font-size: 11px;
-	color: #888;
-	margin-top: -2px;
-}
-
-.info .img {
-	position: absolute;
-	top: 6px;
-	left: 5px;
-	width: 73px;
-	height: 71px;
-	border: 1px solid #ddd;
-	color: #888;
-	overflow: hidden;
-}
-
 .info:after {
 	content: '';
 	position: absolute;
@@ -123,20 +106,14 @@
 <body>
 	<h1>지도</h1>
 	<div>
-		<div id="map" style="width: 80%; height: 700px;"></div>
+		<div id="map"
+			style="width: 80%; height: 700px; margin-left: auto; margin-right: auto;"></div>
 
 		<script type="text/javascript"
 			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a0775458e66dc2a17eed12803ecfa867&libraries=services"></script>
+
 
 		<script src="bookstoreinfo.js"></script>
-
-
-		<div id="map" style="width: 100%; height: 350px;"></div>
-
-		<script type="text/javascript"
-			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a0775458e66dc2a17eed12803ecfa867&libraries=services"></script>
-
-
 
 
 		<script>
@@ -149,6 +126,7 @@
 		// 지도의 확대 레벨
 		};
 
+	    
 		// 지도를 생성합니다    
 		var map = new kakao.maps.Map(mapContainer, mapOption);
 		
@@ -179,6 +157,8 @@
 		    map.setCenter(locPosition);      
 		
 		}
+		
+		
 
 		// 주소-좌표 변환 객체를 생성합니다
 		var geocoder = new kakao.maps.services.Geocoder();
@@ -202,11 +182,22 @@
 								});
 								
 								
-
-								
 								let name = it.store_name;
 								let adres= it.adres;
 								let sns= it.sns;
+								let tel= it.tel_no;
+								let y= it.ydnts;
+								let x= it.xcnts;
+								
+		
+	/* 	var linePath=[
+			new daum.maps.LatLng(locPosition),
+			new daum.maps.LatLng(y,x),
+			
+		]; */
+		
+		}
+	    
 						/* 		
 								var infowindow = new kakao.maps.InfoWindow(
 										{
@@ -238,7 +229,7 @@
 								/* map.setCenter(coords); */
 								
 								
-								var content = sns != null ? '<div class="wrap">' + 
+				var content = sns != null ? '<div class="wrap">' + 
 					            '    <div class="info">' + 
 					            '        <div class="title">' + name+ 
 					            '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
@@ -247,6 +238,9 @@
 					            '            <div class="desc">' + 
 					            '                <div class="ellipsis">'+adres+'</div>' + 
 					            '                <div><a href=' + sns + ' class="link">SNS</a></div>' + 
+					            '                <div><a href=' + hmpg + ' class="link">홈페이지</a></div>' + 
+					            '                <div><a class="ellipsis">'+tel+'</a></div>' + 
+					            '            </div>' + 
 					            '            </div>' + 
 					            '        </div>' + 
 					            '    </div>' +    
@@ -259,34 +253,37 @@
 						            '        <div class="body">' + 
 						            '            <div class="desc">' + 
 						            '                <div class="ellipsis">'+adres+'</div>' + 
+					            '                <div><a class="ellipsis">'+tel+'</a></div>' + 
+					            '            </div>' + 
 						            '            </div>' + 
 						            '        </div>' + 
 						            '    </div>' +    
 						            '</div>';
-					            
+					
 					            kakao.maps.event.addListener(marker, 'click', function() {
 						            overlay = new kakao.maps.CustomOverlay({
 						                content: content,
 						                map: map,
-						                position: marker.getPosition()       
+						                position: marker.getPosition() 
 						            });
 					            // 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
 					                overlay.setMap(map);
 					            });
-
-					            // 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
-					           
-							}
+					            
+					        
+					         
 					
 		}
 		)}
 		
 		
 		);
+		// 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
 		 function closeOverlay() {
              overlay.setMap(null);   
          }
 	</script>
+	</div>
 </body>
 </body>
 </html>

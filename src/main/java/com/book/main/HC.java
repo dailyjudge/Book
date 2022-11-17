@@ -12,6 +12,9 @@ import com.book.account.AccountDAO;
 @WebServlet("/HC")
 public class HC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+		
+		SlideShow.post(request);
+		request.setAttribute("contentPage", "jsp/kmj&jmk/slideImg.jsp");
 		AccountDAO.getAdao().loginCheck(request);
 		request.setAttribute("contentPage", "jsp/bb.jsp");
 
