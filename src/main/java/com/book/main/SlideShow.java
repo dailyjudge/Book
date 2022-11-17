@@ -98,18 +98,21 @@ public class SlideShow {
 		String url2 = null;
 		
 		try {
-			if(likes.contains(s1)) {
+			
+			if(likes.contains(s1)&&likes.contains(s2)) {
+				url2 = url + "50926";
+				url =  url + "50935";
+				System.out.println(url);
+				System.out.println(url2);
+			}else if(likes.contains(s1)) {
 				url = url + "50926";
 				System.out.println(url);
 			}else if(likes.contains(s2)) {
 				url = url +"50935";
 				System.out.println(url);
-			}else if(likes.contains(s1)&&likes.contains(s2)){
-				url2 = url + "50926";
-				url =  url +"50935";
-				System.out.println(url);
-				System.out.println(url2);
 			}
+			
+			
 			
 			if(url2 == null) {
 				URL u = new URL(url);
@@ -183,7 +186,7 @@ public class SlideShow {
 				URL u2 = new URL(url2);
 				huc2 = (HttpsURLConnection) u2.openConnection();
 				
-				InputStream is2 = huc.getInputStream();
+				InputStream is2 = huc2.getInputStream();
 				InputStreamReader isr2 = new InputStreamReader(is2, "utf-8");
 				
 				JSONParser jp2 = new JSONParser();
@@ -194,19 +197,19 @@ public class SlideShow {
 				
 				if(items2.size()>= 10) {
 					for(int i=1; i<items2.size(); i+=2) {
-						JSONObject book = (JSONObject)items.get(i);
+						JSONObject book2 = (JSONObject)items2.get(i);
 						b2 = new Recommend();
-						String title = (String)book.get("title");
-						String imgUrl= (String)book.get("cover");
-						String author = (String)book.get("author");
-						String link = (String)book.get("link");				
+						String title = (String)book2.get("title");
+						String imgUrl= (String)book2.get("cover");
+						String author = (String)book2.get("author");
+						String link = (String)book2.get("link");				
 						
-						b.setTitle(title);
-						b.setUrlImg(imgUrl);
-						b.setAuthor(author);
-						b.setLink(link);
+						b2.setTitle(title);
+						b2.setUrlImg(imgUrl);
+						b2.setAuthor(author);
+						b2.setLink(link);
 						
-						request.setAttribute("recommends"+i, b);
+						request.setAttribute("recommends"+i, b2);
 						
 					}
 				}else {
