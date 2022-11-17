@@ -27,7 +27,7 @@ pageEncoding="UTF-8"%>
       <a href="" class="menu-item">중고 서적 게시판</a>
       <a href="Map_Controller" class="menu-item">서점 찾기</a>
     </div>
-
+	<br>
     <div>
       <jsp:include page="${contentPage }"></jsp:include>
     </div>
