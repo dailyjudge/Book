@@ -11,8 +11,8 @@ import com.book.account.AccountDAO;
 @WebServlet("/Login_controller")
 public class Login_controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	request.setAttribute("loginPage", "jsp/lhg/login_input.jsp");
-	request.setAttribute("contentPage", "jsp/bb.jsp");
+	AccountDAO.getAdao().loginCheck(request);
+	request.setAttribute("contentPage", "jsp/lhg/login_input.jsp");
 	request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 	
