@@ -93,10 +93,6 @@
 	background:
 		url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
 }
-
-.info .link {
-	color: #5085BB;
-}
 </style>
 <body>
 	<script type="text/javascript"
@@ -104,8 +100,16 @@
 	<script src="js/bookstoreinfo.js"></script>
 
 	<h1>지도</h1>
+
 	<div id="map"
-		style="width:  80%;  height:  700px;  margin-left:  auto;  margin-right:  auto;"></div>
+		style="width: 80%; height: 700px; margin-left: auto; margin-right: auto;"></div>
+
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a0775458e66dc2a17eed12803ecfa867&libraries=services"></script>
+
+
+	<script src="js/bookstoreinfo.js"></script>
+
 
 	<script>
 		
@@ -142,92 +146,101 @@
 		        
 		    displayMarker(locPosition, message);
 		}
+
 		
 		function displayMarker(locPosition, message) {
 		    map.setCenter(locPosition);      
 		}
 		
 		
-		// 주소-좌표 변환 객체를 생성합니다
-		var geocoder = new kakao.maps.services.Geocoder();
-		var overlay;
-		
-		// 주소로 좌표를 검색합니다
-		list.map((it)=> {
-		
+
+		// 주소-좌표 변환 객체를 생성합니다
+		var geocoder = new kakao.maps.services.Geocoder();
+		var overlay;
+		// 주소로 좌표를 검색합니다
+		list.map((it)=> {
+								let name = it.store_name;
+								let adres= it.adres;
+								let sns= it.sns;
+								let tel= it.tel_no;
+								let y= it.ydnts;
+								let x= it.xcnts;
+								let hmpg=it.hmpg_url;
+								
+								
 		geocoder.addressSearch(it.adres,
 						
-						function(result, status) {
-							// 정상적으로 검색이 완료됐으면 
-							if (status === kakao.maps.services.Status.OK) {
-								var coords = new kakao.maps.LatLng(result[0].y,
-										result[0].x);
-								// 결과값으로 받은 위치를 마커로 표시합니다
-								var marker = new kakao.maps.Marker({
-									map : map,
-									position : coords
+						function(result, status) {
+
+							// 정상적으로 검색이 완료됐으면 
+							if (status === kakao.maps.services.Status.OK) {
+
+								var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+								// 결과값으로 받은 위치를 마커로 표시합니다
+								var marker = new kakao.maps.Marker({
+									map : map,
+									position : coords
 								});
-								
-								let name = it.store_name;
-								let adres= it.adres;
-								let sns= it.sns;
-								let tel= it.tel_no;
-								let y= it.ydnts;
-								let x= it.xcnts;
-	   					 				
+		
+		
+	    
 					
-							}	
-							
-							var content = sns != null ? '<div class="wrap">' + 
-									            '    <div class="info">' + 
-									            '        <div class="title">' + name+ 
-									            '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
-									            '        </div>' + 
-									            '        <div class="body">' + 
-									            '            <div class="desc">' + 
-									            '                <div class="ellipsis">'+adres+'</div>' + 
-									            '                <div><a href=' + sns + ' class="link">SNS</a></div>' + 
-									            '                <div><a href=' + hmpg + ' class="link">홈페이지</a></div>' + 
-									            '                <div><a class="ellipsis">'+tel+'</a></div>' + 
-									            '            </div>' + 
-									            '            </div>' + 
-									            '        </div>' + 
-									            '    </div>' +    
-									            '</div>' :
-									            	'<div class="wrap">' + 
-										            '    <div class="info">' + 
-										            '        <div class="title">' + name+ 
-										            '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
-										            '        </div>' + 
-										            '        <div class="body">' + 
-										            '            <div class="desc">' + 
-										            '                <div class="ellipsis">'+adres+'</div>' + 
-									            '                <div><a class="ellipsis">'+tel+'</a></div>' + 
-									            '            </div>' + 
-										            '            </div>' + 
-										            '        </div>' + 
-										            '    </div>' +    
-										            '</div>';
-									
-									            kakao.maps.event.addListener(marker, 'click', function() {
-										            overlay = new kakao.maps.CustomOverlay({
-										                content: content,
-										                map: map,
-										                position: marker.getPosition() 
-										            });
-									            // 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
-									                overlay.setMap(map);
-									            });
-									            
-						}
-		)}
+				
+								
+				var content = sns != null ? '<div class="wrap">' + 
+					            '    <div class="info">' + 
+					            '        <div class="title">' + name+ 
+					            '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+					            '        </div>' + 
+					            '        <div class="body">' + 
+					            '            <div class="desc">' + 
+					            '                <div class="ellipsis">'+adres+'</div>' + 
+					            '                <div><a href=' + sns + ' class="link">SNS</a></div>' + 
+					            '                <div><a href=' + hmpg + ' class="link">홈페이지</a></div>' + 
+					            '                <div><a class="ellipsis">'+tel+'</a></div>' + 
+					            '            </div>' + 
+					            '            </div>' + 
+					            '        </div>' + 
+					            '    </div>' +    
+					            '</div>' :
+					            	'<div class="wrap">' + 
+						            '    <div class="info">' + 
+						            '        <div class="title">' + name+ 
+						            '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+						            '        </div>' + 
+						            '        <div class="body">' + 
+						            '            <div class="desc">' + 
+						            '                <div class="ellipsis">'+adres+'</div>' + 
+					            '                <div><a class="ellipsis">'+tel+'</a></div>' + 
+					            '            </div>' + 
+						            '            </div>' + 
+						            '        </div>' + 
+						            '    </div>' +    
+						            '</div>';
+					
+					            kakao.maps.event.addListener(marker, 'click', function() {
+						            overlay = new kakao.maps.CustomOverlay({
+						                content: content,
+						                map: map,
+						                position: marker.getPosition() 
+						            });
+					            // 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
+					                overlay.setMap(map);
+					            });
+		}
+		}
+		)
 		
+		});
 		
-		// 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
-		 function closeOverlay() {
-             overlay.setMap(null);   
-         }
+		// 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
+		 function closeOverlay() {
+             overlay.setMap(null);   
+         }
 	</script>
+
 </body>
+
 </html>
 
