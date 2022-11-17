@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 public class Delete_info_controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("loginPage", "jsp/lhg/Delete_info.jsp");
-		request.setAttribute("contentPage", "jsp/bb.jsp");
+		SlideShow.post(request);
+		request.setAttribute("contentPage", "jsp/kmj&jmk/slideImg.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
