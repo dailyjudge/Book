@@ -95,8 +95,9 @@
 }
 
 </style>-->
-
-
+</head>
+<body>
+	<div id="map" style="width: 65%; height: 500px; margin: 30px auto;"></div>
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a0775458e66dc2a17eed12803ecfa867&libraries=services"></script>
 
@@ -108,21 +109,21 @@
 		
 		var mapContainer=document.getElementById('map'),// 지도를 표시할 div 
 		mapOption={
-			center:newkakao.maps.LatLng(37.56742261797555,127.0100117859028),// 지도의 중심좌표
+			center:new kakao.maps.LatLng(37.56742261797555,127.0100117859028),// 지도의 중심좌표
 			level:3
 		// 지도의 확대 레벨
 		};
 	
 		// 지도를 생성합니다    
-		var map=newkakao.maps.Map(mapContainer,mapOption);
+		var map=new kakao.maps.Map(mapContainer,mapOption);
 		
 		if(navigator.geolocation){
 		
 		// GeoLocation을 이용해서 접속 위치를 얻어옵니다
 		navigator.geolocation.getCurrentPosition(function(position){
 		
-		varlat=position.coords.latitude,// 위도
-		lon=position.coords.longitude;// 경도
+		var lat=position.coords.latitude,// 위도
+			lon=position.coords.longitude;// 경도
 		
 		var locPosition=new kakao.maps.LatLng(lat,lon),// 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
 			message='<div style="padding:5px;">현위치</div>';// 인포윈도우에 표시될 내용입니다
@@ -141,7 +142,7 @@
 		}
 
 		
-		functiondisplayMarker(locPosition,message) {
+		function displayMarker(locPosition,message) {
 		map.setCenter(locPosition);
 		}
 		
@@ -227,7 +228,7 @@
 		
 		});
 		
-		function getDistance(lat, lon, y, x, unit) {
+	/* 	 function getDistance(lat, lon, y, x, unit) {
 	        var radlat = Math.PI * lat/180
 	        var radlaty = Math.PI * laty/180
 	        var radlon = Math.PI * lon/180
@@ -249,11 +250,9 @@
 			console.log('latitude',latitude);
 			console.log('longitude',longitude);
 			
-			for(let i=0; i<it.length; i++ ){
-				let distance= getDistance()
-			}
-		}
 		
+		}
+		  */
 		
 		
 		
