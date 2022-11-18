@@ -42,5 +42,4 @@
 		<jsp:include page="${contentPage }"></jsp:include>
 	</div>
 </body>
-
 </html>

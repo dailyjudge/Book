@@ -13,11 +13,11 @@ import com.book.account.AccountDAO;
 public class HC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		
+		
 		SlideShow.post(request);
 		AccountDAO.getAdao().loginCheck(request);
 
 		request.setAttribute("contentPage", "jsp/kmj&jmk/slideImg.jsp");
-
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 

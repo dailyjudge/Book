@@ -10,8 +10,9 @@
 	${r }
 	<div class="account-container">
 		<div class="img-container">
-			<img class="account-img" src="assets/main.png" alt=""
-				onclick="location.href='HC'">
+			<a href="HC"><img class="account-img"
+				src="assets/main.png"
+				alt=""></a>
 		</div>
 		<div class="item-container">
 			<a class="account-item" href="Login_controller">로그인</a> <a

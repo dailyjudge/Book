@@ -15,9 +15,9 @@ a {
 }
 #visual {
 	position: relative;
-	width: 1200px;
-	height: 300px;
-	margin: 0 auto;
+	width: 50%;
+	height: 400px;
+	margin: 50px auto;
 	overflow: hidden;
 	box-shadow: 1px 5px 10px 2px #666;
 }
@@ -47,7 +47,7 @@ a {
 	line-height: 26px;
 	font-size: 0.8em;
 	border-radius: 14px;
-	margin: 0 2px
+	margin: 5px 2px;
 }
 #control a.on {
 	background: #9ab3f5;
