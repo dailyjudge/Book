@@ -226,9 +226,9 @@
 		}
 		)
 		
-		});
+		//});
 		
-	/* 	 function getDistance(lat, lon, y, x, unit) {
+	 	 function getDistance(lat, lon, y, x, unit) {
 	        var radlat = Math.PI * lat/180
 	        var radlaty = Math.PI * laty/180
 	        var radlon = Math.PI * lon/180
@@ -243,16 +243,32 @@
 	        if (unit=="N") { dist = dist * 0.8684 }
 	        return dist
 	}		
-		navigator.geolocation.getCurrentPosition(position)=>{
-			let latitude =position.coords.latitude;
-			let longitude= position.coords.longitude;
+		 navigator.geolocation.getCurrentPosition(position)=>{
 			
-			console.log('latitude',latitude);
-			console.log('longitude',longitude);
+			var lat=position.coords.latitude,// 위도
+				lon=position.coords.longitude;// 경도
+				console.log('latitude',lat);
+				console.log('longitude',lon);
 			
-		
+			for (let i = 0; i < it.length; i++) {
+				var distance = getDistance(latitude,longitude,list[i].latitude, list[i].longitude,"K");
+				it[i].distance=distance;
+				
+			}
+			
+			let newit= it.sort(function (a,b){
+				if(a.distance>b.distance){
+					return 1;
+				}
+				if(a.distance < b.distance){
+					return -1;
+				}
+				return 0;
+			});
+			console.log(newit);
+			
 		}
-		  */
+	});
 		
 		
 		
