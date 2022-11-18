@@ -56,21 +56,25 @@
                 <input type="text">
             </div>
             <div>
-                <h6 class="reg-field check-likes">관심사</h6>
+                <h6 class="reg-field">이메일</h6>
+                <input type="text">
             </div>
             <div>
+                <h6 class="reg-field check-likes">관심사</h6>
+            </div>
+            <div class="check-list">
                 소설<input class="like" type="checkbox" name="chk" value="101">
                 시/에세이<input class="like" type="checkbox" name="chk" value="102">
                 사회과학<input class="like" type="checkbox" name="chk" value="104">
             </div>
 
-            <div>
+            <div class="check-list">
                 역사와 문화<input class="like" type="checkbox" name="chk" value="105">
                 국어/외국어<input class="like" type="checkbox" name="chk" value="115">
                 자기계발<input class="like" type="checkbox" name="chk" value="118">
             </div>
 
-            <div>
+            <div class="check-list">
                 인문<input class="like" type="checkbox" name="chk" value="119">
                 종교/역학<input class="like" type="checkbox" name="chk" value="120">
                 여행<input class="like" type="checkbox" name="chk" value="128">
