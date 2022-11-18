@@ -14,14 +14,21 @@ public class HC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		
 		
-		SlideShow.post(request);
 		AccountDAO.getAdao().loginCheck(request);
+		if(request.getAttribute("checkNull").equals("0")) {
+			SlideShow.afterLogin(request);
+			
+		}else {
+			SlideShow.post(request);
+		}
 
 		request.setAttribute("contentPage", "jsp/kmj&jmk/slideImg.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+	
 	}
 
 }

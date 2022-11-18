@@ -26,9 +26,9 @@
  </script>
 <link rel="stylesheet" href="css/reg.css">   
 <body>
-	<div class="reg-container" action="Account_register_controller" name="myForm" method="post"
+	<div class="reg-container">
+        <form class="reg-form" method="post"  action="Account_register_controller" name="myForm" method="post"
     enctype="multipart/form-data" onsubmit="return call()">
-        <form class="reg-form" action="" method="post">
             <div id="profile-img-container">
                 <div id="image_container">
                     <img id="test-img" src="https://cdn-icons-png.flaticon.com/128/5309/5309035.png" alt="">
@@ -42,22 +42,27 @@
             <div>
                 <h6 class="reg-field">아이디</h6>
                 <input type="text">
+                <img class="reg-questionMark" alt="" src="assets/questionMark.png">
             </div>
             <div>
                 <h6 class="reg-field">비밀번호</h6>
                 <input type="text">
+                <img class="reg-questionMark" alt="" src="assets/questionMark.png">
             </div>
             <div>
                 <h6 class="reg-field">비밀번호 재입력</h6>
                 <input type="text">
+                <img class="reg-questionMark" alt="" src="assets/questionMark.png">
             </div>
             <div>
                 <h6 class="reg-field">이름</h6>
                 <input type="text">
+                <img class="reg-questionMark" alt="" src="assets/questionMark.png">
             </div>
             <div>
                 <h6 class="reg-field">이메일</h6>
                 <input type="text">
+                <img class="reg-questionMark" alt="" src="assets/questionMark.png">
             </div>
             <div>
                 <h6 class="reg-field check-likes">관심사</h6>

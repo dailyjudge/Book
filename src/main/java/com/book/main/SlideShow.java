@@ -54,10 +54,6 @@ public class SlideShow {
 					String imgUrl= (String)book.get("coverLargeUrl");
 					String author = (String)book.get("author");
 					String link = (String)book.get("link");				
-//					System.out.println(title);
-//					System.out.println(imgUrl);
-//					System.out.println(author);
-//					System.out.println(link);
 					
 					b.setTitle(title);
 					b.setUrlImg(imgUrl);
