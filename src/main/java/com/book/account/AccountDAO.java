@@ -79,11 +79,7 @@ public class AccountDAO {
 		Account a = (Account) hs.getAttribute("accountInfo");
 		if (a == null) {
 			request.setAttribute("loginPage", "jsp/lhg/login.jsp");
-			SlideShow.post(request);
-			request.setAttribute("contentPage", "jsp/kmj&jmk/slideImg.jsp");
 		} else {
-			SlideShow.afterLogin(request);
-			request.setAttribute("contentPage", "jsp/kmj&jmk/slideImg.jsp");
 			request.setAttribute("loginPage", "jsp/lhg/loginOk.jsp");
 		}
 		
