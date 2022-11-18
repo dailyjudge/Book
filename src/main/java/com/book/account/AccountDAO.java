@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.book.main.DBManager;
+import com.book.main.SlideShow;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -78,7 +79,11 @@ public class AccountDAO {
 		Account a = (Account) hs.getAttribute("accountInfo");
 		if (a == null) {
 			request.setAttribute("loginPage", "jsp/lhg/login.jsp");
+			SlideShow.post(request);
+			request.setAttribute("contentPage", "jsp/kmj&jmk/slideImg.jsp");
 		} else {
+			SlideShow.afterLogin(request);
+			request.setAttribute("contentPage", "jsp/kmj&jmk/slideImg.jsp");
 			request.setAttribute("loginPage", "jsp/lhg/loginOk.jsp");
 		}
 

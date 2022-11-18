@@ -6,16 +6,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="../../js/slide.js"></script>
+<link rel="stylesheet" href="../../css/slide.css">
 </head>
 <body>
 
-
 	<div id="visual">
-	
 		<div class="on">
 			<div style="width: 50%; height:100%; float:left;">
 				<a href="${recommends0.link }"><img src="${recommends0.urlImg }" alt="1"

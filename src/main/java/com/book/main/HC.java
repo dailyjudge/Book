@@ -14,14 +14,9 @@ public class HC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		
 		
-		if(!request.isRequestedSessionIdValid()) {
-			SlideShow.post(request);
-		}else {
-			SlideShow.afterLogin(request);
-		}
-		request.setAttribute("contentPage", "jsp/kmj&jmk/slideImg.jsp");
 		AccountDAO.getAdao().loginCheck(request);
 
+		request.setAttribute("contentPage", "jsp/kmj&jmk/slideImg.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
