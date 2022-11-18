@@ -1,4 +1,4 @@
-package com.book.main;
+package com.book.book;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -9,15 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.book.account.AccountDAO;
 
-@WebServlet("/HC")
-public class HC extends HttpServlet {
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+@WebServlet("/Book_bestSeller_controller")
+public class Book_bestSeller_controller extends HttpServlet {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-		SlideShow.post(request);
 		AccountDAO.getAdao().loginCheck(request);
-
-		request.setAttribute("contentPage", "jsp/kmj&jmk/slideImg.jsp");
+		request.setAttribute("contentPage", "jsp/kmj&jmk/book_bestSeller.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 

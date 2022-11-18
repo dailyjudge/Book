@@ -1,12 +1,11 @@
 @charset "UTF-8";
 html {
 	font-family: 'Apple SD Gothic Neo', Roboto, 'Noto Sans KR', NanumGothic, 'Malgun Gothic', sans-serif;
-	color: #555;
+	color: #444;
 	line-height: 1.2;
 	word-wrap: break-word;
 }
 body {
-	background: #eee;
 	-webkit-font-smoothing: antialiased;
 }
 html, body, div, span, applet, object, iframe,

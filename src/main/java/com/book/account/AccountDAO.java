@@ -86,7 +86,7 @@ public class AccountDAO {
 			request.setAttribute("contentPage", "jsp/kmj&jmk/slideImg.jsp");
 			request.setAttribute("loginPage", "jsp/lhg/loginOk.jsp");
 		}
-
+		
 	}
 
 	public void login(HttpServletRequest request) {

@@ -1,0 +1,84 @@
+.login-container {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+.login-container h1 {
+    text-align: center;
+}
+.login-container input {
+    width: 30%;
+    margin: 10px auto;
+    height: 40px;
+    border-radius: 15px;
+    
+}
+.login-other {
+    width: 50%;
+    margin: 20px auto;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-other a {
+    width: 50px;
+    height: 50px;
+    margin-right: 25px;
+    border-radius: 50%;
+    text-align: center;
+}
+#naver {
+	background-color: #19ce60;
+}
+#kakao {
+	background-color:#fae100;
+}
+#google {
+    width: 50px;
+}
+.xi-naver {
+    width: 50px;
+}
+.button_area {
+    width: 100%;
+    display: flex;
+    justify-content: center;    
+}
+.button_area button {
+	margin-top: 20px;
+	width: 30%;
+	height: 50px;
+	border: 0;
+	outline: 0;
+	border-radius: 6px;
+	background: linear-gradient(to left, #233329, #63D471);
+	color: white;
+	font-size: 1.2em;
+	letter-spacing: 2px;
+	box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4),-3px -3px 5px
+		rgba(0, 0, 0, 0.1);
+}
+.register_area {
+    justify-content: center;
+    display: flex;
+}
+.reg-user {
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    color: #4e4c4c;
+}
+.reg-user:hover {
+    text-decoration: underline;
+}
+.reg-user:link {
+    color: #4e4c4c;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+

@@ -22,7 +22,7 @@ import com.book.account.Account;
 public class SlideShow {
 	
 	public static void post(HttpServletRequest request) {
-		// 신간도서 보여주는 곳임
+
 		
 		// 인증키 :  9D94365668C72FEE72038FC3AF671C5CF7E548299872BFA5789AA93394BBEA58 
 		// 요청 URL : http://book.interpark.com/api/newBook.api
@@ -67,6 +67,8 @@ public class SlideShow {
 					request.setAttribute("recommends"+i, b);
 					
 				}
+				
+				System.out.println("post 함수 끝");
 			}else {
 				System.out.println("10개가 안올라옴");
 			}
