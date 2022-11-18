@@ -14,6 +14,11 @@ body {
 }
 
 .account-container {
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	z-index: 2;
+	background-color: white;
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
@@ -21,8 +26,21 @@ body {
 	border-bottom: 1px solid #646464;
 }
 
+.account-container2 {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	height: 100px;
+}
+
+
 .img-container {
 	width: 78%;
+	margin: 10px 0px;
+}
+
+.img-container2 {
+	width: 60%;
 	margin: 10px 0px;
 }
 
@@ -35,12 +53,22 @@ body {
 .item-container {
 	display: flex;
 	justify-content: flex-end;
-	width: 22%;
+	width: 40%;
 }
 
+.item-container2 {
+	display: flex;
+	justify-content: flex-end;
+	width: 40%;
+	color: #646464;
+	font-size: 14px;
+}
+.item-container2 h3 {
+	margin-right: 10px;
+}
 .account-item {
 	text-decoration: none;
-	margin: 0px 20px;
+	margin-right: 10px;
 	font-size: 16px;
 	font-family: 'MapoFlowerIsland';
 }
@@ -49,8 +77,15 @@ body {
 	color: #646464;
 }
 
+.account-item:hover {
+	color: black;
+}
 .menu {
 	display: flex;
+	position: fixed;
+	top: 100px;
+	width: 100%;
+	z-index: 2;
 }
 
 .menu-item {
@@ -145,7 +180,8 @@ body {
 
 .search {
 	position: relative;
-	margin: 50px 0px;
+	margin-top: 300px;
+	margin-bottom: 50px;
 }
 
 .search-input {
@@ -182,4 +218,12 @@ body {
 
 .bestseller {
 	display: none;
+}
+
+.top-container {
+	margin-top: 200px;
+}
+
+.top-container2 {
+	margin-top: 300px;
 }

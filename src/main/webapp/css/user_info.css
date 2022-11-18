@@ -1,0 +1,64 @@
+@charset "UTF-8";
+.myPage-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.myPage {
+    background-color: #F3F0D7;
+    margin: 80px auto;
+    padding: 20px 0px;
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+.myPage h3{
+    margin: 20px auto;
+    font-weight: bold;
+}
+.myPage span{
+    margin-right: 20px;
+}
+.myPage-img {
+    margin: 0px auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.myPage-field {
+    background-color: white;
+    border: 1px solid #F3F0D7;
+    margin: 10px auto;
+    width: 50%;
+    padding: 10px 10px;
+    border-radius: 15px;
+}
+
+.myPage-field-classification {
+    font-weight: bold;
+}
+
+.myPage-additional {
+    background-color: #F3F0D7;
+    margin-top: 30px;
+    display: flex;
+    width: 70%;
+    color: white;
+    justify-content: space-between;
+}
+
+.myPage-additional a {
+    background-color: black;
+    color: white;
+    padding: 20px 5px;
+    border-radius: 5px;
+    width: 45%;
+    text-align: center;
+}

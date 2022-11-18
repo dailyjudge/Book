@@ -10,4 +10,4 @@ b_pic varchar2(500 char) not null
 insert into book values('ye','ye','ye@gmail.com','1111','detective','master.jpg');
 drop table book cascade constraint purge;
 
-select *from book;
+select * from book;

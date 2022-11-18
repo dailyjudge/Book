@@ -9,7 +9,7 @@
 <script type="text/javascript" src="js/book_bestSeller.js"></script>
 </head>
 <body>
-<div class="book-container">
+<div class="book-container top-container">
 	<p class="book-classification">국내도서</p>
 </div>
 <div id="search-result" class="book-container"></div>

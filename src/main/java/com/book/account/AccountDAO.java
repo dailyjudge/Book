@@ -1,12 +1,14 @@
 package com.book.account;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.book.main.DBManager;
@@ -25,12 +27,15 @@ public class AccountDAO {
 		return ADAO;
 	}
 
-	public void regAccount(HttpServletRequest request) throws IOException {
-
+	public boolean regAccount(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		System.out.println("등록 함수!!");
+		
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		
 		String sql = "insert into book values(?,?,?,?,?,?)";
 		String path = request.getSession().getServletContext().getRealPath("fileFolder");
+
 		MultipartRequest mr;
 		mr = new MultipartRequest(request, path, 30 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
 
@@ -40,7 +45,8 @@ public class AccountDAO {
 		String pw = mr.getParameter("pw");
 		String likes[] = mr.getParameterValues("chk");
 		String textcheck = new String();
-
+		
+		System.out.println("값 받기 완료");
 		if (likes != null) {
 			for (int i = 0; i < likes.length; i++) {
 				textcheck += likes[i] + " ";
@@ -50,21 +56,22 @@ public class AccountDAO {
 		}
 
 		String pic = mr.getFilesystemName("file");
-
+		
 		try {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
+
 			pstmt.setString(1, id);
 			pstmt.setString(2, name);
 			pstmt.setString(3, email);
 			pstmt.setString(4, pw);
 			pstmt.setString(5, textcheck);
 			pstmt.setString(6, pic);
-
+			
 			if (pstmt.executeUpdate() == 1) {
-				request.setAttribute("r", "회원 가입 성공");
+				return true;
 			} else {
-				request.setAttribute("r", "회원 가입 실패");
+				return false;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -117,7 +124,7 @@ public class AccountDAO {
 
 					HttpSession hs = request.getSession();
 					hs.setAttribute("accountInfo", a);
-					hs.setMaxInactiveInterval(60);
+					hs.setMaxInactiveInterval(60 * 10);
 
 				} else {
 					request.setAttribute("r", "비밀번호 오류");
