@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DBManager {
-
 	public static Connection connect() throws SQLException {
 		
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -35,4 +34,4 @@ public class DBManager {
 	
 	
 	
-}
+

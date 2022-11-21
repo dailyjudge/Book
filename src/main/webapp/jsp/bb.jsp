@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-메인화면!!
+<h1>bb.jsp</h1>
 </body>
 </html>

@@ -7,13 +7,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.book.account.AccountDAO;
+
 @WebServlet("/HC")
 public class HC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-		//아무거나 해놓은거
-		//JkModel.getAllContent(request);
-		//request.setAttribute("contentPage", "jsp/jk/usedbooks.jsp");
-		request.setAttribute("contentPage", "jsp/bb.jsp");
+
+		
+		
+		SlideShow.post(request);
+		AccountDAO.getAdao().loginCheck(request);
+
+		request.setAttribute("contentPage", "jsp/kmj&jmk/slideImg.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
