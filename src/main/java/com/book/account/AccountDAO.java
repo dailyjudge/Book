@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import com.book.main.DBManager;
 import com.book.main.SlideShow;
+import com.book.usedBooks.BoardBean;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -27,7 +30,7 @@ public class AccountDAO {
 		return ADAO;
 	}
 
-	public boolean regAccount(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public void regAccount(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		System.out.println("등록 함수!!");
 		
 		Connection con = null;
@@ -69,9 +72,7 @@ public class AccountDAO {
 			pstmt.setString(6, pic);
 			
 			if (pstmt.executeUpdate() == 1) {
-				return true;
 			} else {
-				return false;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -101,7 +102,7 @@ public class AccountDAO {
 		String userPW = request.getParameter("pw");
 		try {
 			con = DBManager.connect();
-			String sql = "select *from book where b_id=?";
+			String sql = "select * from book where b_id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, userID);
 			rs = pstmt.executeQuery();
@@ -124,7 +125,7 @@ public class AccountDAO {
 
 					HttpSession hs = request.getSession();
 					hs.setAttribute("accountInfo", a);
-					hs.setMaxInactiveInterval(60 * 10);
+					hs.setMaxInactiveInterval(60 * 100);
 
 				} else {
 					request.setAttribute("r", "비밀번호 오류");
@@ -208,6 +209,51 @@ public class AccountDAO {
 		}else {
 			return 0;
 		}
+		
+	}
+
+	public void getAllContents(HttpServletRequest request) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from usedbooks_board order by u_date desc";
+		
+		try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+		
+			BoardBean b = null;
+			ArrayList<BoardBean> boards = new ArrayList<>();
+			
+			while(rs.next()) {
+				int no = rs.getInt("u_no");
+				String author = rs.getString("u_author");
+				String title = rs.getString("u_title");
+				String content = rs.getString("u_content");
+				String img = rs.getString("u_img");
+				int price = rs.getInt("u_price");
+				Date date = rs.getDate("u_date");
+				
+				// 보내주기
+				// 객체 + 배열
+				b = new BoardBean(no, author, title, content, img, price, date);
+
+				boards.add(b);
+			}
+			
+			request.setAttribute("boards", boards);
+			
+		} catch (Exception e) {
+
+		}
+		
+		
+		
 		
 	}
 }
