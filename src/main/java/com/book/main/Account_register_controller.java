@@ -1,6 +1,8 @@
 package com.book.main;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,6 +29,6 @@ public class Account_register_controller extends HttpServlet {
 		request.setAttribute("loginPage", "jsp/lhg/login.jsp");
 		request.setAttribute("contentPage", "jsp/bb.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
+		}
 	}
 
-}

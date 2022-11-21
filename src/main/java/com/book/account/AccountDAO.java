@@ -202,36 +202,32 @@ public class AccountDAO {
 			return 0;
 		}
 	}
-		
 	
-	public int joinIdCheck(String id){
-		int result = -1;
-		
+	public int checkId(String id){		
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "select b_id from Account where b_id=?";
+		String sql = "select * from Account where b_id=?";
+		int idCheck = 0;
 		try {
 			con = DBManager.connect();
 			pstmt =con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()){	
-				result = 0;
-			}else{
-				result = 1;
+			if (rs.next()||id.equals("")) {
+				idCheck = 0;
+			} else {
+				idCheck = 1;  // 존재하지 않는 경우, 생성 가능
 			}
-			
-			System.out.println("아이디 중복체크결과 : "+result);
-			
+						
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			DBManager.close(con, pstmt, rs);
 		}
-		return result;
+		return idCheck;
 	}
 	
 }

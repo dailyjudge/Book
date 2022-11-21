@@ -3,24 +3,44 @@ function call() {
 	let id = document.myForm.id;
 	let pw = document.myForm.pw;
 	let pw2 = document.myForm.pw2;
-
+	let email = document.myForm.email;
+	let filecheck = document.getElementById("input-file").value;	
+	
+	if(!filecheck){
+		alert("파일을 첨부해주세요!");
+		return false;
+	}
+		
 	if (isEmpty(name)) {
-		alert('필수 입력란 확인!');
+		alert('이름 입력란 확인!');
 		name.focus();
 		name.value = "";
 		return false;
 	}
 
-	if (lessThan(id, 5) || containKR(id)) {
-		alert('ID 입력란 확인!');
+	if (isEmpty(email)) {
+		alert('이메일 입력란 확인!');
+		email.focus();
+		email.value = "";
+		return false;
+	}
+
+	if (isEmpty(id)) {
+		alert('아이디를 입력해주세요!');
 		id.focus();
 		id.value = "";
 		return false;
 	}
 
-	if (lessThan(pw, 3) || notContains(pw, "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm" ||
-		pw, "1234567890")) {
-		alert('비밀번호 양식 확인!');
+	if (containKR(id)) {
+		alert('아이디 입력란 확인!');
+		id.focus();
+		id.value = "";
+		return false;
+	}
+
+	if (lessThan(pw, 3)) {
+		alert('비밀번호 확인!');
 		pw.focus();
 		pw.value = "";
 		return false;
@@ -31,41 +51,40 @@ function call() {
 		pw2.value = "";
 		pw2.focus();
 		return false;
+		
+	if (isEmpty(file)) {
+		alert('사진을 첨부해주세요!');
+		return false;
+	}
+
 	}
 
 	return true;
 }
 
-function selectAll(selectAll)  {
-  const checkboxes 
-       = document.getElementsByName('chk');
-  
-  checkboxes.forEach((checkbox) => {
-    checkbox.checked = selectAll.checked;
-  })
+function selectAll(selectAll) {
+	const checkboxes
+		= document.getElementsByName('chk');
+
+	checkboxes.forEach((checkbox) => {
+		checkbox.checked = selectAll.checked;
+	})
 }
 
-function winopen(){
-	if(document.myForm.id.value =="" || document.myForm.id.value.length < 0){
-		alert("아이디를 먼저 입력해주세요")
-		document.myForm.id.focus();
-	}else{
-		window.open("jsp/lhg/joinIdCheck.jsp?id="+document.myForm.id.value,"","width=500, height=300");
-	}
-}
-
-function chkPw() {
-	let pw = document.myForm.pw;
-	let pw2 = document.myForm.pw2;
-	let pwConfirm = document.getElementById("pwConfirm");
-	pw2.addEventListener("keyup", function() {
-		pw = document.myForm.pw;
-		pw2 = document.myForm.pw2;
-		if (pw.value != pw2.value) {
-			pwConfirm.style.display = "block";
-			pwConfirm.innerText = "비밀번호 불일치";
-		} else {
-			pwConfirm.innerText = "비밀번호 일치";
-		}
+$(function() {
+	$('#pw').keyup(function() {
+		$('#pwConfirm').html('');
 	});
-}
+
+	$('#pw2').keyup(function() {
+
+		if ($('#pw').val() != $('#pw2').val()) {
+			$('#pwConfirm').html('비밀번호 일치하지 않음<br><br>');
+			$('#pwConfirm').attr('color', 'red');
+		} else {
+			$('#pwConfirm').html('비밀번호 일치함<br><br>');
+			$('#pwConfirm').attr('color', 'green');
+		}
+
+	});
+});
