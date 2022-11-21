@@ -95,9 +95,17 @@
 }
 
 </style>-->
+
+<script src="https://code.jquery.com/jquery-3.6.1.js"
+	integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+	crossorigin="anonymous"></script>
 </head>
 <body>
-	<div id="map" style="width: 65%; height: 500px; margin: 30px auto"></div>
+	<div class="map-container" >
+		<div id="map" style="width: 65%; height: 500px; "></div>
+		<div id="list-all"></div>
+	</div>
+
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a0775458e66dc2a17eed12803ecfa867&libraries=services"></script>
 
@@ -167,8 +175,8 @@
               });
 
               var content =
-                sns != null
-                  ? '<div class="wrap">' +
+                sns != null ? 
+                	'<div class="wrap">' +
                     '    <div class="info">' +
                     '        <div class="title">' +
                     name +
@@ -211,7 +219,7 @@
                     "            </div>" +
                     "        </div>" +
                     "    </div>" +
-                    "</div>";
+                    "</div>"
 
               kakao.maps.event.addListener(marker, "click", function () {
                 overlay = new kakao.maps.CustomOverlay({
@@ -267,7 +275,7 @@
           list[i].distance = distance;
         }
 
-        let newList = list.sort(function (a, b) {
+        const newList = list.sort(function (a, b) {
           if (a.distance > b.distance) {
             return 1;
           }
@@ -277,23 +285,42 @@
           return 0;
         });
         console.log(newList);
+ 
+
+       for(let i = 0; i < newList.length; i++) {
+     	   let store_name= newList[i].store_name;
+    	   let tel_no= newList[i].tel_no; 
+    	   let adres2=newList[i].adres;
+    	   let adres=newList[i].adres;
+    	   let sns= newList[i].sns;
+    	   
+    	        
+         $("#list-all").append(
+        		 sns != null ? 
+                '<div id="newList"><ol><li>'+store_name+'</li><li>'+tel_no+'</li>'+
+                '<li>'+adres2+'</li></ol></div>'
+                : '<div id="newList"><ol><li>'+store_name+'</li><li>'+tel_no+'</li>'+
+                '<li>'+adres+'</li><li><a href=' +
+                sns +
+                ' class="link">SNS</a></ol></div>'
+                
         
-        newList.map((it) => {
-            let name = it.store_name;
-            let adres = it.adres;
-            let sns = it.sns;
-            let tel = it.tel_no;
-            let hmpg = it.hmpg_url;
-            function getListItem(){
-            	
-            		
-            }
-        });
-      });
+                
+             )
+        console.log(newList[i].store_name);
+        console.log(newList[i].tel_no);
+            
+  
+       }
+     
+     
+        
+        
+        
       
        
    
-      //}); 
+      }); 
 
       // 커스텀 오버레이를 닫기 위해 호출되는 함수입니다
       function closeOverlay() {
