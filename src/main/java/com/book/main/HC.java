@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/HC")
 public class HC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+		//아무거나 해놓은거
+		//JkModel.getAllContent(request);
+		//request.setAttribute("contentPage", "jsp/jk/usedbooks.jsp");
+		request.setAttribute("contentPage", "jsp/bb.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 

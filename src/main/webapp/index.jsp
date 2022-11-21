@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/index.css">
 <link rel="stylesheet" href="css/default.css">
+<link rel="stylesheet" href="css/jk/usedbooks.css">
 </head>
 <body>
 	<div class="account-container">
@@ -19,14 +20,15 @@
         </div>
     </div>
 
-    <div class="menu-container">
-        <a href="" class="menu-item">베스트셀러</a>
-        <a href="" class="menu-item">서적 검색</a>
-        <a href="" class="menu-item">중고 서적 게시판</a>
-        <a href="" class="menu-item">서점 찾기</a>
-        <a href="" class="menu-item">서점 찾기</a>
-        <a href="" class="menu-item">서점 찾기</a>
-    </div>
+    <ul class="menu">
+		<li class="menu-item"><a href="Book_bestSeller_controller"
+			class="menu-link">베스트셀러</a></li>
+		<li class="menu-item"><a href="Book_search_controller"
+			class="menu-link">서적 검색</a></li>
+		<li class="menu-item"><a href="UsedBooks_controller" class="menu-link">중고 서적 게시판</a></li>
+		<li class="menu-item"><a href="Map_Controller" class="menu-link">서점
+				찾기</a></li>
+	</ul>
     
     <div>
   	  <jsp:include page="${contentPage }"></jsp:include>
