@@ -51,6 +51,7 @@ body {
 
 .menu {
 	display: flex;
+	color: #F3F0D7;
 }
 
 .menu-item {
@@ -61,6 +62,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	
 }
 
 .menu-item:hover {
@@ -131,16 +133,30 @@ body {
 }
 
 .item-more {
-	width: 150px;
+	font-family:'MapoFlowerIsland';
+	width: 170px;
 	height: 50px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 20px;
-	color: #646464;
+	background: #F3F0D7;
 	border: none;
-	border: 1px solid #646464;
-	border-radius: 20px;
+	font-size:20px;
+	border-radius: 10px;
 	cursor: pointer;
+	transition: all ease 0.8s;
+}
+.item-more:hover {
+	width: 170px;
+	height: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	background: #00541A;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	color: #F3F0D7;
 }
 
 .search {

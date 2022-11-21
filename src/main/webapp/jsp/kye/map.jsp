@@ -277,43 +277,23 @@
           return 0;
         });
         console.log(newList);
+        
         newList.map((it) => {
             let name = it.store_name;
             let adres = it.adres;
             let sns = it.sns;
             let tel = it.tel_no;
             let hmpg = it.hmpg_url;
-            function getListItem(index,places){
-            	var el= document.createElement('li'),
+            function getListItem(){
+            	
             		
             }
         });
       });
       
-      
-      	function getListItem(index, places) {
-
-    	    var el = document.createElement('li'),
-    	    	itemStr = '<span class="markerbg marker_' + (index+1) + '"></span>' +
-    	                '<div class="info">' +
-    	                '   <h5>' +name + '</h5>';
-
-    	    if (sns!= null) {
-    	        itemStr += '    <span>' +adres + '</span>' +
-    	                    '   <span>' +sns   + '</span>';
-    	    } else {
-    	        itemStr += '    <span>' +  adres + '</span>'; 
-    	    }
-    	                 
-    	      itemStr += '  <span class="tel">' + tel  + '</span>' +
-    	                '</div>';           
-
-    	    el.innerHTML = itemStr;
-    	    el.className = 'item';
-
-    	    return el;
-    	}
-      });
+       
+   
+      //}); 
 
       // 커스텀 오버레이를 닫기 위해 호출되는 함수입니다
       function closeOverlay() {
