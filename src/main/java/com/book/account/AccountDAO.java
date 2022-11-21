@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.book.main.DBManager;
+import com.book.main.SlideShow;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -97,7 +98,7 @@ public class AccountDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, userID);
 			rs = pstmt.executeQuery();
-
+			System.out.println(pstmt);
 			if (rs.next()) {
 				if (userPW.equals(rs.getString("b_pw"))) {
 					request.setAttribute("r", "로그인 성공");

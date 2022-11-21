@@ -1,146 +1,170 @@
 @charset "UTF-8";
 /* account */
+@font-face {
+	font-family: 'MapoFlowerIsland';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	font-family: 'MapoFlowerIsland';
+}
+
 .account-container {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 70px;
-    border-bottom: 1px solid #646464;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	height: 100px;
+	border-bottom: 1px solid #646464;
 }
 
 .img-container {
-    width: 78%;
+	width: 78%;
+	margin: 10px 0px;
 }
+
 .account-img {
-    width: 100px;
-    height: 70px;
-    cursor: pointer;
+	width: 100px;
+	height: 85px;
+	cursor: pointer;
 }
 
 .item-container {
-    display: flex;
-    justify-content: flex-end;
-    width: 22%;
+	display: flex;
+	justify-content: flex-end;
+	width: 22%;
 }
 
 .account-item {
-    text-decoration: none;
-    margin: 0px 20px;
-}
-.account-item:visited {
-    color: #646464;
+	text-decoration: none;
+	margin: 0px 20px;
+	font-size: 16px;
+	font-family: 'MapoFlowerIsland';
 }
 
-.menu-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid black;
+.account-item:visited {
+	color: #646464;
+}
+
+.menu {
+	display: flex;
 }
 
 .menu-item {
-    text-decoration: none;
-    border: 1px solid black;
-    margin: 0px 10px;
-    padding: 20px 20px;
-    font-weight: bold;
-}
-
-.menu-item:visited {
-    color: #646464;
+	width: 25%;
+	background: #F3F0D7;
+	transition: 0.5s;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .menu-item:hover {
-    background-color: green;
-    color: white;
-    transition: 0.5s;
+	width: 35%;
+	background: #00541A;
+}
+
+.menu-link {
+	display: block;
+	padding: 1em;
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: #555;
+	text-decoration: none;
+	text-align: center;
+}
+
+.menu-link:hover {
+	color: white;
 }
 
 .book-container {
-    padding: 0px 100px;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
+	padding: 0px 100px;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
 }
 
 .book-item {
 	cursor: pointer;
-    width: 21%;
-    height: 300px;
-    margin: 50px 20px;
-    position: relative;
+	width: 21%;
+	height: 300px;
+	margin: 50px 20px;
+	position: relative;
 }
 
 .item-img {
-    margin: 0px auto;
-    width: 200px;
-    border: 1px solid black;
-    height: 300px;
-    position: absolute;
-    left: 40px;
+	margin: 0px auto;
+	width: 200px;
+	border: 1px solid black;
+	height: 300px;
+	position: absolute;
+	left: 40px;
 }
 
-.item-img img{
-    width: 200px;
+.item-img img {
+	width: 200px;
 }
 
 .item-desc {
-    margin: 0px auto;
-    padding-top: 15px;
-    width: 200px;
-    border: 1px solid black;
-    height: 285px;
-    background-color: black;
-    display: none;
-    position: absolute;
-    left: 40px;
+	margin: 0px auto;
+	padding-top: 15px;
+	width: 200px;
+	border: 1px solid black;
+	height: 285px;
+	background-color: black;
+	display: none;
+	position: absolute;
+	left: 40px;
 }
 
 .item-desc p {
-    font-size: 12px;
-    letter-spacing: 1px;
-    margin-top: 20px;
-    margin-left: 10px;
-    color: rgb(227, 223, 223);
+	font-size: 12px;
+	letter-spacing: 1px;
+	margin-top: 20px;
+	margin-left: 10px;
+	color: rgb(227, 223, 223);
 }
 
 .item-more {
-    width: 150px;
-    height: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 20px;
-    color: #646464;
-    border: none;
-    border: 1px solid #646464;
-    border-radius: 20px;
-    cursor: pointer;
+	width: 150px;
+	height: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	color: #646464;
+	border: none;
+	border: 1px solid #646464;
+	border-radius: 20px;
+	cursor: pointer;
 }
 
 .search {
-    position: relative;
-    margin: 50px 0px;
-  }
-  
+	position: relative;
+	margin: 50px 0px;
+}
+
 .search-input {
-    width: 30%;
-    margin-top: 30px;
-    margin-left: 35%;
-    border: 1px solid #bbb;
-    border-radius: 8px;
-    padding: 12px 12px;
-    font-size: 14px;
-  }
-  
+	width: 30%;
+	margin-top: 30px;
+	margin-left: 35%;
+	border: 1px solid #bbb;
+	border-radius: 8px;
+	padding: 12px 12px;
+	font-size: 14px;
+}
+
 .search-img {
-    position : absolute;
-    width: 17px;
-    top: 40px;
-    left: 65%;
-    margin: 0;
-    cursor: pointer;
+	position: absolute;
+	width: 17px;
+	top: 40px;
+	left: 65%;
+	margin: 0;
+	cursor: pointer;
 }
 
 .more-container {

@@ -14,7 +14,8 @@ public class Logout_controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	AccountDAO.getAdao().logout(request);
 	request.setAttribute("loginPage", "jsp/lhg/login.jsp");
-	request.setAttribute("contentPage", "jsp/bb.jsp");
+	SlideShow.post(request);
+	request.setAttribute("contentPage", "jsp/kmj&jmk/slideImg.jsp");
 	request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
