@@ -41,7 +41,7 @@ $(document).ready(function() {
 			   <div class="item-desc">
 						   <p>『${list[i].title}』</p>
 						   <p>『${list[i].description.slice(0, 100)}...』</p>
-					   	   <p>\\${list[i].priceStandard}</p>
+					   	   <p>${list[i].priceStandard}원</p>
 					   	   <input id="hidden-search-url" value=${list[i].link} type="hidden">
 					   </div>
 			   </div>

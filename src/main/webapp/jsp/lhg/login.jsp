@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${r }
 	<div class="account-container">
 		<div class="img-container">
 			<a href="HC"><img class="account-img"

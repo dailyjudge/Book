@@ -25,7 +25,7 @@ $(document).ready(function () {
             		<div class="item-desc">
                			<p>『${msg.documents[i].title}』</p>
                			<p>『${msg.documents[i].contents.slice(0, 100)}...』</p>
-              			<p>\\${msg.documents[i].price}</p>
+              			<p>${msg.documents[i].price}원</p>
            		    </div>
               	</div>    
            		    `);
@@ -114,8 +114,6 @@ $(document).ready(function () {
               	</div>    
            		    `);
             }
-            
-            
             
             if(size == 8) {
 	        	  $("#search-result").append("<div class='more-container'><button class='item-more'>더보기</button></div>");
