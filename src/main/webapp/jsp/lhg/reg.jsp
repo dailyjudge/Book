@@ -12,7 +12,8 @@
 		<div>회원가입</div>
 		<div>ID</div>
 		<div>
-			<input name="id" placeholder="한글x, 5글자 이상">
+			<input type="text" name="id" placeholder="한글x, 5글자 이상"> 
+			<input type="button" value="중복확인" class="dup" onclick="winopen()"><br>
 		</div>
 		<div>
 			이름<input name="name" placeholder="필수">
@@ -31,8 +32,7 @@
 		</div>
 		<div>관심사</div>
 		<div>
-			Select All<input type="checkbox" name="chk" value="selectall"
-				onclick="selectAll(this)">
+		Select All<input type="checkbox" name ="chk" value ="selectall" onclick="selectAll(this)">
 		</div>
 		<div>
 			추리<input type="checkbox" name="chk" value="detective">

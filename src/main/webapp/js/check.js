@@ -10,12 +10,14 @@ function call() {
 		name.value = "";
 		return false;
 	}
+
 	if (lessThan(id, 5) || containKR(id)) {
 		alert('ID 입력란 확인!');
 		id.focus();
 		id.value = "";
 		return false;
 	}
+
 	if (lessThan(pw, 3) || notContains(pw, "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm" ||
 		pw, "1234567890")) {
 		alert('비밀번호 양식 확인!');
@@ -23,6 +25,7 @@ function call() {
 		pw.value = "";
 		return false;
 	}
+
 	if (notEquals(pw, pw2)) {
 		alert('비밀번호 확인 실패');
 		pw2.value = "";
@@ -33,13 +36,22 @@ function call() {
 	return true;
 }
 
-function selectAll(selectAll) {
-	const checkboxes
-		= document.getElementsByName('chk');
+function selectAll(selectAll)  {
+  const checkboxes 
+       = document.getElementsByName('chk');
+  
+  checkboxes.forEach((checkbox) => {
+    checkbox.checked = selectAll.checked;
+  })
+}
 
-	checkboxes.forEach((checkbox) => {
-		checkbox.checked = selectAll.checked;
-	})
+function winopen(){
+	if(document.myForm.id.value =="" || document.myForm.id.value.length < 0){
+		alert("아이디를 먼저 입력해주세요")
+		document.myForm.id.focus();
+	}else{
+		window.open("jsp/lhg/joinIdCheck.jsp?id="+document.myForm.id.value,"","width=500, height=300");
+	}
 }
 
 function chkPw() {

@@ -28,7 +28,7 @@ public class AccountDAO {
 
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into book values(?,?,?,?,?,?)";
+		String sql = "insert into Account values(?,?,?,?,?,?)";
 		String path = request.getSession().getServletContext().getRealPath("fileFolder");
 		MultipartRequest mr;
 		mr = new MultipartRequest(request, path, 30 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
@@ -81,7 +81,7 @@ public class AccountDAO {
 		} else {
 			request.setAttribute("loginPage", "jsp/lhg/loginOk.jsp");
 		}
-		
+
 	}
 
 	public void login(HttpServletRequest request) {
@@ -93,7 +93,7 @@ public class AccountDAO {
 		String userPW = request.getParameter("pw");
 		try {
 			con = DBManager.connect();
-			String sql = "select *from book where b_id=?";
+			String sql = "select *from Account where b_id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, userID);
 			rs = pstmt.executeQuery();
@@ -139,7 +139,7 @@ public class AccountDAO {
 	public void updateAccount(HttpServletRequest request) throws IOException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		String sql = "update book set b_name=?,b_email=?,b_pw=?,b_likes=?,b_pic=? where b_id=?";
+		String sql = "update Account set b_name=?,b_email=?,b_pw=?,b_likes=?,b_pic=? where b_id=?";
 		String path = request.getSession().getServletContext().getRealPath("fileFolder");
 		MultipartRequest mr;
 		mr = new MultipartRequest(request, path, 30 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
@@ -172,15 +172,15 @@ public class AccountDAO {
 			pstmt.setString(2, email);
 			pstmt.setString(3, pw);
 			pstmt.setString(4, textcheck);
-			
-			if (newfile == null) {				
+
+			if (newfile == null) {
 				pstmt.setString(5, oldfile);
 			} else {
 				pstmt.setString(5, newfile);
 			}
 			pstmt.setString(6, id);
-			
-			if (pstmt.executeUpdate()==1) {
+
+			if (pstmt.executeUpdate() == 1) {
 				request.setAttribute("r", "수정 완료");
 				request.setAttribute("id", a.getB_id());
 				request.setAttribute("pw", a.getB_pw());
@@ -194,12 +194,43 @@ public class AccountDAO {
 
 	public int updateCheck(HttpServletRequest request) {
 		Account a = (Account) request.getSession().getAttribute("accountInfo");
-		
+
 		if (a != null) {
 			return 1;
-		}else {
+		} else {
 			return 0;
 		}
-		
 	}
+		
+	
+	public int joinIdCheck(String id){
+		int result = -1;
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select b_id from Account where b_id=?";
+		try {
+			con = DBManager.connect();
+			pstmt =con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){	
+				result = 0;
+			}else{
+				result = 1;
+			}
+			
+			System.out.println("아이디 중복체크결과 : "+result);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, pstmt, rs);
+		}
+		return result;
+	}
+	
 }
