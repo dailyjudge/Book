@@ -14,7 +14,6 @@ public class HC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 
 		
-		
 		SlideShow.post(request);
 		AccountDAO.getAdao().loginCheck(request);
 

@@ -8,13 +8,12 @@ import java.sql.SQLException;
 
 public class DBManager {
 	public static Connection connect() throws SQLException {
-		
+
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		return DriverManager.getConnection(url,"c##jk","jk");
+		return DriverManager.getConnection(url, "c##jk", "jk");
 	}
-	
-	
-								//db.close(con,pstmt,rs);
+
+	// db.close(con,pstmt,rs);
 	public static void close(Connection con, PreparedStatement pstmt, ResultSet rs) {
 		
 		try {
@@ -31,7 +30,4 @@ public class DBManager {
 		
 		
 	}
-	
-	
-	
-
+}
