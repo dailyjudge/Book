@@ -24,7 +24,7 @@
                 <strong>게시글 등록</strong>
             </div>
             <div class="usedbooks-create-item">
-                <strong >제목</strong><br>
+                <strong >제목</strong>
                 <input type="text" name="title">
             </div>
             
@@ -34,13 +34,13 @@
             </div>
             
             <div class="usedbooks-create-item">
-                <strong >판매 가격</strong><br>
+                <strong >판매 가격</strong>
                 <input class="usedbooks-create-item-price" type="text" name="price">
             </div>
             
             
             <div class="usedbooks-create-item">
-                <strong>사진</strong><br>
+                <strong>사진</strong>
                 <input type="file" name="file">
             </div>
             

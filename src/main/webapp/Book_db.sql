@@ -8,6 +8,7 @@ create table book(
 );
 
 insert into book values('ye','ye','ye@gmail.com','1111','detective','master.jpg');
+insert into book values('test','name','email','1111','detective','master.jpg');
 drop table book cascade constraint purge;
 
 select * from book;
@@ -31,6 +32,7 @@ select * from usedbooks_board order by u_date;
 
 select * from usedbooks_board;
 
+drop table usedbooks_board
 
 delete USEDBOOKS_BOARD;
 

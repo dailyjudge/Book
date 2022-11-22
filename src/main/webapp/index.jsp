@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="css/index.css">
 <link rel="stylesheet" href="css/default.css">
 <link rel="stylesheet" href="css/map.css">
+<link rel="stylesheet" href="css/usedbooks.css">
+
 <script src="https://code.jquery.com/jquery-3.6.1.js"
 	integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
 	crossorigin="anonymous"></script>
@@ -27,6 +29,7 @@
 		<jsp:include page="${loginPage }"></jsp:include>
 	</div>
 
+
 	<ul class="menu">
 		<li class="menu-item"><a href="Book_bestSeller_controller"
 			class="menu-link">베스트셀러</a></li>
@@ -36,6 +39,7 @@
 		<li class="menu-item"><a href="Map_Controller" class="menu-link">서점
 				찾기</a></li>
 	</ul>
+
 
 	<div>
 		<jsp:include page="${contentPage }"></jsp:include>
