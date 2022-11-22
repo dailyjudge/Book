@@ -35,8 +35,8 @@ public class AccountDAO {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		
-		String sql = "insert into book values(?,?,?,?,?,?)";
+
+		String sql = "insert into Account values(?,?,?,?,?,?)";
 		String path = request.getSession().getServletContext().getRealPath("fileFolder");
 
 		MultipartRequest mr;
@@ -90,7 +90,7 @@ public class AccountDAO {
 		} else {
 			request.setAttribute("loginPage", "jsp/lhg/loginOk.jsp");
 		}
-		
+
 	}
 
 	public void login(HttpServletRequest request) {
@@ -102,7 +102,9 @@ public class AccountDAO {
 		String userPW = request.getParameter("pw");
 		try {
 			con = DBManager.connect();
-			String sql = "select * from book where b_id=?";
+			String sql = "select *from Account where b_id=?";
+
+
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, userID);
 			rs = pstmt.executeQuery();
@@ -148,7 +150,7 @@ public class AccountDAO {
 	public void updateAccount(HttpServletRequest request) throws IOException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		String sql = "update book set b_name=?,b_email=?,b_pw=?,b_likes=?,b_pic=? where b_id=?";
+		String sql = "update Account set b_name=?,b_email=?,b_pw=?,b_likes=?,b_pic=? where b_id=?";
 		String path = request.getSession().getServletContext().getRealPath("fileFolder");
 		MultipartRequest mr;
 		mr = new MultipartRequest(request, path, 30 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
@@ -181,15 +183,15 @@ public class AccountDAO {
 			pstmt.setString(2, email);
 			pstmt.setString(3, pw);
 			pstmt.setString(4, textcheck);
-			
-			if (newfile == null) {				
+
+			if (newfile == null) {
 				pstmt.setString(5, oldfile);
 			} else {
 				pstmt.setString(5, newfile);
 			}
 			pstmt.setString(6, id);
-			
-			if (pstmt.executeUpdate()==1) {
+
+			if (pstmt.executeUpdate() == 1) {
 				request.setAttribute("r", "수정 완료");
 				request.setAttribute("id", a.getB_id());
 				request.setAttribute("pw", a.getB_pw());
@@ -203,20 +205,43 @@ public class AccountDAO {
 
 	public int updateCheck(HttpServletRequest request) {
 		Account a = (Account) request.getSession().getAttribute("accountInfo");
-		
+
 		if (a != null) {
 			return 1;
-		}else {
+		} else {
 			return 0;
 		}
-		
 	}
-
+		
+	public int checkId(String id){	
+		String sql = "select * from Account where b_id=?";
+		int idCheck = 0;
+		try {
+			con = DBManager.connect();
+			pstmt =con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()||id.equals("")) {
+				idCheck = 0;
+			} else {
+				idCheck = 1;  // 존재하지 않는 경우, 생성 가능
+			}
+						
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, pstmt, rs);
+		}
+		return idCheck;
+	}
+	
 	public void getAllContents(HttpServletRequest request) {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		
 		
 		String sql = "select * from usedbooks_board order by u_date desc";
 		
@@ -256,3 +281,4 @@ public class AccountDAO {
 		
 	}
 }
+

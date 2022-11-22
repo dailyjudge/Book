@@ -16,7 +16,7 @@
         <h1>로그인</h1>
         <form class="login-form" action="Login_controller" method="post">
             <input type="text" name="id" placeholder="아이디">
-            <input type="text" name="pw" placeholder="패스워드">
+            <input type="password" name="pw" placeholder="패스워드">
             <div class="button_area">
                 <button name="login_button">로그인</button>
             </div>
