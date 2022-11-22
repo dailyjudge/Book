@@ -90,6 +90,7 @@ public class UsedBooksDAO {
 		try {
 			mr = new MultipartRequest(request, path, 30 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
 			
+			System.out.println(path);
 			String title = mr.getParameter("title");
 			String content = mr.getParameter("content");
 			String img = mr.getFilesystemName("file");
@@ -128,6 +129,43 @@ public class UsedBooksDAO {
 			
 		} catch (Exception e) {
 
+		}
+	}
+
+	public static void updateBoard(HttpServletRequest request) {
+		// no, title, content, price
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		int no = Integer.parseInt(request.getParameter("no"));
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		int price = Integer.parseInt(request.getParameter("price"));
+		
+		// DB에 가서 수정
+		
+		String sql = "update usedbooks_board set u_title = ?, u_content = ?, u_price = ?, u_date = sysdate where u_no = ?";
+		
+		
+		try {
+			con = DBManager.connect();
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, title);
+			pstmt.setString(2, content);
+			pstmt.setInt(3, price);
+			pstmt.setInt(4, no);
+			
+			
+			if(pstmt.executeUpdate() == 1) {
+				System.out.println("수정 완료");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, pstmt, null);
 		}
 	}
 

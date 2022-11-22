@@ -15,7 +15,6 @@ public class UsedBooks_detail_controller extends HttpServlet {
 		
 		AccountDAO.getAdao().loginCheck(request);
 		
-		
 		UsedBooksDAO.showContent(request);
 		
 		request.setAttribute("contentPage", "./jsp/jk/usedbooks_detail.jsp");
