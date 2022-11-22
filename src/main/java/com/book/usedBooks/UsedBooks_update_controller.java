@@ -9,23 +9,28 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.book.account.AccountDAO;
 
-@WebServlet("/UsedBooks_delete_controller")
-public class UsedBooks_delete_controller extends HttpServlet {
-
-	
+/**
+ * Servlet implementation class UsedBooks_update_controller
+ */
+@WebServlet("/UsedBooks_update_controller")
+public class UsedBooks_update_controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// 가서 삭제해라
-		UsedBooksDAO.deleteBoard(request);
+		if(request.getParameter("title") == null) {
+			request.setAttribute("contentPage", "./jsp/jk/usedbooks_update.jsp");
+		}  else {
+			// 수정 하는 일
+			UsedBooksDAO.updateBoard(request);
+			
+			request.setAttribute("contentPage", "./jsp/jk/usedbooks_detail.jsp");
+		}
 		
-		AccountDAO.getAdao().getAllContents(request);
 		AccountDAO.getAdao().loginCheck(request);
-		request.setAttribute("contentPage", "./jsp/jk/usedbooks.jsp");
+		UsedBooksDAO.showContent(request);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
 	}
 
 }

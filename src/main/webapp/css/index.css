@@ -13,10 +13,7 @@ body {
 }
 
 .account-container {
-  position: fixed;
-  top: 0px;
   width: 100%;
-  z-index: 2;
   background-color: white;
   display: flex;
   justify-content: flex-end;
@@ -81,10 +78,7 @@ body {
 .menu {
   display: flex;
   color: #f3f0d7;
-  position: fixed;
-  top: 100px;
   width: 100%;
-  z-index: 2;
 }
 
 .menu-item {
@@ -279,7 +273,7 @@ body {
 .usedbooks-header-container {
   width: 40%;
   margin: 0px auto;
-  margin-top: 200px;
+  margin-top: 50px;
   margin-bottom: 20px;
 }
 
