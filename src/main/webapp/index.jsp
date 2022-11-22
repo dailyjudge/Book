@@ -18,8 +18,6 @@
 <script type="text/javascript" src="js/slide.js"></script>
 <link rel="stylesheet" href="css/slide.css">
 
-
-
 </head>
 <body>
 </head>
@@ -33,7 +31,7 @@
 			class="menu-link">베스트셀러</a></li>
 		<li class="menu-item"><a href="Book_search_controller"
 			class="menu-link">서적 검색</a></li>
-		<li class="menu-item"><a href="UsedBooks_controller" class="menu-link">중고 서적 게시판</a></li>
+		<li class="menu-item"><a href="UsedBooks_main_controller" class="menu-link">중고 서적 게시판</a></li>
 		<li class="menu-item"><a href="Map_Controller" class="menu-link">서점
 				찾기</a></li>
 	</ul>

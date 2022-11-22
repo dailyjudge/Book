@@ -225,7 +225,6 @@ public class AccountDAO {
 			pstmt = con.prepareStatement(sql);
 			
 			rs = pstmt.executeQuery();
-			
 		
 			BoardBean b = null;
 			ArrayList<BoardBean> boards = new ArrayList<>();

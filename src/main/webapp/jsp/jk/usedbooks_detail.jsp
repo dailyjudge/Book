@@ -6,12 +6,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<style>
-	body {
-		margin-top: 300px;
-	}
-
-</style>
 
 <script>
 	function delete_usedBooks_board(no) {
@@ -20,7 +14,12 @@
 		//	location.href=`UsedBooks_delete_controller?no=${no}`;
 		}
 	}
-
+	
+	function update_usedBooks_board(no) {
+		if(confirm("게시글을 정말 수정하시겠습니까?")) {
+			location.href="UsedBooks_update_controller?no=" + no;
+		}
+	}
 </script>
 <body>
 
@@ -40,7 +39,7 @@
             </div>
 			
             <div class="usedbooks-detail-button">
-				<button>수정</button>            	
+				<button onclick="update_usedBooks_board('${target.no}')">수정</button>            	
 				<button onclick="delete_usedBooks_board('${target.no}')">삭제</button>            	
             </div>
         </div>
