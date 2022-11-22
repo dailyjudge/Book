@@ -29,9 +29,11 @@ a {
 	height: 100%;
 	transition: 0.3s ease;
 	opacity: 0;
+	display: none;
 }
 #visual>div.on {
 	opacity: 1;
+	display: block;
 }
 #control {
 	position: absolute;

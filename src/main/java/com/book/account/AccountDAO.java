@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Iterator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -39,12 +40,14 @@ public class AccountDAO {
 		String email = mr.getParameter("email");
 		String pw = mr.getParameter("pw");
 		String likes[] = mr.getParameterValues("chk");
+		
 		String textcheck = new String();
 
 		if (likes != null) {
 			for (int i = 0; i < likes.length; i++) {
 				textcheck += likes[i] + " ";
 			}
+			System.out.println(textcheck);
 		} else {
 			textcheck = "관심사 없음";
 		}
@@ -77,6 +80,7 @@ public class AccountDAO {
 
 		HttpSession hs = request.getSession();
 		Account a = (Account) hs.getAttribute("accountInfo");
+		
 		if (a == null) {
 			request.setAttribute("checkNull", "1");
 			request.setAttribute("loginPage", "jsp/lhg/login.jsp");
@@ -119,6 +123,11 @@ public class AccountDAO {
 
 					HttpSession hs = request.getSession();
 					hs.setAttribute("accountInfo", a);
+					String[] arr = rs.getString("b_likes").split(" ");
+					for(int i=0 ; i<=arr.length; i++) {
+						hs.setAttribute("cid"+i, arr[i]);
+					}
+					
 					hs.setMaxInactiveInterval(60);
 
 				} else {

@@ -67,7 +67,6 @@ $(document).ready(function() {
 })
 </script>
 <link rel="stylesheet" href="css/reg.css">
-<link rel="stylesheet" href="js/reg.js">
 <body>
 	<div class="reg-container">
 		<form class="reg-form" method="post"
@@ -89,13 +88,13 @@ $(document).ready(function() {
 			</div>
 			<div>
 				<h6 class="reg-field">아이디</h6>
-				<input type="text"> <img 
+				<input name="id" type="text"> <img 
 				class="reg-questionMark" alt=""
 					src="assets/questionMark.png">
 			</div>
 			<div>
 				<h6 class="reg-field">비밀번호</h6>
-				<input type="text"> <img class="reg-questionMark2" alt=""
+				<input name="pw" type="text"> <img class="reg-questionMark2" alt=""
 					src="assets/questionMark.png">
 			</div>
 			<div>
@@ -104,12 +103,12 @@ $(document).ready(function() {
 			</div>
 			<div>
 				<h6 class="reg-field">이름</h6>
-				<input type="text"> <img class="reg-questionMark3" alt=""
+				<input name="name" type="text"> <img class="reg-questionMark3" alt=""
 					src="assets/questionMark.png">
 			</div>
 			<div>
 				<h6 class="reg-field">이메일</h6>
-				<input type="text"> <img class="reg-questionMark4" alt=""
+				<input name="email" type="text"> <img class="reg-questionMark4" alt=""
 					src="assets/questionMark.png">
 			</div>
 			<div>

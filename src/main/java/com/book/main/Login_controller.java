@@ -23,7 +23,7 @@ public class Login_controller extends HttpServlet {
 		AccountDAO.getAdao().login(request);
 		AccountDAO.getAdao().loginCheck(request);
 		
-		SlideShow.afterLogin(request);
+		SlideShow.post(request);
 		request.setAttribute("contentPage", "jsp/kmj&jmk/slideImg.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}

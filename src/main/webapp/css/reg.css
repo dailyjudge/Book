@@ -112,9 +112,9 @@
     font-size: 12pt;
     position : relative;
     right: 200px;
-    top : 130px;
+    top : 150px;
     visibility: hidden;
-    transition-duration: 0.3 ease;
+    transition: 0.3 ease;
     
 }
 .user-rule-field2 {
@@ -130,7 +130,7 @@
     right: 200px;
     top : 130px;
     visibility: hidden;
-    transition-duration: 0.3 ease;
+    transition: 0.3 ease;
 }
 .user-rule-field3 {
     border-radius: 30px;
@@ -143,9 +143,9 @@
     font-size: 12pt;
     position : relative;
     right: 200px;
-    top : 130px;
+    top : 150px;
     visibility: hidden;
-    transition-duration: 0.3 ease;
+    transition: 0.3 ease;
 }
 .user-rule-field4 {
     border-radius: 30px;
@@ -160,5 +160,5 @@
     right: 200px;
     top : 130px;
     visibility: hidden;
-    transition-duration: 0.3 ease;
+    transition: 0.3 ease;
 }

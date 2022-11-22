@@ -21,8 +21,7 @@
 
 
 </head>
-<body>
-</head>
+
 <body>
 	<div>
 		<jsp:include page="${loginPage }"></jsp:include>
