@@ -1,9 +1,6 @@
 $(document).ready(function() {
 	
 	
-	//  book.interpark.com/api/bestSeller.api?key=9D94365668C72FEE72038FC3AF671C5CF7E548299872BFA5789AA93394BBEA58&categoryId=100&output=json
-
-
 
 	function good() { console.log("값 받기 완료"); }
 	
@@ -28,6 +25,7 @@ $(document).ready(function() {
 
 		let list = msg.item;
 		console.log(list[0]);
+		// 30개 
 		for (let i = 0; i < list.length; i++) {
 
 			let url = list[i].coverLargeUrl != "" ? list[i].coverLargeUrl
@@ -41,17 +39,16 @@ $(document).ready(function() {
 			   <div class="item-desc">
 						   <p>『${list[i].title}』</p>
 						   <p>『${list[i].description.slice(0, 100)}...』</p>
-					   	   <p>\\${list[i].priceStandard}</p>
+					   	   <p>${list[i].priceStandard}원</p>
 					   	   <input id="hidden-search-url" value=${list[i].link} type="hidden">
 					   </div>
 			   </div>
 			   `);
 
 		}
+		
 		$("#search-result").append("<div class='more-container'><button id='item-more1' class='item-more'>더보기</button></div>");
 
-
-		
 		for(let i = 0; i < 4; i++) {
 			$(`#search-result`).children(`.bestseller:eq(${i})`).css("display","block");
 		}
@@ -242,7 +239,6 @@ $(document).ready(function() {
 			$(`#search-result4`).children(`.bestseller:eq(${i})`).css("display","block");
 		}	
 		
-        
 		pageNum4 += 4;
 		if(pageNum4 > maxPageNum4) {
 			$('#item-more4').remove();
@@ -264,4 +260,14 @@ $(document).ready(function() {
 		location.href = this.children[3].value;
 	});
 
+
+	//user-rule-field
+	//reg-questionMark-id
+	$(document).on("mouseover", "#reg-questionMark-id", function() {
+		
+		$("#user-rule-container-id").css("visiblity", "visible");
+	})
 })
+
+
+

@@ -8,10 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css"/>
   </head>
   <body>
-  <div class="login-container">
+  <div class="login-container top-container2">
         <h1>로그인</h1>
         <form class="login-form" action="Login_controller" method="post">
             <input type="text" name="id" placeholder="아이디">

@@ -83,7 +83,6 @@ html, body {
 }
 
 .info:after {
-	content: '';
 	position: absolute;
 	margin-left: -12px;
 	left: 50%;
@@ -92,4 +91,29 @@ html, body {
 	height: 12px;
 	background:
 		url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
+}
+
+.map-container {
+	display: flex;
+}
+
+#map {
+	width: 65%;
+	height: 500px;
+	margin: 30px 3%;
+}
+
+#list-all {
+	border: 10px solid #00541a;
+	background-color: #00541a;
+	font-family: "MapoFlowerIsland";
+	margin-top: 30px;
+}
+
+#newList {
+	border: 2px solid #00541a;
+	border-radius: 10px;
+	background-color: #f3f0d7;
+	padding: 10px 10px;
+	margin-bottom: 10px;
 }

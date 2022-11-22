@@ -1,4 +1,4 @@
-package kye;
+package com.book.usedBooks;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -9,13 +9,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.book.account.AccountDAO;
 
-@WebServlet("/Map_Controller")
-public class Map_Controller extends HttpServlet {
+@WebServlet("/UsedBooks_detail_controller")
+public class UsedBooks_detail_controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-	AccountDAO.getAdao().loginCheck(request);
-	request.setAttribute("contentPage", "jsp/kye/map.jsp");
-	request.getRequestDispatcher("index.jsp").forward(request, response);
+		
+		AccountDAO.getAdao().loginCheck(request);
+		
+		UsedBooksDAO.showContent(request);
+		
+		request.setAttribute("contentPage", "./jsp/jk/usedbooks_detail.jsp");
+		
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

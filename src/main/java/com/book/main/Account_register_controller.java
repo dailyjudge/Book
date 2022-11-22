@@ -25,9 +25,9 @@ public class Account_register_controller extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		a.getAdao().regAccount(request);
+		a.regAccount(request, response);
 		request.setAttribute("loginPage", "jsp/lhg/login.jsp");
-		request.setAttribute("contentPage", "jsp/bb.jsp");
+		request.setAttribute("contentPage", "jsp/kmj&jmk/slideImg.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 	}
