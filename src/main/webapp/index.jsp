@@ -26,6 +26,7 @@
 		<jsp:include page="${loginPage }"></jsp:include>
 	</div>
 
+
 	<ul class="menu">
 		<li class="menu-item"><a href="Book_bestSeller_controller"
 			class="menu-link">베스트셀러</a></li>
@@ -35,6 +36,7 @@
 		<li class="menu-item"><a href="Map_Controller" class="menu-link">서점
 				찾기</a></li>
 	</ul>
+
 
 	<div>
 		<jsp:include page="${contentPage }"></jsp:include>
