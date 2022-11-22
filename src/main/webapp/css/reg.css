@@ -89,3 +89,76 @@
 	width:15px;
 	height: 15px;
 }
+.reg-questionMark2 {
+	width:15px;
+	height: 15px;
+}
+.reg-questionMark3 {
+	width:15px;
+	height: 15px;
+}
+.reg-questionMark4 {
+	width:15px;
+	height: 15px;
+}
+.user-rule-field {
+    border-radius: 30px;
+    padding: 20px 0px;
+    padding-left: 20px;
+    border: 1px solid white;
+    width: 280px;
+    height: 60px;
+    background-color: #F3F0D7;
+    font-size: 12pt;
+    position : relative;
+    right: 200px;
+    top : 130px;
+    visibility: hidden;
+    transition-duration: 0.3 ease;
+    
+}
+.user-rule-field2 {
+    border-radius: 30px;
+    padding: 20px 0px;
+    padding-left: 20px;
+    border: 1px solid white;
+    width: 280px;
+    height: 60px;
+    background-color: #F3F0D7;
+    font-size: 12pt;
+    position : relative;
+    right: 200px;
+    top : 130px;
+    visibility: hidden;
+    transition-duration: 0.3 ease;
+}
+.user-rule-field3 {
+    border-radius: 30px;
+    padding: 20px 0px;
+    padding-left: 20px;
+    border: 1px solid white;
+    width: 280px;
+    height: 40px;
+    background-color: #F3F0D7;
+    font-size: 12pt;
+    position : relative;
+    right: 200px;
+    top : 130px;
+    visibility: hidden;
+    transition-duration: 0.3 ease;
+}
+.user-rule-field4 {
+    border-radius: 30px;
+    padding: 20px 0px;
+    padding-left: 20px;
+    border: 1px solid white;
+    width: 280px;
+    height: 40px;
+    background-color: #F3F0D7;
+    font-size: 12pt;
+    position : relative;
+    right: 200px;
+    top : 130px;
+    visibility: hidden;
+    transition-duration: 0.3 ease;
+}
