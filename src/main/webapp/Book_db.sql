@@ -35,3 +35,21 @@ select * from usedbooks_board;
 drop table usedbooks_board
 
 delete USEDBOOKS_BOARD;
+
+-- 고유키(넘버), 작성자, 게시글 번호, 댓글 내용, 등록 시간
+create table comment_table (
+	c_no number(5) primary key,
+	c_author varchar2(20 char) not null,
+	c_boardNo number(5) not null,
+	c_content varchar2(150 char) not null,
+	c_date date not null
+);
+
+create sequence comment_table_seq;
+
+insert into comment_table values(comment_table_seq.nextval, 'test', 81, '테스트 1번', sysdate);
+insert into comment_table values(comment_table_seq.nextval, 'test', 81, '테스트 2번', sysdate);
+
+
+select c_no, c_author, c_boardNo, c_date, b_pic from book, usedbooks_board, comment_table
+where b_id = u_author and u_no = c_boardNo and c_boardNo = 81

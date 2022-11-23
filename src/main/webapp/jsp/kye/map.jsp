@@ -7,11 +7,23 @@
 <meta charset="UTF-8" />
 <title>Insert title here</title>
 
+
+
+
 <script src="https://code.jquery.com/jquery-3.6.1.js"
 	integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
 	crossorigin="anonymous"></script>
-	
-<script type="text/javascript"
+</head>
+<body>
+	<div class="map-container">
+		<div id="map" style="width: 65%; height: 500px;"></div>
+		<div id="list-all">
+			<h2 style="color: #f3f0d7;">가까운 서점</h2>
+		</div>
+	</div>
+
+	<script type="text/javascript"
+
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a0775458e66dc2a17eed12803ecfa867&libraries=services"></script>
 
 <script src="js/bookstoreinfo.js"></script>
@@ -209,12 +221,18 @@
     	        
          $("#list-all").append(
         		 sns != null ? 
-                '<div id="newList"><ol><li>' + store_name + '</li><li>' + tel_no + '</li>'+
-                '<li>' + adres2 + '</li></ol></div>'
-                : '<div id="newList"><ol><li>'+store_name+'</li><li>'+tel_no+'</li>'+
+
+                '<div id="newList"><ol><li>'+store_name+'</li><li>'+tel_no+'</li>'+
                 '<li>'+adres+'</li><li><a href=' +
                 sns +
-                ' class="link">SNS</a></ol></div>'
+            	  ' class="link">SNS</a></ol></div>'
+              :  
+                '<div id="newList"><ol><li>'+store_name+'</li><li>'+tel_no+'</li>'+
+                '<li>'+adres2+'</li></ol></div>'
+                
+        
+                
+
              )
             
        }

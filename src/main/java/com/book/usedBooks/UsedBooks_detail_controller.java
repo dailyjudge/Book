@@ -17,6 +17,7 @@ public class UsedBooks_detail_controller extends HttpServlet {
 		
 		UsedBooksDAO.showContent(request);
 		
+		CommentDAO.showAllComment(request);
 		request.setAttribute("contentPage", "./jsp/jk/usedbooks_detail.jsp");
 		
 		request.getRequestDispatcher("index.jsp").forward(request, response);
