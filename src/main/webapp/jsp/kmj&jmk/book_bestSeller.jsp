@@ -23,55 +23,55 @@
 			<div class="book-container">
 				<p class="book-classification">소설</p>
 			</div>
-			<div id="search-result" class="book-container"></div>
+			<div id="search-101" class="book-container"></div>
 		</c:if>
 		<c:if test="${c eq '102'}">
 			<div class="book-container">
 				<p class="book-classification">시/에세이</p>
 			</div>
-			<div id="search-result" class="book-container"></div>
+			<div id="search-102" class="book-container"></div>
 		</c:if>
 		<c:if test="${c eq '104'}">
 			<div class="book-container">
 				<p class="book-classification">사회과학</p>
 			</div>
-			<div id="search-result" class="book-container"></div>
+			<div id="search-104" class="book-container"></div>
 		</c:if>
 		<c:if test="${c eq '105'}">
 			<div class="book-container">
 				<p class="book-classification">역사와 문화</p>
 			</div>
-			<div id="search-result" class="book-container"></div>
+			<div id="search-105" class="book-container"></div>
 		</c:if>
 		<c:if test="${c eq '115'}">
 			<div class="book-container">
 				<p class="book-classification">국어/외국어</p>
 			</div>
-			<div id="search-result" class="book-container"></div>
+			<div id="search-115" class="book-container"></div>
 		</c:if>
 		<c:if test="${c eq '118'}">
 			<div class="book-container">
 				<p class="book-classification">자기계발</p>
 			</div>
-			<div id="search-result" class="book-container"></div>
+			<div id="search-118" class="book-container"></div>
 		</c:if>
 		<c:if test="${c eq '119'}">
 			<div class="book-container">
 				<p class="book-classification">인문</p>
 			</div>
-			<div id="search-result" class="book-container"></div>
+			<div id="search-119" class="book-container"></div>
 		</c:if>
 		<c:if test="${c eq '120'}">
 			<div class="book-container">
 				<p class="book-classification">종교/역학</p>
 			</div>
-			<div id="search-result" class="book-container"></div>
+			<div id="search-120" class="book-container"></div>
 		</c:if>
 		<c:if test="${c eq '128'}">
 			<div class="book-container">
 				<p class="book-classification">여행</p>
 			</div>
-			<div id="search-result" class="book-container"></div>
+			<div id="search-128" class="book-container"></div>
 		</c:if>
 
 	</c:forEach>
