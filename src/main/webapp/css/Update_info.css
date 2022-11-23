@@ -1,0 +1,84 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "MapoFlowerIsland";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-family: "MapoFlowerIsland";
+}
+
+.form {
+  width: 400px;
+  height: 600px;
+  background-color: #f3f0d7;
+  border: 1px solid;
+  margin-top: 40px;
+  border-radius: 20px;
+}
+img {
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+}
+
+#pw {
+  width: 300px;
+  height: 40px;
+  border-radius: 10px;
+  margin: auto;
+  text-align: center;
+  padding: 10px 0;
+  color: #00541a;
+}
+input {
+  height: 20px;
+  font-family: "MapoFlowerIsland";
+  vertical-align: middle;
+  color: #00541a;
+  background-color: #f3f0d7;
+  align-items: center;
+}
+
+#name {
+  padding-top: 10px;
+  width: 300px;
+  height: 40px;
+  border-radius: 10px;
+  margin: auto;
+  text-align: center;
+  padding: 10px 0;
+  color: #00541a;
+}
+
+#email {
+  padding-top: 10px;
+  width: 300px;
+  height: 40px;
+  border-radius: 10px;
+  margin: auto;
+  text-align: center;
+  padding: 10px 0;
+  color: #00541a;
+}
+
+#likes {
+  font-size: 20px;
+}
+button {
+  margin-top: 30px;
+  width: 90px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #00541a;
+  color: #f3f0d7;
+  border: none;
+  font-family: "MapoFlowerIsland";
+}

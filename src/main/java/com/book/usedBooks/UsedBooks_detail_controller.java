@@ -1,4 +1,4 @@
-package com.book.main;
+package com.book.usedBooks;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -9,19 +9,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.book.account.AccountDAO;
 
-@WebServlet("/HC")
-public class HC extends HttpServlet {
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+@WebServlet("/UsedBooks_detail_controller")
+public class UsedBooks_detail_controller extends HttpServlet {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		AccountDAO.getAdao().loginCheck(request);
-		SlideShow.post(request);
-
-		request.setAttribute("contentPage", "jsp/kmj&jmk/slideImg.jsp");
+		
+		UsedBooksDAO.showContent(request);
+		
+		CommentDAO.showAllComment(request);
+		request.setAttribute("contentPage", "./jsp/jk/usedbooks_detail.jsp");
+		
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-	
 	}
 
 }

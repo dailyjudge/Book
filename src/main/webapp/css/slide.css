@@ -49,7 +49,7 @@ a {
 	line-height: 26px;
 	font-size: 0.8em;
 	border-radius: 14px;
-	margin: 0 2px
+	margin: 5px 2px;
 }
 #control a.on {
 	background: #9ab3f5;

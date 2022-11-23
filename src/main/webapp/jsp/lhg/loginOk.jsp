@@ -19,10 +19,12 @@ document.getElementById('frm').submit();
 					src="assets/main.png" alt="">
 					</a>
 		</div>
-${r } <br>
-${sessionScope.accountInfo.b_name } 님 <br> 안녕하세요 <br>
-<button class= "account-item" onclick="location.href='User_info_controller'">회원정보</button>
-<button class= "account-item" onclick="location.href='Logout_controller'">로그아웃</button>
-</div>
+		
+		<div class="item-container2">
+			<h3>${sessionScope.accountInfo.b_name }님 안녕하세요!</h3>
+			<a href="User_info_controller" class="account-item">마이페이지</a>
+			<a href="Logout_controller" class="account-item">로그아웃</a>
+		</div>
+	</div>
 </body>
 </html>

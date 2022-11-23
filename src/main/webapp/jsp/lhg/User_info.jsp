@@ -1,22 +1,45 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="css/user_info.css">
 </head>
-<body>
-	<h1>회원 정보</h1>
-	<div>
-		<img src="fileFolder/${sessionScope.accountInfo.b_pic }">
-	</div>
-	<div>ID ${sessionScope.accountInfo.b_id }</div>
-	<div>NAME ${sessionScope.accountInfo.b_name }</div>
-	<div>E-MAIL ${sessionScope.accountInfo.b_email }</div>
-	<div>LIKES ${sessionScope.accountInfo.b_likes }</div>
-	<button onclick="location.href='Logout_controller'">로그아웃</button>
-	<button onclick="location.href='Update_info_controller'">정보수정</button>
-	<button onclick="location.href='Delete_info_controller'">회원탈퇴</button>
+<body>    
+        <div class="myPage-container">
+            <div class="myPage">
+                <h3>마이페이지</h3>
+                <img class="myPage-img" src="fileFolder/${sessionScope.accountInfo.b_pic }" alt="">
+            
+                <div class="myPage-field">
+                    <span class="myPage-field-classification">ID</span> <br>
+                    <span>${sessionScope.accountInfo.b_id }</span>
+                </div>
+                
+                <div class="myPage-field">
+                    <span class="myPage-field-classification">이름</span> <br>
+                    <span>${sessionScope.accountInfo.b_name }</span>
+                </div>
+                
+                <div class="myPage-field">
+                    <span class="myPage-field-classification">이메일</span> <br>
+                    <span> ${sessionScope.accountInfo.b_email }</span>
+                </div>
+                
+                <div class="myPage-field">
+                    <span class="myPage-field-classification">관심사</span> <br>
+                    <span>${sessionScope.accountInfo.b_likes }</span>
+                </div>
+                    
+                <div class="myPage-field myPage-additional">
+                    <a href="Logout_controller">정보 수정</a>
+                    <a href="Delete_info_controller">회원 탈퇴</a>
+                </div>
+            </div>
+        </div>
+        
 </body>
+</html>
 </html>

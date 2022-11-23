@@ -66,7 +66,9 @@ $(document).ready(function() {
     })
 })
 </script>
-<link rel="stylesheet" href="css/reg.css">
+<link rel="stylesheet" href="css/reg.css"> 
+<link rel="stylesheet" href="css/index.css">
+
 <body>
 	<div class="reg-container">
 		<form class="reg-form" method="post"
@@ -78,7 +80,6 @@ $(document).ready(function() {
                         src="https://cdn-icons-png.flaticon.com/128/5309/5309035.png"
                         alt="">
                 </div>
-
                 <label class="input-file-button" for="input-file"> <img
                     class="input-file-img"
                     src="https://cdn-icons-png.flaticon.com/128/7571/7571051.png"
@@ -110,33 +111,19 @@ $(document).ready(function() {
 				<h6 class="reg-field">이메일</h6>
 				<input name="email" type="text"> <img class="reg-questionMark4" alt=""
 					src="assets/questionMark.png">
-			</div>
-			<div>
-				<h6 class="reg-field check-likes">관심사</h6>
-			</div>
-			<div class="check-list">
-				소설<input class="like" type="checkbox" name="chk" value="101">
-				시/에세이<input class="like" type="checkbox" name="chk" value="102">
-				사회과학<input class="like" type="checkbox" name="chk" value="104">
-			</div>
-
-			<div class="check-list">
-				역사와 문화<input class="like" type="checkbox" name="chk" value="105">
-				국어/외국어<input class="like" type="checkbox" name="chk" value="115">
-				자기계발<input class="like" type="checkbox" name="chk" value="118">
-			</div>
-
-			<div class="check-list">
-				인문<input class="like" type="checkbox" name="chk" value="119">
-				종교/역학<input class="like" type="checkbox" name="chk" value="120">
-				여행<input class="like" type="checkbox" name="chk" value="128">
-			</div>
+            </div>
+            <div>
+                <h6 class="reg-field check-likes">관심사</h6>
+            </div>
+            <div class="check-list">
+                소설<input class="like" type="checkbox" name="chk" value="101">
+                시/에세이<input class="like" type="checkbox" name="chk" value="102">
+                사회과학<input class="like" type="checkbox" name="chk" value="104">
+            </div>
 
 			<div class="reg-button">
 				<button>회원가입</button>
 			</div>
-		</form>
-		
 		<!-- 불러올아이 -->
 		<div class="user-rule-container">
 			<div class="user-rule-field">
@@ -156,6 +143,38 @@ $(document).ready(function() {
 				<span>이메일 형식 준수</span>
 			</div>
 		</div>
+			<div class="reg-button">
+				<button>가입하기</button>
+			</div>
+		</form>
+		<script src="js/check.js"></script>
+		<script>
+			$('.input_id').focusout(function() {
+				let userId = $('.input_id').val();
+
+				$.ajax({
+					url : "http://localhost/Semi-Project/Id_check",
+					type : "post",
+					data : {
+						userId : userId
+					},
+					dataType : 'json',
+					success : function(result) {
+						if (result == 0) {
+							$("#checkId").html('사용할 수 없는 아이디입니다.');
+							$("#checkId").attr('color', 'red');
+						} else {
+							$("#checkId").html('사용할 수 있는 아이디입니다.');
+							$("#checkId").attr('color', 'green');
+						}
+					},
+					error : function() {
+						alert("서버 요청 실패");
+					}
+				})
+
+			})
+		</script>
 	</div>
 </body>
 </html>

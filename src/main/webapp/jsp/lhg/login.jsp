@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${r }  ${sessionScope.cid0 }
+	${r }
 	<div class="account-container">
 		<div class="img-container">
 			<a href="HC"><img class="account-img"
