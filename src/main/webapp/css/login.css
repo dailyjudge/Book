@@ -82,3 +82,33 @@
     flex-direction: column;
 }
 
+.find-id {
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    color: #4e4c4c;
+}
+
+.find-id:hover {
+    text-decoration: underline;
+}
+.find-id:link {
+    color: #4e4c4c;
+}
+
+.find-pw {
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    color: #4e4c4c;
+}
+
+.find-pw:hover {
+    text-decoration: underline;
+}
+.find-pw:link {
+    color: #4e4c4c;
+}
+

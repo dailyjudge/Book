@@ -215,6 +215,10 @@ public class AccountDAO {
 		
 	public int checkId(String id){	
 		String sql = "select * from Account where b_id=?";
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs =null;
+		
 		int idCheck = 0;
 		try {
 			con = DBManager.connect();
@@ -280,5 +284,34 @@ public class AccountDAO {
 		
 		
 	}
+
+	public int checkName(String name) {
+		String sql = "select * from Account where b_name=?";
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs =null;
+		
+		int nameCheck = 0;
+		try {
+			con = DBManager.connect();
+			pstmt =con.prepareStatement(sql);
+			pstmt.setString(1, name);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()||name.equals("")) {
+				nameCheck = 0;
+			} else {
+				nameCheck = 1;
+			}
+						
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, pstmt, rs);
+		}
+		return nameCheck;
+	}
+	
 }
+
 
