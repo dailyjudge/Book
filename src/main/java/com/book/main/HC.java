@@ -15,12 +15,7 @@ public class HC extends HttpServlet {
 		
 		
 		AccountDAO.getAdao().loginCheck(request);
-		if(request.getAttribute("checkNull").equals("0")) {
-			SlideShow.afterLogin(request);
-			
-		}else {
-			SlideShow.post(request);
-		}
+		SlideShow.post(request);
 
 		request.setAttribute("contentPage", "jsp/kmj&jmk/slideImg.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);

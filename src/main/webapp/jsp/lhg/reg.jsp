@@ -73,19 +73,19 @@ $(document).ready(function() {
 			action="Account_register_controller" name="myForm" method="post"
 			enctype="multipart/form-data" onsubmit="return call()">
 			<div id="profile-img-container">
-				<div id="image_container">
-					<img id="test-img"
-						src="https://cdn-icons-png.flaticon.com/128/5309/5309035.png"
-						alt="">
-				</div>
+                <div id="image_container">
+                    <img id="test-img"
+                        src="https://cdn-icons-png.flaticon.com/128/5309/5309035.png"
+                        alt="">
+                </div>
 
-				<label class="input-file-button" for="input-file"> <img
-					class="input-file-img"
-					src="https://cdn-icons-png.flaticon.com/128/7571/7571051.png"
-					alt="">
-				</label> <input onchange="setThumbnail(event);" type="file" id="input-file"
-					style="display: none;" />
-			</div>
+                <label class="input-file-button" for="input-file"> <img
+                    class="input-file-img"
+                    src="https://cdn-icons-png.flaticon.com/128/7571/7571051.png"
+                    alt="">
+                </label> <input onchange="setThumbnail(event);" type="file" name="file"
+                    id="input-file" style="display: none;" />
+            </div>
 			<div>
 				<h6 class="reg-field">아이디</h6>
 				<input name="id" type="text"> <img 

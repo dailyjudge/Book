@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import javax.servlet.http.HttpServletRequest;
@@ -123,10 +124,15 @@ public class AccountDAO {
 
 					HttpSession hs = request.getSession();
 					hs.setAttribute("accountInfo", a);
+					
+					ArrayList<String> cids = new ArrayList<String>();
+					
 					String[] arr = rs.getString("b_likes").split(" ");
-					for(int i=0 ; i<=arr.length; i++) {
-						hs.setAttribute("cid"+i, arr[i]);
+					for(int i=0 ; i<arr.length; i++) {
+						System.out.println(arr[i]);
+						cids.add(arr[i]);
 					}
+					hs.setAttribute("cid", cids);
 					
 					hs.setMaxInactiveInterval(60);
 
@@ -145,7 +151,7 @@ public class AccountDAO {
 
 	public void logout(HttpServletRequest request) {
 		HttpSession hs = request.getSession();
-		hs.setAttribute("accountInfo", null);
+		hs.invalidate();
 	}
 
 	public void updateAccount(HttpServletRequest request) throws IOException {
