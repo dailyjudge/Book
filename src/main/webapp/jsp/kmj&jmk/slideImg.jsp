@@ -121,7 +121,7 @@
 		<div id="scholarInfo">
 			<h1>학술 정보</h1>
 			<div id="scholarInfo-grid">
-				<div>
+				<div class="grid-element">
 				<!-- 알라딘 -->
 					<a href="https://www.aladin.co.kr/home/welcome.aspx"><img class="logo" alt=""
 						src="https://image.aladin.co.kr/img/m/2018/shopping_app1.png"></a>
