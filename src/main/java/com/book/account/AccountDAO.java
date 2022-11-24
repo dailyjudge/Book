@@ -213,7 +213,10 @@ public class AccountDAO {
 		}
 	}
 
+
+
 	public int checkId(String id) {
+
 		String sql = "select * from Account where b_id=?";
 		Connection con = null;
 		PreparedStatement pstmt = null;
