@@ -1,5 +1,6 @@
 @charset "UTF-8";
 .reg-container {
+	margin-top: 10%;
     margin: 100px 0px;
     display: flex;
     justify-content: center;

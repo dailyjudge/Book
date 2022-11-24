@@ -8,10 +8,10 @@
 </head>
 <script>
 	function setThumbnail(event) {
-		var reader = new FileReader();
+		let reader = new FileReader();
 
 		reader.onload = function(event) {
-			var img = document.createElement("img");
+			let img = document.createElement("img");
 			console.log(event.target);
 			img.setAttribute("src", event.target.result);
 			img.setAttribute("width", "100%");
@@ -30,7 +30,7 @@
 <link rel="stylesheet" href="css/index.css">
 
 <body>
-	<div class="reg-container top-container2">
+	<div class="reg-container">
 		<form class="reg-form" method="post"
 			action="Account_register_controller" name="myForm" method="post"
 			enctype="multipart/form-data" onsubmit="return call()">
