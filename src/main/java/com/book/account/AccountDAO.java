@@ -214,6 +214,9 @@ public class AccountDAO {
 	}
 		
 	public int checkId(String id){	
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		String sql = "select * from Account where b_id=?";
 		int idCheck = 0;
 		try {
