@@ -51,12 +51,6 @@ function call() {
 		pw2.value = "";
 		pw2.focus();
 		return false;
-		
-	if (isEmpty(file)) {
-		alert('사진을 첨부해주세요!');
-		return false;
-	}
-
 	}
 
 	return true;
