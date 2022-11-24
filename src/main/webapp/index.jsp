@@ -24,8 +24,7 @@
 <link rel="stylesheet" href="css/comment.css">
 
 </head>
-<body>
-</head>
+
 <body>
 	<div>
 		<jsp:include page="${loginPage }"></jsp:include>

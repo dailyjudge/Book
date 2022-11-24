@@ -118,6 +118,12 @@ body {
   height: 500px;
   margin: 30px 3%;
 }
+.link{
+	 font-family: "MapoFlowerIsland";
+}
+.link:hover{
+	text-decoration: underline;
+}
 
 #list-all::-webkit-scrollbar-thumb {
   background-color: #f3f0d7;
