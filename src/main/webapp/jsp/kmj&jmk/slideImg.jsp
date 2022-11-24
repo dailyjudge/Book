@@ -12,16 +12,19 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript" src="../../js/slide.js"></script>
 <link rel="stylesheet" href="../../css/slide.css">
-<!-- <link rel="stylesheet" href="css/slick.css">
-<link rel="stylesheet" href="css/slick-theme.css"> -->
 
-<!-- <script type="text/javascript" src="js/slick.js"></script> -->
+
+
 <link rel="stylesheet" type="text/css"
 	href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript"
 	src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
+<script type="text/javascript"
+	src="https://book.interpark.com/api/newBook.api?key=B1702425132364B8C55D9F1581CDD3DE16CE0A575A0CF8FCAD4649310AE5AC61&categoryId=100&output=json"></script>
 <script>
 	$(function() {
 		$('.center').slick({
