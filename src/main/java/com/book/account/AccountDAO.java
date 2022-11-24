@@ -82,14 +82,16 @@ public class AccountDAO {
 		}
 	}
 
-	public void loginCheck(HttpServletRequest request) {
+	public boolean loginCheck(HttpServletRequest request) {
 
 		HttpSession hs = request.getSession();
 		Account a = (Account) hs.getAttribute("accountInfo");
 		if (a == null) {
 			request.setAttribute("loginPage", "jsp/lhg/login.jsp");
+			return false;
 		} else {
 			request.setAttribute("loginPage", "jsp/lhg/loginOk.jsp");
+			return true;
 		}
 
 	}
@@ -101,6 +103,14 @@ public class AccountDAO {
 		ResultSet rs = null;
 		String userID = request.getParameter("id");
 		String userPW = request.getParameter("pw");
+		String id2 = (String) request.getAttribute("id2");
+		String pw2 = (String) request.getAttribute("pw2");
+		
+		if (id2!=null) {
+			userID = id2;
+			userPW = pw2;
+		}
+		
 		try {
 			con = DBManager.connect();
 			String sql = "select *from Account where b_id=?";
@@ -161,7 +171,6 @@ public class AccountDAO {
 		String email = mr.getParameter("email");
 		String pw = mr.getParameter("pw");
 		String check[] = mr.getParameterValues("chk");
-		String oldChk = mr.getParameter("textcheck");
 		String textcheck = new String();
 		if (check != null) {
 			for (int i = 0; i < check.length; i++) {
@@ -171,10 +180,10 @@ public class AccountDAO {
 				textcheck += check[i] + " ";
 			}
 		} else {
-			textcheck = oldChk;
+			textcheck = "관심사 없음";
 		}
 
-		String oldfile = mr.getParameter("file");
+		String oldfile = mr.getParameter("oldfile");
 		String newfile = mr.getFilesystemName("file");
 		try {
 			con = DBManager.connect();
@@ -193,8 +202,8 @@ public class AccountDAO {
 
 			if (pstmt.executeUpdate() == 1) {
 				request.setAttribute("r", "수정 완료");
-				request.setAttribute("id", a.getB_id());
-				request.setAttribute("pw", a.getB_pw());
+				request.setAttribute("id2", a.getB_id());
+				request.setAttribute("pw2", a.getB_pw());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

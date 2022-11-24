@@ -15,9 +15,27 @@
     width: 400px;
     padding-left: 20px;
 }
+
+.update-guide{
+	text-align: center;
+}
+
 .update-field {
     margin-top: 20px;
     margin-bottom: 10px;
+    background-color: white;
+    border: 1px solid #F3F0D7;
+    margin: 10px auto;
+    width: 50%;
+    padding: 10px 10px;
+    border-radius: 15px;
+    display:flex;
+}
+
+#pwConfirm{
+	display: flex;
+    justify-content: center;
+	text-align: center;
 }
 
 .like {
@@ -25,15 +43,25 @@
     margin-left: 5px;
     margin-right: 10px;
 }
+
+.check-list-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+
 .check-list {
 	font-size: 14px;
 }
+
 .input-file-button{
     width: 25px;
     border-radius: 50%;
     color: white;
     cursor: pointer;
   }
+  
 .input-file-img {
     width: 20px;
     height: 20px;
