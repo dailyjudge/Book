@@ -104,6 +104,7 @@ public class UsedBooksDAO {
 			Account a = (Account) hs.getAttribute("accountInfo");
 			
 			String id = "";
+			
 			if(a != null) {
 				id = a.getB_id();
 				con = DBManager.connect();

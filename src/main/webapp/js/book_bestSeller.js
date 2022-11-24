@@ -21,6 +21,7 @@ $(document).ready(function() {
 		dataType: "jsonp"
 	}).done(function(msg) {
 		console.log("100 받기 완료");
+		console.log(msg.item);
 		maxPageNum1 = msg.item.length;
 
 		let list = msg.item;
