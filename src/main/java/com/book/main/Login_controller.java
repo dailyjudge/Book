@@ -13,7 +13,6 @@ import com.book.account.AccountDAO;
 public class Login_controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		SlideShow.post(request);
 		AccountDAO.getAdao().loginCheck(request);
 		request.setAttribute("contentPage", "jsp/lhg/login_input.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
@@ -23,6 +22,7 @@ public class Login_controller extends HttpServlet {
 			throws ServletException, IOException {
 		AccountDAO.getAdao().login(request);
 		AccountDAO.getAdao().loginCheck(request);
+		SlideShow.post(request);
 		request.setAttribute("contentPage", "jsp/kmj&jmk/slideImg.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}

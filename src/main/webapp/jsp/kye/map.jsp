@@ -7,28 +7,24 @@
 <meta charset="UTF-8" />
 <title>Insert title here</title>
 
-
-
-
 <script src="https://code.jquery.com/jquery-3.6.1.js"
 	integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
 	crossorigin="anonymous"></script>
 </head>
+
 <body>
 	<div class="map-container">
 		<div id="map" style="width: 65%; height: 500px;"></div>
-		<div id="list-all">
-			<h2 style="color: #f3f0d7;">가까운 서점</h2>
-		</div>
+		<div id="list-all"><h2 style="color: #f3f0d7">가까운서점</h2></div>
 	</div>
 
+
+
+	<script src="js/bookstoreinfo.js"></script>
+
 	<script type="text/javascript"
-
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a0775458e66dc2a17eed12803ecfa867&libraries=services"></script>
-
-<script src="js/bookstoreinfo.js"></script>
-
-<script>
+	<script>
       var mapContainer = document.getElementById("map"), // 지도를 표시할 div
         	mapOption = {
           center: new kakao.maps.LatLng(37.56742261797555, 127.0100117859028), // 지도의 중심좌표
@@ -39,23 +35,23 @@
       // 지도를 생성합니다
       var map = new kakao.maps.Map(mapContainer, mapOption);
 
-      if (navigator.geolocation) {
+      	if (navigator.geolocation) {
         	// GeoLocation을 이용해서 접속 위치를 얻어옵니다
-        navigator.geolocation.getCurrentPosition(function (position) {
+        	navigator.geolocation.getCurrentPosition(function (position) {
           var lat = position.coords.latitude, // 위도
-          lon = position.coords.longitude; // 경도
+            lon = position.coords.longitude; // 경도
 
           var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-          message = '<div style="padding:5px;">현위치</div>'; // 인포윈도우에 표시될 내용입니다
+            message = '<div style="padding:5px;">현위치</div>'; // 인포윈도우에 표시될 내용입니다
 
           // 마커와 인포윈도우를 표시합니다
           displayMarker(locPosition, message);
         });
-        	
       } else {
         // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+
         var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),
-        message = "geolocation을사용할수 없어요..";
+          message = "geolocation을사용할수 없어요..";
 
         displayMarker(locPosition, message);
       }
@@ -67,7 +63,6 @@
       // 주소-좌표 변환 객체를 생성합니다
       var geocoder = new kakao.maps.services.Geocoder();
       var overlay;
-      
       // 주소로 좌표를 검색합니다
       list.map((it) => {
         let name = it.store_name;
@@ -82,8 +77,7 @@
           it.adres,
 
           function (result, status) {
-          
-        	// 정상적으로 검색이 완료됐으면
+            // 정상적으로 검색이 완료됐으면
             if (status === kakao.maps.services.Status.OK) {
               var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
@@ -171,17 +165,17 @@
         if (unit == "K") {
           dist = dist * 1.609344;
         }
-        
         if (unit == "N") {
           dist = dist * 0.8684;
         }
-        
         return dist;
       }
 
       navigator.geolocation.getCurrentPosition(function (position) {
         var lat = position.coords.latitude, // 위도
-        lon = position.coords.longitude; // 경도
+          lon = position.coords.longitude; // 경도
+        console.log("latitude", lat);
+        console.log("longitude", lon);
 
         for (let i = 0; i < list.length; i++) {
           let distance = getDistance(
@@ -193,65 +187,60 @@
           );
           list[i].distance = distance;
         }
-		
-        
+
         const newList = list.sort(function (a, b) {
           if (a.distance > b.distance) {
-              return 1;
-          } 
-          
-          if (a.distance < b.distance) {
-              return -1;
-          } 
-          
-          else {
-	          return 0;
+            return 1;
           }
-          
+          if (a.distance < b.distance) {
+            return -1;
+          }
+          return 0;
         });
+        console.log(newList);
  
 
        for(let i = 0; i < newList.length; i++) {
-     	   let store_name = newList[i].store_name;
-    	   let tel_no = newList[i].tel_no; 
-    	   let adres2 = newList[i].adres;
-    	   let adres = newList[i].adres;
-    	   let sns = newList[i].sns;
-    	   
+     	   let store_name= newList[i].store_name;
+    	   let tel_no= newList[i].tel_no; 
+    	   let adres2=newList[i].adres;
+    	   let adres=newList[i].adres;
+    	   let sns= newList[i].sns;
+    	   let hmpg=newList[i].hmpg_url;
     	        
          $("#list-all").append(
-        		 sns != null ? 
-
+        		 sns&&hmpg != null ? 
                 '<div id="newList"><ol><li>'+store_name+'</li><li>'+tel_no+'</li>'+
-                '<li>'+adres+'</li><li><a href=' +
+                '<li>'+adres2+'</li><li><a href=' +
                 sns +
-            	  ' class="link">SNS</a></ol></div>'
-              :  
-                '<div id="newList"><ol><li>'+store_name+'</li><li>'+tel_no+'</li>'+
-                '<li>'+adres2+'</li></ol></div>'
+                ' class="link">SNS</a><a href='+hmpg+
+                ' class="link">홈페이지</a></li></ol></div>'
+                
+                : '<div id="newList"><ol><li>'+store_name+'</li><li>'+tel_no+'</li>'+
+                '<li>'+adres+'</li></ol></div>'
                 
         
                 
-
              )
+        console.log(newList[i].store_name);
+        console.log(newList[i].tel_no);
             
+  
        }
      
+     
+        
+        
+        
+      
+       
+   
       }); 
 
       // 커스텀 오버레이를 닫기 위해 호출되는 함수입니다
       function closeOverlay() {
         overlay.setMap(null);
       }
-</script>
-    
-</head>
-<body>
-
-	<div class="map-container">
-		<div id="map"></div>
-		<div id="list-all"></div>
-	</div>
-
+    </script>
 </body>
 </html>

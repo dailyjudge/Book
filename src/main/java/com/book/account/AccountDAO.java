@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -48,6 +49,7 @@ public class AccountDAO {
 		String email = mr.getParameter("email");
 		String pw = mr.getParameter("pw");
 		String likes[] = mr.getParameterValues("chk");
+		
 		String textcheck = new String();
 
 		System.out.println("값 받기 완료");
@@ -55,6 +57,7 @@ public class AccountDAO {
 			for (int i = 0; i < likes.length; i++) {
 				textcheck += likes[i] + " ";
 			}
+			System.out.println(textcheck);
 		} else {
 			textcheck = "관심사 없음";
 		}
@@ -86,10 +89,13 @@ public class AccountDAO {
 
 		HttpSession hs = request.getSession();
 		Account a = (Account) hs.getAttribute("accountInfo");
+		
 		if (a == null) {
+			request.setAttribute("checkNull", "1");
 			request.setAttribute("loginPage", "jsp/lhg/login.jsp");
 			return false;
 		} else {
+			request.setAttribute("checkNull", "0");
 			request.setAttribute("loginPage", "jsp/lhg/loginOk.jsp");
 			return true;
 		}
@@ -137,6 +143,15 @@ public class AccountDAO {
 
 					HttpSession hs = request.getSession();
 					hs.setAttribute("accountInfo", a);
+					ArrayList<String> cids = new ArrayList<String>();
+					
+					String[] arr = rs.getString("b_likes").split(" ");
+					for(int i=0 ; i<arr.length; i++) {
+						System.out.println(arr[i]);
+						cids.add(arr[i]);
+					}
+					hs.setAttribute("cid", cids);
+					
 					hs.setMaxInactiveInterval(60 * 100);
 
 				} else {
@@ -154,7 +169,7 @@ public class AccountDAO {
 
 	public void logout(HttpServletRequest request) {
 		HttpSession hs = request.getSession();
-		hs.setAttribute("accountInfo", null);
+		hs.invalidate();
 	}
 
 	public void updateAccount(HttpServletRequest request) throws IOException {
@@ -221,7 +236,6 @@ public class AccountDAO {
 			return 0;
 		}
 	}
-
 	public int checkId(String id) {
 		String sql = "select * from Account where b_id=?";
 		Connection con = null;

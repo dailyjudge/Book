@@ -47,9 +47,11 @@ create table comment_table (
 
 create sequence comment_table_seq;
 
-insert into comment_table values(comment_table_seq.nextval, 'test', 81, '테스트 1번', sysdate);
-insert into comment_table values(comment_table_seq.nextval, 'test', 81, '테스트 2번', sysdate);
+insert into comment_table values(comment_table_seq.nextval, 'test', 102, '테스트 1번', sysdate);
+insert into comment_table values(comment_table_seq.nextval, 'test', 102, '테스트 2번', sysdate);
 
+select * from comment_table
+select * from account
 
-select c_no, c_author, c_boardNo, c_date, b_pic from book, usedbooks_board, comment_table
-where b_id = u_author and u_no = c_boardNo and c_boardNo = 81
+select c_no, c_author, c_boardNo, c_date, b_pic from account, usedbooks_board, comment_table
+where b_id = u_author and u_no = c_boardNo and c_boardNo = 102

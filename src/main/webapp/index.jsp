@@ -14,6 +14,8 @@
 <script src="https://code.jquery.com/jquery-3.6.1.js"
 	integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
 	crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="js/comment.js"></script>
 <script type="text/javascript" src="js/check.js"></script>
 <script type="text/javascript" src="js/validCheck.js"></script>
 <script type="text/javascript" src="js/delCheck.js"></script>
@@ -22,8 +24,7 @@
 <link rel="stylesheet" href="css/comment.css">
 
 </head>
-<body>
-</head>
+
 <body>
 	<div>
 		<jsp:include page="${loginPage }"></jsp:include>
