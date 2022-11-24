@@ -24,13 +24,16 @@
 
 		reader.readAsDataURL(event.target.files[0]);
 	}
+<<<<<<< HEAD
+=======
+	
+>>>>>>> fbedb1d7a60292b3934f9a12b5a2136ac3b9cc07
 </script>
 <link rel="stylesheet" href="css/reg.css">
 <link rel="stylesheet" href="css/index.css">
 
 <body>
 	<div class="reg-container top-container2">
-
 		<form class="reg-form" method="post"
 			action="Account_register_controller" name="myForm" method="post"
 			enctype="multipart/form-data" onsubmit="return call()">
@@ -52,6 +55,8 @@
 			<div>
 				<h6 class="reg-field">아이디</h6>
 				<input type="text" name="id">
+				<input type="text" name="id" class="input_id">
+				<font id="checkId" size="2"></font>
 			</div>
 			<div>
 				<h6 class="reg-field">비밀번호</h6>
@@ -60,6 +65,8 @@
 			<div>
 				<h6 class="reg-field">비밀번호 재입력</h6>
 				<input type="password" name="pw2">
+				<input type="password" name="pw2" id="pw2"> 
+				<font id="pwConfirm" size="2"></font>
 			</div>
 			<div>
 				<h6 class="reg-field">이름</h6>
@@ -160,5 +167,32 @@
 		})
 	</script>
 	</div>
+	<script>
+	$('.input_id').focusout(function() {
+		let userId = $('.input_id').val();
+
+		$.ajax({
+			url : "http://localhost/Semi-Project/Id_check",
+			type : "post",
+			data : {
+				userId : userId
+			},
+			dataType : 'json',
+			success : function(result) {
+				if (result == 0) {
+					$("#checkId").html('사용할 수 없는 아이디입니다.');
+					$("#checkId").attr('color', 'red');
+				} else {
+					$("#checkId").html('사용할 수 있는 아이디입니다.');
+					$("#checkId").attr('color', 'green');
+				}
+			},
+			error : function() {
+				alert("서버 요청 실패");
+			}
+		})
+
+	})
+	</script>
 </body>
 </html>

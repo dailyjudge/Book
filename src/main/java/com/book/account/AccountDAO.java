@@ -2,6 +2,7 @@ package com.book.account;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,7 +33,7 @@ public class AccountDAO {
 
 	public void regAccount(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		System.out.println("등록 함수!!");
-		
+
 		Connection con = null;
 		PreparedStatement pstmt = null;
 
@@ -48,7 +49,7 @@ public class AccountDAO {
 		String pw = mr.getParameter("pw");
 		String likes[] = mr.getParameterValues("chk");
 		String textcheck = new String();
-		
+
 		System.out.println("값 받기 완료");
 		if (likes != null) {
 			for (int i = 0; i < likes.length; i++) {
@@ -59,7 +60,7 @@ public class AccountDAO {
 		}
 
 		String pic = mr.getFilesystemName("file");
-		
+
 		try {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
@@ -70,7 +71,7 @@ public class AccountDAO {
 			pstmt.setString(4, pw);
 			pstmt.setString(5, textcheck);
 			pstmt.setString(6, pic);
-			
+
 			if (pstmt.executeUpdate() == 1) {
 			} else {
 			}
@@ -103,7 +104,6 @@ public class AccountDAO {
 		try {
 			con = DBManager.connect();
 			String sql = "select *from Account where b_id=?";
-
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, userID);
@@ -212,26 +212,26 @@ public class AccountDAO {
 			return 0;
 		}
 	}
-		
-	public int checkId(String id){	
+
+	public int checkId(String id) {
+		String sql = "select * from Account where b_id=?";
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		
-		String sql = "select * from Account where b_id=?";
+
 		int idCheck = 0;
 		try {
 			con = DBManager.connect();
-			pstmt =con.prepareStatement(sql);
+			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
-			
-			if (rs.next()||id.equals("")) {
+
+			if (rs.next() || id.equals("")) {
 				idCheck = 0;
 			} else {
-				idCheck = 1;  // 존재하지 않는 경우, 생성 가능
+				idCheck = 1; // 존재하지 않는 경우, 생성 가능
 			}
-						
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -239,26 +239,25 @@ public class AccountDAO {
 		}
 		return idCheck;
 	}
-	
+
 	public void getAllContents(HttpServletRequest request) {
-		
+
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		
-		
+
 		String sql = "select * from usedbooks_board order by u_date desc";
-		
+
 		try {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
-			
+
 			rs = pstmt.executeQuery();
-		
+
 			BoardBean b = null;
 			ArrayList<BoardBean> boards = new ArrayList<>();
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				int no = rs.getInt("u_no");
 				String author = rs.getString("u_author");
 				String title = rs.getString("u_title");
@@ -266,23 +265,73 @@ public class AccountDAO {
 				String img = rs.getString("u_img");
 				int price = rs.getInt("u_price");
 				Date date = rs.getDate("u_date");
-				
+
 				// 보내주기
 				// 객체 + 배열
 				b = new BoardBean(no, author, title, content, img, price, date);
 
 				boards.add(b);
 			}
-			
+
 			request.setAttribute("boards", boards);
-			
+
 		} catch (Exception e) {
 
 		}
-		
-		
-		
-		
-	}
-}
 
+	}
+
+	public void findId(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("EUC-KR");
+
+		String name = request.getParameter("name");
+		String sql = "select * from Account where b_name=?";
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, name);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				String id = rs.getString("b_id");
+				request.setAttribute("id", id);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, pstmt, rs);
+		}
+	}
+
+	public void findPw(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+		String id = request.getParameter("id");
+		String sql = "select * from Account where b_id=?";
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				String pw = rs.getString("b_pw");
+				request.setAttribute("pw", pw);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, pstmt, rs);
+		}
+	}
+
+}

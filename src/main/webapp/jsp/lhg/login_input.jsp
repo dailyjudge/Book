@@ -29,6 +29,9 @@
             </div>
         </div>
         <div class="register_area">
+            <a class="find-id" type="button" href="Find_id_controller">아이디</a>&nbsp;
+            <a>·</a>&nbsp;
+            <a class="find-pw" type="button" href="Find_pw_controller">비밀번호 찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;
             <a class="reg-user" type="button" href="Account_register_controller">처음 오셨나요?</a>
         </div>
     </div>
