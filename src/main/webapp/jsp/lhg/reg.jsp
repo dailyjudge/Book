@@ -65,6 +65,7 @@
 			$(".user-rule-field4").css("visibility", "hidden");
 		})
 	})
+
 </script>
 <link rel="stylesheet" href="css/reg.css">
 <link rel="stylesheet" href="css/index.css">
