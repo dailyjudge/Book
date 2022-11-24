@@ -16,7 +16,6 @@ public class Login_controller extends HttpServlet {
 		AccountDAO.getAdao().loginCheck(request);
 		request.setAttribute("contentPage", "jsp/lhg/login_input.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
-
 		}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
