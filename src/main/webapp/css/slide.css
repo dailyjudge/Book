@@ -86,7 +86,6 @@ a {
 }
 .grid-element:hover{
 	transform:rotate(-15deg);
-	transform-origin:right bottom;
 	transition: 0.5s ease-in;
 }
 
