@@ -13,6 +13,7 @@ public static Connection connect() throws SQLException {
 
 	return DriverManager.getConnection(url, "c##hg", "hg");
 
+
 }
 // db.close(con,pstmt,rs)
 public static void close(Connection con, PreparedStatement pstmt, ResultSet rs) {
