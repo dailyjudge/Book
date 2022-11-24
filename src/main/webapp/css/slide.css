@@ -14,12 +14,12 @@ a {
 	text-decoration: none;
 }
 #visual {
-	position: relative;
-	width: 50%;
-	height: 400px;
-	margin: 50px auto;
-	overflow: hidden;
-	box-shadow: 1px 5px 10px 2px #666;
+   position: relative;
+   width: 50%;
+   height: 400px;
+   margin: 50px auto;
+   overflow: hidden;
+   box-shadow: 1px 5px 10px 2px #666;
 }
 #visual>div {
 	position: absolute;
@@ -29,9 +29,11 @@ a {
 	height: 100%;
 	transition: 0.3s ease;
 	opacity: 0;
+	display: none;
 }
 #visual>div.on {
 	opacity: 1;
+	display: block;
 }
 #control {
 	position: absolute;
