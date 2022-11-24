@@ -1,0 +1,52 @@
+.find-id-container {
+	border: 2px solid black;
+	padding: 10px 10px;
+	margin-top: 10%; 
+	margin-bottom : 20px;
+	border-radius: 10px;
+	width: 40%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+}
+
+.find-id {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.find-name {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 10%;
+}
+
+.find-email {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.find-button {
+	margin-top: 5%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.find-button button {
+	margin-top: 20px;
+	width: 30%;
+	height: 50px;
+	border: 0;
+	outline: 0;
+	border-radius: 6px;
+	background: linear-gradient(to left, #233329, #63d471);
+	color: white;
+	font-size: 1.2em;
+	letter-spacing: 2px;
+	box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4), -3px -3px 5px
+		rgba(0, 0, 0, 0.1);
+}

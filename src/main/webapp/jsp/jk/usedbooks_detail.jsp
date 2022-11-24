@@ -121,11 +121,13 @@
 				<span>${target.content }</span>
 			</div>
 		</div>
-
-		<div class="usedbooks-detail-button">
-			<button onclick="update_usedBooks_board('${target.no}')">수정</button>
-			<button onclick="delete_usedBooks_board('${target.no}')">삭제</button>
-		</div>
+		
+		<c:if test="${sessionScope.accountInfo.b_id == target.author}">
+			<div class="usedbooks-detail-button">
+				<button onclick="update_usedBooks_board('${target.no}')">수정</button>
+				<button onclick="delete_usedBooks_board('${target.no}')">삭제</button>
+			</div>
+		</c:if>
 	</div>
 
 
@@ -152,7 +154,7 @@
 	
 	<div id="comment-container2">
 
-		<c:forEach var="c" items="${comments }" varStatus="status">
+		<c:forEach var="c" items="${comments }">
 			<div class="comment-container" id="comment-container-${c.comment_number }">
 				<div>
 					<img src="fileFolder/${c.image }" alt="">
@@ -162,12 +164,17 @@
 						<span>${c.author_id }</span> <span>${c.date }</span>
 					</div>
 					<div class="comment-text-container">
-						<textarea class="comment-text">${c.comment_content }</textarea>
-
-						<div class="comment-button-container">
-							<button>수정</button>
-							<button onclick="del_comment(${c.comment_number })">삭제</button>
-						</div>
+						<textarea id="comment-modify-text-${c.comment_number }" disabled="disabled" class="comment-text">${c.comment_content }</textarea>
+						<input id="comment-modify-copyText-${c.comment_number }" value='${c.comment_content }' style="display: none">
+						
+						<c:if test="${sessionScope.accountInfo.b_id ==  c.author_id}">
+							<div class="comment-button-container">
+								<button id="comment-button-update-${c.comment_number }" onclick="update_click_comment('${c.comment_number}')">수정</button>
+								<button id="comment-button-delete-${c.comment_number }" onclick="del_comment(${c.comment_number })">삭제</button>
+								<button id="comment-button-update-done-${c.comment_number }" onclick="update_cooment('${c.comment_number}')" style="display:none;">완료</button>
+								<button id="comment-button-cancel-${c.comment_number }" onclick="comment_update_back('${c.comment_number}')" style="display:none;">취소</button>
+							</div>
+						</c:if>
 					</div>
 				</div>
 			</div>
