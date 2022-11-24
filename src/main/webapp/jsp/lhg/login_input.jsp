@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css"/>
   </head>
   <body>
-  <div class="login-container top-container2">
+  <div class="login-container">
         <h1>로그인</h1>
         <form class="login-form" action="Login_controller" method="post">
             <input type="text" name="id" placeholder="아이디">

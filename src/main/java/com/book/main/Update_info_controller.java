@@ -19,8 +19,11 @@ public class Update_info_controller extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-			AccountDAO.getAdao().updateAccount(request);
-			AccountDAO.getAdao().loginCheck(request);
+			if (AccountDAO.getAdao().loginCheck(request)) {				
+				AccountDAO.getAdao().updateAccount(request);
+				AccountDAO.getAdao().login(request);
+			}
+			
 			request.setAttribute("contentPage", "jsp/lhg/User_info.jsp");
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
