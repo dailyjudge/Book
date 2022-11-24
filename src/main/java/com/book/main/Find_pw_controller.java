@@ -9,23 +9,24 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.book.account.AccountDAO;
 
-@WebServlet("/Login_controller")
-public class Login_controller extends HttpServlet {
+@WebServlet("/Find_pw_controller")
+public class Find_pw_controller extends HttpServlet {
+	private AccountDAO a = AccountDAO.getAdao();
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		AccountDAO.getAdao().loginCheck(request);
-		request.setAttribute("contentPage", "jsp/lhg/login_input.jsp");
-		request.getRequestDispatcher("index.jsp").forward(request, response);
-
-		}
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		AccountDAO.getAdao().login(request);
-		AccountDAO.getAdao().loginCheck(request);
-		SlideShow.post(request);
-		request.setAttribute("contentPage", "jsp/kmj&jmk/slideImg.jsp");
+		request.setAttribute("loginPage", "jsp/lhg/login.jsp");
+		request.setAttribute("contentPage", "jsp/lhg/findPw.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
-			
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		a.findPw(request,response);
+		request.setAttribute("loginPage", "jsp/lhg/login.jsp");
+		request.setAttribute("contentPage", "jsp/lhg/pwInfo.jsp");
+		request.getRequestDispatcher("index.jsp").forward(request, response);
+		
+	}
+
 }

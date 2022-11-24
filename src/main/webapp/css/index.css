@@ -191,7 +191,7 @@ body {
 
 .search {
   position: relative;
-  margin-top: 300px;
+  margin-top: 50px;
   margin-bottom: 50px;
 }
 
@@ -229,14 +229,6 @@ body {
 
 .bestseller {
   display: none;
-}
-
-.top-container {
-  margin-top: 200px;
-}
-
-.top-container2 {
-  margin-top: 300px;
 }
 
 .usedbooks-container {
