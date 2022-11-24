@@ -120,7 +120,18 @@ $(document).ready(function() {
                 시/에세이<input class="like" type="checkbox" name="chk" value="102">
                 사회과학<input class="like" type="checkbox" name="chk" value="104">
             </div>
-
+			<div class="check-list">
+                역사와 문화<input class="like" type="checkbox" name="chk" value="105">
+				국어/외국어<input class="like" type="checkbox" name="chk" value="115">
+				자기계발<input class="like" type="checkbox" name="chk" value="118">
+            </div>
+            <div class="check-list">
+                인문<input class="like" type="checkbox" name="chk" value="119">
+				종교/역학<input class="like" type="checkbox" name="chk" value="120">
+				여행<input class="like" type="checkbox" name="chk" value="128">
+            </div>
+			
+			
 			<div class="reg-button">
 				<button>회원가입</button>
 			</div>
