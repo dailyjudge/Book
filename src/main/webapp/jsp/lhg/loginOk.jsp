@@ -5,14 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+function chk_form() {
+document.getElementById('frm').submit();
+}
+</script>
 </head>
 <body>
-
-<div class="account-container2">
-		<div class="img-container2">
-			<a href="HC"><img class="account-img"
-				src="assets/main.png"
-				alt=""></a>
+<div class="account-container">
+		<div class="img-container">
+				<a href="HC">
+				<img class="account-img"
+					src="assets/main.png" alt="">
+					</a>
 		</div>
 		
 		<div class="item-container2">

@@ -53,8 +53,6 @@
 
 	});
 </script>
-
-
 </head>
 <body>
 
