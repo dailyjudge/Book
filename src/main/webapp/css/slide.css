@@ -15,9 +15,11 @@ a {
 }
 #visual {
    position: relative;
-   width: 50%;
-   height: 400px;
-   margin: 50px auto;
+   width: 90%;
+   height: 500px;
+   margin: 20px auto;
+   margin-left:auto;
+   margin-right:auto;
    overflow: hidden;
    box-shadow: 1px 5px 10px 2px #666;
 }
@@ -53,4 +55,38 @@ a {
 }
 #control a.on {
 	background: #9ab3f5;
+}
+#newBook{
+	text-align: center;
+	margin-top: 20px;
+	float:left;
+	margin-right:10px;
+	width: 60%;
+	height:100%;
+	
+}
+#scholarInfo{
+	margin-top: 20px;
+	float:left;
+	text-align: center;
+	
+}
+#scholarInfo-grid{
+	
+	margin-top: 15px;
+	display:grid;
+	grid-template-columns: 250px 250px;
+	grid-template-rows: 250px 250px;
+	column-gap: 10px;
+	row-gap: 10px;
+}
+.logo{
+	width :250px;
+	height : 250px;
+}
+
+#first-view{
+	display: flex;
+	width: 100%;
+	height: 40%;
 }
