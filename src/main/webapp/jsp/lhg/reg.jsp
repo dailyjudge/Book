@@ -13,10 +13,10 @@
 </script>
 <script>
 	function setThumbnail(event) {
-		var reader = new FileReader();
+		let reader = new FileReader();
 
 		reader.onload = function(event) {
-			var img = document.createElement("img");
+			let img = document.createElement("img");
 			console.log(event.target);
 			img.setAttribute("src", event.target.result);
 			img.setAttribute("width", "100%");

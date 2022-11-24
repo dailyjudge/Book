@@ -1,84 +1,111 @@
 @charset "UTF-8";
-@font-face {
-  font-family: "MapoFlowerIsland";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff")
-    format("woff");
-  font-weight: normal;
-  font-style: normal;
+.update-container {
+	margin-top: 10%;
+    margin: 100px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
 }
 
-body {
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  font-family: "MapoFlowerIsland";
+.update-form {
+	background-color: #F3F0D7;
+    border: 2px solid black;
+    border-radius: 15px;
+    width: 400px;
+    padding-left: 20px;
 }
 
-.form {
-  width: 400px;
-  height: 600px;
-  background-color: #f3f0d7;
-  border: 1px solid;
-  margin-top: 40px;
-  border-radius: 20px;
-}
-img {
-  width: 120px;
-  height: 120px;
-  border-radius: 20px;
+.update-guide{
+	text-align: center;
 }
 
-#pw {
-  width: 300px;
-  height: 40px;
-  border-radius: 10px;
-  margin: auto;
-  text-align: center;
-  padding: 10px 0;
-  color: #00541a;
-}
-input {
-  height: 20px;
-  font-family: "MapoFlowerIsland";
-  vertical-align: middle;
-  color: #00541a;
-  background-color: #f3f0d7;
-  align-items: center;
+.update-field {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background-color: white;
+    border: 1px solid #F3F0D7;
+    margin: 10px auto;
+    width: 50%;
+    padding: 10px 10px;
+    border-radius: 15px;
+    display:flex;
 }
 
-#name {
-  padding-top: 10px;
-  width: 300px;
-  height: 40px;
-  border-radius: 10px;
-  margin: auto;
-  text-align: center;
-  padding: 10px 0;
-  color: #00541a;
+#pwConfirm{
+	display: flex;
+    justify-content: center;
+	text-align: center;
 }
 
-#email {
-  padding-top: 10px;
-  width: 300px;
-  height: 40px;
-  border-radius: 10px;
-  margin: auto;
-  text-align: center;
-  padding: 10px 0;
-  color: #00541a;
+.like {
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 10px;
 }
 
-#likes {
-  font-size: 20px;
+.check-list-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
 }
-button {
-  margin-top: 30px;
-  width: 90px;
-  height: 50px;
-  border-radius: 10px;
-  background-color: #00541a;
-  color: #f3f0d7;
-  border: none;
-  font-family: "MapoFlowerIsland";
+
+.check-list {
+	font-size: 14px;
+}
+
+.input-file-button{
+    width: 25px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+  }
+  
+.input-file-img {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 68%;
+    left: 54%;
+    cursor: pointer;
+}
+
+#image_container {
+    margin: 20px auto;
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+#test-img {
+   border-radius: 50%;
+   width: 100%;
+   height: 100%;
+   margin: 0px auto;
+   object-fit: cover;
+}
+
+#profile-img-container {
+    position: relative;
+}
+
+.update-button {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.update-button button {
+    margin-left: -20px;
+    margin-top: 20px;
+    width: 100px;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 20px;
+    background-color: #00541A;
+    color: white;
+    font-weight: 600;
+    border: none;
 }
