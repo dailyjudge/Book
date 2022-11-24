@@ -227,12 +227,11 @@ public class AccountDAO {
 			return 0;
 		}
 	}
-		
-	public int checkId(String id){	
+	public int checkId(String id) {
+		String sql = "select * from Account where b_id=?";
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from Account where b_id=?";
 
 		int idCheck = 0;
 		try {
