@@ -197,4 +197,32 @@ public class CommentDAO {
 
 	}
 
+	public static void updateComment(HttpServletRequest request) {
+		// 댓글 수정
+		
+		int no = Integer.parseInt(request.getParameter("no"));
+		String content = request.getParameter("content");
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "update comment_table set c_content = ? where c_no = ?";
+		
+		try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, content);
+			pstmt.setInt(2, no);
+			
+			if(pstmt.executeUpdate() == 1) {
+				System.out.println("댓글 수정 완료");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			 DBManager.close(con, pstmt, null);
+		}
+	}
+
 }
