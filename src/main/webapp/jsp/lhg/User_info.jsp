@@ -34,7 +34,7 @@
                 </div>
                     
                 <div class="myPage-field myPage-additional">
-                    <a href="Logout_controller">정보 수정</a>
+                    <a href="Update_info_controller">정보 수정</a>
                     <a href="Delete_info_controller">회원 탈퇴</a>
                 </div>
             </div>

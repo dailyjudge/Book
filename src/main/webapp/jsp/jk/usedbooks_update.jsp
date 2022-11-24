@@ -35,7 +35,8 @@
 			
             <div class="usedbooks-detail-button">
 				<button onclick="onUpdate('${target.no}')">수정하기</button>            	
-				<button onclick="history.back(-1)">돌아가기</button>            	
+				<button onclick="history.back(-1)">돌아가기</button>
+				            	
             </div>
         </div>
 </body>

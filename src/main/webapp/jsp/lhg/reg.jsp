@@ -24,10 +24,6 @@
 
 		reader.readAsDataURL(event.target.files[0]);
 	}
-<<<<<<< HEAD
-=======
-	
->>>>>>> fbedb1d7a60292b3934f9a12b5a2136ac3b9cc07
 </script>
 <link rel="stylesheet" href="css/reg.css">
 <link rel="stylesheet" href="css/index.css">
