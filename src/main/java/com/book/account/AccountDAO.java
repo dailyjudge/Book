@@ -146,8 +146,12 @@ public class AccountDAO {
 					ArrayList<String> cids = new ArrayList<String>();
 					
 					String[] arr = rs.getString("b_likes").split(" ");
+					
 					for(int i=0 ; i<arr.length; i++) {
 						System.out.println(arr[i]);
+						
+						
+						
 						cids.add(arr[i]);
 					}
 					hs.setAttribute("cid", cids);
@@ -189,6 +193,7 @@ public class AccountDAO {
 		String textcheck = new String();
 		if (check != null) {
 			for (int i = 0; i < check.length; i++) {
+				
 				textcheck += check[i] + " ";
 			}
 		} else {

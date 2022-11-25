@@ -1,4 +1,4 @@
-package kye;
+package com.book.map;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
