@@ -22,37 +22,161 @@
 <script type="text/javascript"
 	src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
+<script src="js/new_book.js"></script>
 
-<script type="text/javascript"
-	src="https://book.interpark.com/api/newBook.api?key=B1702425132364B8C55D9F1581CDD3DE16CE0A575A0CF8FCAD4649310AE5AC61&categoryId=100&output=json"></script>
-<script>
-	$(function() {
-		$('.center').slick({
-			centerMode : true,
-			centerPadding : '60px',
-			slidesToShow : 3,
-			responsive : [ {
-				breakpoint : 768,
-				settings : {
-					arrows : false,
-					centerMode : true,
-					centerPadding : '40px',
-					slidesToShow : 3
-				}
-			}, {
-				breakpoint : 480,
-				settings : {
-					arrows : false,
-					centerMode : true,
-					centerPadding : '40px',
-					slidesToShow : 1
-				}
-			} ]
 
-		});
 
-	});
+<script type="text/javascript">
+	$(document)
+			.ready(
+					function() {
+
+						function good() {
+							console.log("값 받기 완료");
+						}
+
+						$.ajax(
+										{
+											method : "GET",
+											url : "http://book.interpark.com/api/newBook.api",
+											data : {
+												key : '9D94365668C72FEE72038FC3AF671C5CF7E548299872BFA5789AA93394BBEA58',
+												categoryId : 104,
+												output : 'json',
+												nosniff : "off",
+												callback : good
+											},
+											dataType : "jsonp"
+										})
+								.done(
+										function(msg) {
+											console.log("받기 완료");
+											console.log(msg.item);
+
+											for (let i = 0; i < msg.item.length; i++) {
+												let src = msg.item[i].coverLargeUrl;
+												let url = msg.item[i].link;
+
+												$('#slider-div')
+														.slick('slickAdd',
+																"<div><a href="+url+"><img src=" + src + "></a></div>");
+											}
+
+										});
+
+						$('#slider-div')
+								.slick(
+										{
+											slide : 'div', //슬라이드 되어야 할 태그 ex) div, li 
+											infinite : true, //무한 반복 옵션    
+											slidesToShow : 5, // 한 화면에 보여질 컨텐츠 개수
+											slidesToScroll : 2, //스크롤 한번에 움직일 컨텐츠 개수
+											speed : 1000, // 다음 버튼 누르고 다음 화면 뜨는데까지 걸리는 시간(ms)
+											arrows : true, // 옆으로 이동하는 화살표 표시 여부
+											autoplay : true, // 자동 스크롤 사용 여부
+											autoplaySpeed : 2000, // 자동 스크롤 시 다음으로 넘어가는데 걸리는 시간 (ms)
+											pauseOnHover : false, // 슬라이드 이동   시 마우스 호버하면 슬라이더 멈추게 설정
+											vertical : false, // 세로 방향 슬라이드 옵션
+											prevArrow : false,
+											nextArrow : false,
+											draggable : true, //드래그 가능 여부 
+											//focusOnSelect : true,
+											variableWidth : true,
+											centerPadding : '20px',
+
+											responsive : [ {
+												breakpoint : 900,
+												settings : {
+
+													slide : 'div', //슬라이드 되어야 할 태그 ex) div, li 
+													infinite : true, //무한 반복 옵션    
+													slidesToShow : 4, // 한 화면에 보여질 컨텐츠 개수
+													slidesToScroll : 1, //스크롤 한번에 움직일 컨텐츠 개수
+													speed : 1000, // 다음 버튼 누르고 다음 화면 뜨는데까지 걸리는 시간(ms)
+													arrows : true, // 옆으로 이동하는 화살표 표시 여부
+													autoplay : true, // 자동 스크롤 사용 여부
+													autoplaySpeed : 2000, // 자동 스크롤 시 다음으로 넘어가는데 걸리는 시간 (ms)
+													pauseOnHover : false, // 슬라이드 이동   시 마우스 호버하면 슬라이더 멈추게 설정
+													vertical : false, // 세로 방향 슬라이드 옵션
+													//prevArrow : "<button type='button' class='slick-prev'>이전</button>", // 이전 화살표 모양 설정
+													//nextArrow : "<button type='button' class='slick-next'>이후</button>", // 다음 화살표 모양 설정
+													draggable : true, //드래그 가능 여부 
+													//focusOnSelect : true,
+													variableWidth : true,
+													centerMode : true,
+													centerPadding : '20px',
+
+												},
+
+												breakpoint : 680,
+												settings : {
+													slide : 'div', //슬라이드 되어야 할 태그 ex) div, li 
+													infinite : true, //무한 반복 옵션    
+													slidesToShow : 3, // 한 화면에 보여질 컨텐츠 개수
+													slidesToScroll : 1, //스크롤 한번에 움직일 컨텐츠 개수
+													speed : 1000, // 다음 버튼 누르고 다음 화면 뜨는데까지 걸리는 시간(ms)
+													arrows : true, // 옆으로 이동하는 화살표 표시 여부
+													autoplay : true, // 자동 스크롤 사용 여부
+													autoplaySpeed : 2000, // 자동 스크롤 시 다음으로 넘어가는데 걸리는 시간 (ms)
+													pauseOnHover : false, // 슬라이드 이동   시 마우스 호버하면 슬라이더 멈추게 설정
+													vertical : false, // 세로 방향 슬라이드 옵션
+													//prevArrow : "<button type='button' class='slick-prev'>이전</button>", // 이전 화살표 모양 설정
+													//nextArrow : "<button type='button' class='slick-next'>이후</button>", // 다음 화살표 모양 설정
+													draggable : true, //드래그 가능 여부 
+													//focusOnSelect : true,
+													variableWidth : true,
+													centerMode : true,
+													centerPadding : '20px',
+
+												},
+												breakpoint : 450,
+												settings : {
+													slide : 'div', //슬라이드 되어야 할 태그 ex) div, li 
+													infinite : true, //무한 반복 옵션    
+													slidesToShow : 2, // 한 화면에 보여질 컨텐츠 개수
+													slidesToScroll : 1, //스크롤 한번에 움직일 컨텐츠 개수
+													speed : 1000, // 다음 버튼 누르고 다음 화면 뜨는데까지 걸리는 시간(ms)
+													arrows : true, // 옆으로 이동하는 화살표 표시 여부
+													autoplay : true, // 자동 스크롤 사용 여부
+													autoplaySpeed : 2000, // 자동 스크롤 시 다음으로 넘어가는데 걸리는 시간 (ms)
+													pauseOnHover : false, // 슬라이드 이동   시 마우스 호버하면 슬라이더 멈추게 설정
+													vertical : false, // 세로 방향 슬라이드 옵션
+													//prevArrow : "<button type='button' class='slick-prev'>이전</button>", // 이전 화살표 모양 설정
+													//nextArrow : "<button type='button' class='slick-next'>이후</button>", // 다음 화살표 모양 설정
+													draggable : true, //드래그 가능 여부 
+													//focusOnSelect : true,
+													variableWidth : true,
+													centerMode : true,
+													centerPadding : '20px',
+
+												},
+												breakpoint : 200,
+												settings : {
+													slide : 'div', //슬라이드 되어야 할 태그 ex) div, li 
+													infinite : true, //무한 반복 옵션    
+													slidesToShow : 1, // 한 화면에 보여질 컨텐츠 개수
+													slidesToScroll : 1, //스크롤 한번에 움직일 컨텐츠 개수
+													speed : 1000, // 다음 버튼 누르고 다음 화면 뜨는데까지 걸리는 시간(ms)
+													arrows : true, // 옆으로 이동하는 화살표 표시 여부
+													autoplay : true, // 자동 스크롤 사용 여부
+													autoplaySpeed : 2000, // 자동 스크롤 시 다음으로 넘어가는데 걸리는 시간 (ms)
+													pauseOnHover : false, // 슬라이드 이동   시 마우스 호버하면 슬라이더 멈추게 설정
+													vertical : false, // 세로 방향 슬라이드 옵션
+													//prevArrow : "<button type='button' class='slick-prev'>이전</button>", // 이전 화살표 모양 설정
+													//nextArrow : "<button type='button' class='slick-next'>이후</button>", // 다음 화살표 모양 설정
+													draggable : true, //드래그 가능 여부 
+													//focusOnSelect : true,
+													variableWidth : true,
+													centerMode : true,
+													centerPadding : '20px',
+
+												},
+
+											} ]
+										});
+					});
 </script>
+
 </head>
 <body>
 
@@ -115,15 +239,7 @@
 		</section>
 	</div>
 
-
-	<div class="center">
-		<div>1</div>
-		<div>2</div>
-		<div>3</div>
-		<div>4</div>
-		<div>5</div>
-		<div>6</div>
-	</div>
+	<div id="slider-div"></div>
 
 
 </body>
