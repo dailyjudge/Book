@@ -91,26 +91,28 @@
 			</div>
 			<div>
 				<h6 class="reg-field">아이디</h6>
-				<input name="id" type="text"> <img class="reg-questionMark"
+				<input type="text" name="id" class="input_id"> <img class="reg-questionMark"
 					alt="" src="assets/questionMark.png">
+				<font id="checkId" size="2"></font>
 			</div>
 			<div>
 				<h6 class="reg-field">비밀번호</h6>
-				<input name="pw" type="text"> <img class="reg-questionMark2"
+				<input type="password" name="pw" id="pw"> <img class="reg-questionMark2"
 					alt="" src="assets/questionMark.png">
 			</div>
 			<div>
 				<h6 class="reg-field">비밀번호 재입력</h6>
-				<input type="text">
+				<input type="password" name="pw2" id="pw2">
+				<font id="pwConfirm" size="2"></font>
 			</div>
 			<div>
 				<h6 class="reg-field">이름</h6>
-				<input name="name" type="text"> <img
+				<input type="text" name="name"> <img
 					class="reg-questionMark3" alt="" src="assets/questionMark.png">
 			</div>
 			<div>
 				<h6 class="reg-field">이메일</h6>
-				<input name="email" type="text"> <img
+				<input type="text" name="email"> <img
 					class="reg-questionMark4" alt="" src="assets/questionMark.png">
 			</div>
 			<div>
@@ -155,7 +157,6 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/check.js"></script>
 	<script>
 		$('.input_id').focusout(function() {
 			let userId = $('.input_id').val();
@@ -183,8 +184,5 @@
 
 		})
 	</script>
-
-
-
 </body>
 </html>

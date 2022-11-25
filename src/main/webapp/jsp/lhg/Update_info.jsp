@@ -26,6 +26,7 @@
 		};
 
 		reader.readAsDataURL(event.target.files[0]);
+		
 	}
 </script>
 </head>
@@ -51,8 +52,8 @@
 			</div>
 			<div>
 					<h6 class="update-guide">비밀번호</h6>
-					<input class="update-field" type="password" name="pw" id="pw"
-						value="${sessionScope.accountInfo.b_pw }">
+					<input class="update-field" type="password" name="pw" id="pw">
+					<input type="hidden" name="oldpw" id="oldpw" value="${sessionScope.accountInfo.b_pw }">
 				</div>
 			<div>
 				<h6 class="update-guide">비밀번호 재입력</h6>

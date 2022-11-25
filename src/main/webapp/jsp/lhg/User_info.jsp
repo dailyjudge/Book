@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/user_info.css">
 </head>
-<body>    
+<body>
         <div class="myPage-container">
             <div class="myPage">
                 <h3>마이페이지</h3>
