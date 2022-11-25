@@ -41,7 +41,7 @@
 											url : "http://book.interpark.com/api/newBook.api",
 											data : {
 												key : '9D94365668C72FEE72038FC3AF671C5CF7E548299872BFA5789AA93394BBEA58',
-												categoryId : 104,
+												categoryId : 102,
 												output : 'json',
 												nosniff : "off",
 												callback : good
