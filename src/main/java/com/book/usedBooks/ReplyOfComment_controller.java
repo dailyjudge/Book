@@ -1,26 +1,26 @@
 package com.book.usedBooks;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.book.account.AccountDAO;
+import org.json.simple.JSONArray;
 
-@WebServlet("/UsedBooks_detail_controller")
-public class UsedBooks_detail_controller extends HttpServlet {
+@WebServlet("/ReplyOfComment_controller")
+public class ReplyOfComment_controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		JSONArray jArray = CommentDAO.getAllReplyOfComment(request);
 		
-		AccountDAO.getAdao().loginCheck(request);
-	
-		CommentDAO.showAllComment(request);
-		UsedBooksDAO.showContent(request);
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("application/json");
 		
-		request.setAttribute("contentPage", "./jsp/jk/usedbooks_detail.jsp");
-		
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		PrintWriter out = response.getWriter();
+		out.print(jArray);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
