@@ -91,17 +91,17 @@
 			</div>
 			<div>
 				<h6 class="reg-field">아이디</h6>
-				<input name="id" type="text"> <img class="reg-questionMark"
+				<input class="input_id" name="id" type="text"> <img class="reg-questionMark"
 					alt="" src="assets/questionMark.png">
 			</div>
 			<div>
 				<h6 class="reg-field">비밀번호</h6>
-				<input name="pw" type="text"> <img class="reg-questionMark2"
+				<input name="pw" type="password"> <img class="reg-questionMark2"
 					alt="" src="assets/questionMark.png">
 			</div>
 			<div>
 				<h6 class="reg-field">비밀번호 재입력</h6>
-				<input type="text">
+				<input type="password">
 			</div>
 			<div>
 				<h6 class="reg-field">이름</h6>
@@ -161,13 +161,13 @@
 			let userId = $('.input_id').val();
 
 			$.ajax({
-				url : "http://localhost/Semi-Project/Id_check",
+				url : "Id_check",
 				type : "post",
 				data : {
 					userId : userId
 				},
-				dataType : 'json',
 				success : function(result) {
+					console.log(result);
 					if (result == 0) {
 						$("#checkId").html('사용할 수 없는 아이디입니다.');
 						$("#checkId").attr('color', 'red');

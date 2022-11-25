@@ -16,6 +16,7 @@
 	2. if (101, 102, 104, 105, 115, 118, 119, 120, 128 ) 랑 같으면 
 	해당 번호를 api cid에다 붙이고 해당 장르 div를 생성 하는 구조
  -->
+<div id="search-result" class="book-container"></div>
 	<c:forEach items="${sessionScope.cid}" var="c">
 		<c:if test="${c eq '101'}">
 			<div class="book-container">
