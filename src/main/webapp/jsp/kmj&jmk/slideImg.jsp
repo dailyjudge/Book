@@ -13,8 +13,6 @@
 <script type="text/javascript" src="../../js/slide.js"></script>
 <link rel="stylesheet" href="../../css/slide.css">
 
-
-
 <link rel="stylesheet" type="text/css"
 	href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 <script

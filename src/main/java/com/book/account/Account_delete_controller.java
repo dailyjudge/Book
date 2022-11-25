@@ -1,4 +1,4 @@
-package com.book.usedBooks;
+package com.book.account;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,19 +7,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.book.account.AccountDAO;
-
-@WebServlet("/UsedBooks_detail_controller")
-public class UsedBooks_detail_controller extends HttpServlet {
+@WebServlet("/Account_delete_controller")
+public class Account_delete_controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// 회원 탈퇴 기능을 수행하는 일
+		AccountDAO.getAdao().deleteAccount(request);
+		
 		AccountDAO.getAdao().loginCheck(request);
-	
-		CommentDAO.showAllComment(request);
-		UsedBooksDAO.showContent(request);
 		
-		request.setAttribute("contentPage", "./jsp/jk/usedbooks_detail.jsp");
-		
+		request.setAttribute("contentPage", "jsp/kmj&jmk/slideImg.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 

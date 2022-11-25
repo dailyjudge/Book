@@ -61,6 +61,9 @@ public class CommentDAO {
 
 			}
 
+			for (Comment cc : comments) {
+				System.out.println(cc);
+			}
 			request.setAttribute("comments", comments);
 
 			return comments;
@@ -198,29 +201,201 @@ public class CommentDAO {
 
 	public static void updateComment(HttpServletRequest request) {
 		// 댓글 수정
-		
+
 		int no = Integer.parseInt(request.getParameter("no"));
 		String content = request.getParameter("content");
-		
+
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		
+
 		String sql = "update comment_table set c_content = ? where c_no = ?";
-		
+
 		try {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
-			
+
 			pstmt.setString(1, content);
 			pstmt.setInt(2, no);
-			
-			if(pstmt.executeUpdate() == 1) {
+
+			if (pstmt.executeUpdate() == 1) {
 				System.out.println("댓글 수정 완료");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			 DBManager.close(con, pstmt, null);
+			DBManager.close(con, pstmt, null);
+		}
+	}
+
+	public static JSONArray getAllReplyOfComment(HttpServletRequest request) {
+		// 댓글에 해당하는 번호를 받아 대댓글 뽑기
+
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		int no = Integer.parseInt(request.getParameter("no"));
+
+		System.out.println("컨트롤러 넘버 :  " + no);
+		
+		String sql = "select b_pic, r_author, u_no, r_commentNo, r_no, r_content, r_date from account, usedbooks_board, comment_table, replyOfComment where b_id = u_author and u_no = c_boardNo and c_no = r_commentNo and c_no = ? order by r_date desc";
+
+		try {
+
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+
+			pstmt.setInt(1, no);
+
+			rs = pstmt.executeQuery();
+
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+			JSONArray jArray = new JSONArray();
+			
+			HttpSession hs = request.getSession();
+			Account user = (Account) hs.getAttribute("accountInfo");
+			
+			String login_id = "";
+			
+			if(user == null) {
+				login_id = "null";
+			} else {
+				login_id = user.getB_id();
+			}
+			
+			while (rs.next()) {
+				String img = rs.getString("b_pic");
+				String id = rs.getString("r_author");
+				int boardNo = rs.getInt("u_no");
+				int commentNo = rs.getInt("r_commentNo");
+				int replyNo = rs.getInt("r_no");
+				String content = rs.getString("r_content");
+				Date date = rs.getTimestamp("r_date");
+
+				String formattedDate = sdf.format(date);
+
+				JSONObject obj = new JSONObject();
+				
+				System.out.println("id : " + id);
+				obj.put("id", id);
+				obj.put("boardNo", boardNo);
+				obj.put("commentNo", commentNo);
+				obj.put("replyNo", replyNo);
+				obj.put("content", content);
+				obj.put("date", formattedDate);
+				obj.put("img", img);
+				obj.put("loginId", login_id);
+				jArray.add(obj);
+			}
+
+			return jArray;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, pstmt, rs);
+		}
+		return null;
+	}
+
+	public static JSONObject regReply(HttpServletRequest request) {
+//		replyOfComment
+//				r_no number(5) primary key,
+//				r_author varchar(20 char) not null,
+//				r_commentNo number(5) not null,
+//				r_content varchar2(150 char) not null,
+//				r_date date not null
+			
+		int r_commentNo = Integer.parseInt(request.getParameter("no"));
+		String r_content = request.getParameter("content");
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "insert into replyOfComment values(replyOfComment_seq.nextval, ?, ?, ?, sysdate)";
+		// 1: user_id
+		// 2: commentNo
+		// 3: content
+		try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			
+			HttpSession hs = request.getSession();
+			Account a = (Account) hs.getAttribute("accountInfo");
+			
+			String r_author = a.getB_id();
+			
+			pstmt.setString(1, r_author);
+			pstmt.setInt(2, r_commentNo);
+			pstmt.setString(3, r_content);
+			
+			// 여기에 필요한 정보
+			// 고유 넘버, author 아이디, 이미지, 제목, 내용
+			JSONObject obj = new JSONObject();
+			if(pstmt.executeUpdate() == 1) {
+				System.out.println("댓글 추가 완료");
+				
+				sql = "select b_pic, b_id, u_no, r_commentNo, r_no, r_content, r_date from account, usedbooks_board, comment_table, replyOfComment where b_id = u_author and u_no = c_boardNo and c_no = r_commentNo and c_no = ? order by r_date desc";
+				
+				pstmt = con.prepareStatement(sql);
+				
+				pstmt.setInt(1, r_commentNo);
+				
+				rs = pstmt.executeQuery();
+				
+				rs.next();
+				int replyNo = rs.getInt("r_no");
+				String img = rs.getString("b_pic");
+				
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+				
+				Date date = rs.getTimestamp("r_date");
+
+				String formattedDate = sdf.format(date);
+				
+				
+				obj.put("replyNo", replyNo);
+				obj.put("img", img);
+				obj.put("author", r_author);
+				obj.put("commentNo", r_commentNo);
+				obj.put("content", r_content);
+				obj.put("date", formattedDate);
+			}
+			return obj;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, pstmt, null);
+		}
+		return null;
+	}
+
+	public static void delReply(HttpServletRequest request) {
+		// 대댓글을 삭제하는 일
+		// 대댓글 번호 입력 받음
+		
+		int no = Integer.parseInt(request.getParameter("no"));
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "delete replyOfComment where r_no = ?";
+		
+		try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, no);
+			
+			if(pstmt.executeUpdate() == 1) {
+				System.out.println("삭제 완료");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, pstmt, null);
 		}
 	}
 
