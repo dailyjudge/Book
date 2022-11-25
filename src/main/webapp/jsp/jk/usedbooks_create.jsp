@@ -24,18 +24,18 @@
                 <strong>게시글 등록</strong>
             </div>
             <div class="usedbooks-create-item">
-                <strong >제목</strong>
-                <input type="text" name="title">
+                <strong >제목</strong><br>
+                <input class="usedbooks-create-item-title" type="text" name="title">
             </div>
             
             <div class="usedbooks-create-item">
                 <strong>내용</strong><br>
-                <textarea name="content"></textarea>
+                <textarea class="usedbooks-create-textarea"name="content"></textarea>
             </div>
             
             <div class="usedbooks-create-item">
-                <strong >판매 가격</strong>
-                <input class="usedbooks-create-item-price" type="text" name="price">
+                <strong >판매 가격</strong><span>원</span><br>
+                <input class="usedbooks-create-item-price" type="number" name="price">
             </div>
             
             

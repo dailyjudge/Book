@@ -52,6 +52,32 @@ insert into comment_table values(comment_table_seq.nextval, 'test', 102, '테스
 
 select * from comment_table
 select * from account
+select * from comment_table where c_content = '테스트1';
+select c_no, c_author, c_boardNo, c_date, b_pic, c_content from account, usedbooks_board, comment_table
+where b_id = u_author and u_no = c_boardNo and c_boardNo = 141
 
-select c_no, c_author, c_boardNo, c_date, b_pic from account, usedbooks_board, comment_table
-where b_id = u_author and u_no = c_boardNo and c_boardNo = 102
+-- 고유키(넘버), 작성자, 게시글 번호, 댓글 번호, 대댓글 내용, 등록 시간
+create table replyOfComment (
+	r_no number(5) primary key,
+	r_author varchar(20 char) not null,
+	r_commentNo number(5) not null,
+	r_content varchar2(150 char) not null,
+	r_date date not null
+);
+
+drop table replyOfComment;
+create sequence replyOfComment_seq;
+
+insert into replyOfComment values(replyOfComment_seq.nextval, 'test', 241, '테스트3', sysdate);
+
+select * from account;
+select * from replyOfComment;
+select * from usedbooks_board;
+select * from comment_table;
+
+-- 회원 이미지, 회원 아이디, 게시글 번호, 댓글 번호, 대댓글 번호, 대댓글 내용, 등록 시간
+select b_pic, b_id, u_no, r_commentNo, r_no, r_content, r_date
+from account, usedbooks_board, comment_table, replyOfComment
+where b_id = u_author and u_no = c_boardNo and c_no = r_commentNo and c_no = 241
+
+

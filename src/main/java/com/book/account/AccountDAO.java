@@ -359,4 +359,34 @@ public class AccountDAO {
 		}
 	}
 
+	public void deleteAccount(HttpServletRequest request) {
+		// 계정 삭제
+		
+		String id = request.getParameter("id");
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "delete account Account where b_id = ?";
+		
+		try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, id);
+			
+			if(pstmt.executeUpdate() == 1) {
+				System.out.println("삭제 완료");
+				
+				// 로그인한 세션 삭제
+				HttpSession hs = request.getSession();
+				hs.removeAttribute("accountInfo");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, pstmt, null);
+		}
+	}
+
 }
