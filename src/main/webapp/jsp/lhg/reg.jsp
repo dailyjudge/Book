@@ -14,13 +14,14 @@
 <script>
 	function setThumbnail(event) {
 		let reader = new FileReader();
-
+		
 		reader.onload = function(event) {
+			$('#user-reg-image').remove();
 			let img = document.createElement("img");
-			console.log(event.target);
 			img.setAttribute("src", event.target.result);
 			img.setAttribute("width", "100%");
 			img.setAttribute("height", "100%");
+			img.setAttribute("id", "user-reg-image");
 			img.setAttribute("style", "border-radius: 50%");
 			$("#test-img").css("display", "none");
 			document.querySelector("div#image_container").appendChild(img);
@@ -87,7 +88,7 @@
 					src="https://cdn-icons-png.flaticon.com/128/7571/7571051.png"
 					alt="">
 				</label> <input onchange="setThumbnail(event);" type="file" name="file"
-					id="input-file" style="display: none;" />
+					id="input-file" style="display: none;" accept="image/gif, image/jpeg, image/png, image/jpg" />
 			</div>
 			<div>
 				<h6 class="reg-field">아이디</h6>

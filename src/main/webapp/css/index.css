@@ -385,3 +385,11 @@ body {
   width: 40px;
 }
  */
+.usedbooks-board-container {
+	border: 1px solid black;
+	display: flex;
+	font-size: 22px;
+	font-weight: 700;
+	justify-content: space-between;
+}
+
