@@ -159,3 +159,11 @@
 	background-color: #5f8d4e;
 	color: #f3f0d7;
 }
+
+.usedbooks-board-container-span1 {
+	visibility: hidden;
+}
+
+.review-container {
+	display: none;
+}
