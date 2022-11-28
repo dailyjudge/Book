@@ -145,6 +145,7 @@ public class AccountDAO {
 					hs.setAttribute("accountInfo", a);
 					ArrayList<String> cids = new ArrayList<String>();
 					String[] arr = rs.getString("b_likes").split(" ");
+<<<<<<< HEAD
 					// 101 102 103 104
 					String like = "";
 					for (String ll : arr) {
@@ -161,7 +162,14 @@ public class AccountDAO {
 					}
 					
 					for (int i = 0; i < arr.length; i++) {
+=======
+					
+					for(int i=0 ; i<arr.length; i++) {
+>>>>>>> fd117764292edf116415e91e409f094be706a8fb
 						System.out.println(arr[i]);
+						
+						
+						
 						cids.add(arr[i]);
 					}
 
@@ -370,6 +378,36 @@ public class AccountDAO {
 			e.printStackTrace();
 		} finally {
 			DBManager.close(con, pstmt, rs);
+		}
+	}
+
+	public void deleteAccount(HttpServletRequest request) {
+		// 계정 삭제
+		
+		String id = request.getParameter("id");
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		String sql = "delete account Account where b_id = ?";
+		
+		try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, id);
+			
+			if(pstmt.executeUpdate() == 1) {
+				System.out.println("삭제 완료");
+				
+				// 로그인한 세션 삭제
+				HttpSession hs = request.getSession();
+				hs.removeAttribute("accountInfo");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, pstmt, null);
 		}
 	}
 

@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="css/user_info.css">
+<script type="text/javascript" src="js/account.js"></script>
 </head>
 <body>
         <div class="myPage-container">
@@ -35,7 +36,7 @@
                     
                 <div class="myPage-field myPage-additional">
                     <a href="Update_info_controller">정보 수정</a>
-                    <a href="Delete_info_controller">회원 탈퇴</a>
+                    <a onclick="delete_account('${sessionScope.accountInfo.b_id}')">회원 탈퇴</a>
                 </div>
             </div>
         </div>

@@ -16,8 +16,7 @@ public class Id_check extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("EUC-KR");
+		response.setCharacterEncoding("utf-8");
 					
 		String userId = request.getParameter("userId");
 
