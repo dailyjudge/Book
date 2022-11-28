@@ -12,9 +12,10 @@ import com.book.account.AccountDAO;
 @WebServlet("/User_info_controller")
 public class User_info_controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	AccountDAO.getAdao().loginCheck(request);
-	request.setAttribute("contentPage", "jsp/lhg/User_info.jsp");
-	request.getRequestDispatcher("index.jsp").forward(request, response);
+	if (AccountDAO.getAdao().loginCheck(request)) {
+		request.setAttribute("contentPage", "jsp/lhg/User_info.jsp");
+		request.getRequestDispatcher("index.jsp").forward(request, response);		
+	}
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
