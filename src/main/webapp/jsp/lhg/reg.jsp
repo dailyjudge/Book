@@ -109,12 +109,8 @@ pageEncoding="UTF-8"%>
           <input type="text" name="id" class="input_id" />
           <img
             class="reg-questionMark"
-            <input
-            class="input_id"
-            name="id"
-            type="text"
+            src="assets/questionMark.png"
           />
-          <img class="reg-questionMark" alt="" src="assets/questionMark.png" />
           <font id="checkId" size="2"></font>
         </div>
         <div>
