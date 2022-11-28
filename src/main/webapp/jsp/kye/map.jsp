@@ -15,7 +15,9 @@
 <body>
 	<div class="map-container">
 		<div id="map" style="width: 65%; height: 500px;"></div>
-		<div id="list-all"><h2 style="color: #f3f0d7">가까운서점</h2></div>
+		<div id="list-all">
+			<h2 style="color: #f3f0d7">가까운서점</h2>
+		</div>
 	</div>
 
 
@@ -88,7 +90,8 @@
               });
 
               var content =
-                sns != null ? 
+               
+            	  sns != null ? 
                 	'<div class="wrap">' +
                     '    <div class="info">' +
                     '        <div class="title">' +
@@ -118,7 +121,7 @@
                     '    <div class="info">' +
                     '        <div class="title">' +
                     name +
-                    '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' +
+                    '        <div class="close" onclick="closeOverlay()" title="닫기"></div>' +
                     "        </div>" +
                     '        <div class="body">' +
                     '            <div class="desc">' +
@@ -134,6 +137,9 @@
                     "    </div>" +
                     "</div>"
 
+                    
+                    
+                    
               kakao.maps.event.addListener(marker, "click", function () {
                 overlay = new kakao.maps.CustomOverlay({
                   content: content,

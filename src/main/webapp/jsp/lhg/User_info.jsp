@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="css/user_info.css">
 <script type="text/javascript" src="js/account.js"></script>
 </head>
-<body>    
+<body>
         <div class="myPage-container">
             <div class="myPage">
                 <h3>마이페이지</h3>

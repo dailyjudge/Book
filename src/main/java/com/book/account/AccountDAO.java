@@ -49,7 +49,7 @@ public class AccountDAO {
 		String email = mr.getParameter("email");
 		String pw = mr.getParameter("pw");
 		String likes[] = mr.getParameterValues("chk");
-		
+
 		String textcheck = new String();
 
 		System.out.println("값 받기 완료");
@@ -89,7 +89,7 @@ public class AccountDAO {
 
 		HttpSession hs = request.getSession();
 		Account a = (Account) hs.getAttribute("accountInfo");
-		
+
 		if (a == null) {
 			request.setAttribute("checkNull", "1");
 			request.setAttribute("loginPage", "jsp/lhg/login.jsp");
@@ -111,12 +111,12 @@ public class AccountDAO {
 		String userPW = request.getParameter("pw");
 		String id2 = (String) request.getAttribute("id2");
 		String pw2 = (String) request.getAttribute("pw2");
-		
-		if (id2!=null) {
+
+		if (id2 != null) {
 			userID = id2;
 			userPW = pw2;
 		}
-		
+
 		try {
 			con = DBManager.connect();
 			String sql = "select *from Account where b_id=?";
@@ -135,7 +135,7 @@ public class AccountDAO {
 					a.setB_email(rs.getString("b_email"));
 					a.setB_pw(rs.getString("b_pw"));
 					String likes = rs.getString("b_likes");
-					likes = likes.replace("!", "&nbsp;");
+					//likes = likes.replace("!", "&nbsp;");
 					a.setB_likes(likes);
 					a.setB_pic(rs.getString("b_pic"));
 
@@ -144,14 +144,37 @@ public class AccountDAO {
 					HttpSession hs = request.getSession();
 					hs.setAttribute("accountInfo", a);
 					ArrayList<String> cids = new ArrayList<String>();
-					
 					String[] arr = rs.getString("b_likes").split(" ");
+<<<<<<< HEAD
+					// 101 102 103 104
+					String like = "";
+					for (String ll : arr) {
+						like += ll + " ";
+						like.replace("101", "소설");
+						like.replace("102", "시/에세이");
+						like.replace("104", "사회과학");
+						like.replace("105", "역사와 문화");
+						like.replace("115", "국어/외국어");
+						like.replace("118", "자기계발");
+						like.replace("119", "인문");
+						like.replace("120", "종교/역학");
+						like.replace("128", "여행");
+					}
+					
+					for (int i = 0; i < arr.length; i++) {
+=======
+					
 					for(int i=0 ; i<arr.length; i++) {
+>>>>>>> fd117764292edf116415e91e409f094be706a8fb
 						System.out.println(arr[i]);
+						
+						
+						
 						cids.add(arr[i]);
 					}
+
 					hs.setAttribute("cid", cids);
-					
+
 					hs.setMaxInactiveInterval(60 * 100);
 
 				} else {
@@ -185,6 +208,7 @@ public class AccountDAO {
 		String name = mr.getParameter("name");
 		String email = mr.getParameter("email");
 		String pw = mr.getParameter("pw");
+		String oldpw = mr.getParameter("oldpw");
 		String check[] = mr.getParameterValues("chk");
 		String textcheck = new String();
 		if (check != null) {
@@ -202,7 +226,11 @@ public class AccountDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, name);
 			pstmt.setString(2, email);
-			pstmt.setString(3, pw);
+			if (pw == null || pw.isEmpty()) {
+				pstmt.setString(3, oldpw);
+			} else {
+				pstmt.setString(3, pw);
+			}
 			pstmt.setString(4, textcheck);
 
 			if (newfile == null) {
@@ -233,6 +261,7 @@ public class AccountDAO {
 			return 0;
 		}
 	}
+
 	public int checkId(String id) {
 		String sql = "select * from Account where b_id=?";
 		Connection con = null;
@@ -303,8 +332,6 @@ public class AccountDAO {
 
 	public void findId(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
 		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("EUC-KR");
-
 		String name = request.getParameter("name");
 		String sql = "select * from Account where b_name=?";
 		Connection con = null;
