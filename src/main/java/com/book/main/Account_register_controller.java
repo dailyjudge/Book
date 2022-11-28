@@ -27,6 +27,7 @@ public class Account_register_controller extends HttpServlet {
 			throws ServletException, IOException {
 		a.regAccount(request, response);
 		request.setAttribute("loginPage", "jsp/lhg/login.jsp");
+		SlideShow.post(request);
 		request.setAttribute("contentPage", "jsp/kmj&jmk/slideImg.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 		}

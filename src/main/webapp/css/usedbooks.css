@@ -158,8 +158,10 @@
   color: #f3f0d7;
 }
 
-.comment-container {
-  background-color: #f3f0d7;
-  border: 5px double #00541a;
-  font-family: "MapoFlowerIsland";
+.usedbooks-board-container-span1 {
+  visibility: hidden;
+}
+
+.review-container {
+  display: none;
 }
