@@ -193,7 +193,6 @@ public class AccountDAO {
 		String textcheck = new String();
 		if (check != null) {
 			for (int i = 0; i < check.length; i++) {
-				
 				textcheck += check[i] + " ";
 			}
 		} else {
