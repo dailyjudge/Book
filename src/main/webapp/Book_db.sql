@@ -47,8 +47,8 @@ create table comment_table (
 
 create sequence comment_table_seq;
 
-insert into comment_table values(comment_table_seq.nextval, 'test', 102, '테스트 1번', sysdate);
-insert into comment_table values(comment_table_seq.nextval, 'test', 102, '테스트 2번', sysdate);
+insert into comment_table values(comment_table_seq.nextval, 'test', 21, '테스트 1번', sysdate);
+insert into comment_table values(comment_table_seq.nextval, 'test', 21, '테스트 2번', sysdate);
 
 select * from comment_table
 select * from account
@@ -68,7 +68,7 @@ create table replyOfComment (
 drop table replyOfComment;
 create sequence replyOfComment_seq;
 
-insert into replyOfComment values(replyOfComment_seq.nextval, 'test', 241, '테스트3', sysdate);
+insert into replyOfComment values(replyOfComment_seq.nextval, 'test', 22, '테스트3', sysdate);
 
 select * from account;
 select * from replyOfComment;
