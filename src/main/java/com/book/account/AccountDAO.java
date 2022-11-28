@@ -146,6 +146,7 @@ public class AccountDAO {
 					ArrayList<String> cids = new ArrayList<String>();
 					String[] arr = rs.getString("b_likes").split(" ");
 					// 101 102 103 104
+					
 					String like = "";
 					for (String ll : arr) {
 						like += ll + " ";
@@ -161,11 +162,7 @@ public class AccountDAO {
 					}
 					
 					for (int i = 0; i < arr.length; i++) {
-					
 						System.out.println(arr[i]);
-						
-						
-						
 						cids.add(arr[i]);
 					}
 

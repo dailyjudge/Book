@@ -111,7 +111,6 @@ pageEncoding="UTF-8"%>
             class="reg-questionMark"
             src="assets/questionMark.png"
           />
-          <img class="reg-questionMark" alt="" src="assets/questionMark.png" />
           <font id="checkId" size="2"></font>
         </div>
         <div>
