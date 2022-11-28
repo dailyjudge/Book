@@ -22,7 +22,10 @@
 <body>
 
 	<div class="usedbooks-header-container">
-		<h2>중고 서적 게시판</h2>
+		<div class="usedbooks-board-container">
+			<span class="usedbooks-board-container-span1">중고 서적 게시판</span>
+			<span class="usedbooks-board-container-span2">후기 게시판</span>		
+		</div>
 		<button onclick="createContent()" class="usedbooks-header-button">중고
 			서적 등록하기</button>
 	</div>
@@ -42,6 +45,9 @@
 			</div>
 		</div>
 	</c:forEach>
-
+	
+	<div class="review-container">
+		아아아아아아
+	</div>
 </body>
 </html>

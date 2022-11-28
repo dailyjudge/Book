@@ -86,23 +86,28 @@
 	color: white;
 	font-weight: 600;
 	border: none;
+	cursor: pointer;
 }
 
 .reg-questionMark {
 	width:15px;
 	height: 15px;
+	cursor: pointer;
 }
 .reg-questionMark2 {
 	width:15px;
 	height: 15px;
+	cursor: pointer;
 }
 .reg-questionMark3 {
 	width:15px;
 	height: 15px;
+	cursor: pointer;
 }
 .reg-questionMark4 {
 	width:15px;
 	height: 15px;
+	cursor: pointer;
 }
 .user-rule-field {
     border-radius: 30px;

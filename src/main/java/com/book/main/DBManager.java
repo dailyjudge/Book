@@ -12,8 +12,6 @@ public static Connection connect() throws SQLException {
 	String url = "jdbc:oracle:thin:@localhost:1521:xe";
 	return DriverManager.getConnection(url, "c##hg", "hg");
 
-
-
 }
 // db.close(con,pstmt,rs)
 public static void close(Connection con, PreparedStatement pstmt, ResultSet rs) {

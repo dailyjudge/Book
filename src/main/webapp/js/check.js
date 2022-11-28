@@ -6,8 +6,9 @@ function call() {
 	let email = document.myForm.email;
 	let filecheck = document.getElementById("input-file").value;	
 	
+	
 	if(!filecheck){
-		alert("파일을 첨부해주세요!");
+		alert(" 첨부해주세요!");
 		return false;
 	}
 		
@@ -57,7 +58,7 @@ function call() {
 		alert("사진을 첨부해주세요!");
 		return false;
 	}
-
+	
 	return true;
 }
 
