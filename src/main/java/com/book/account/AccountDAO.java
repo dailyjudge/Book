@@ -61,9 +61,9 @@ public class AccountDAO {
 		} else {
 			textcheck = "관심사 없음";
 		}
-
-		String pic = mr.getFilesystemName("file");
-
+		String basicPic = mr.getParameter("basicPic");
+		String newpic = mr.getFilesystemName("file");
+		
 		try {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
@@ -73,9 +73,13 @@ public class AccountDAO {
 			pstmt.setString(3, email);
 			pstmt.setString(4, pw);
 			pstmt.setString(5, textcheck);
-			pstmt.setString(6, pic);
-
+			if (newpic == null||newpic.isEmpty()) {
+				pstmt.setString(6, basicPic);
+			} else {
+				pstmt.setString(6, newpic);
+			}
 			if (pstmt.executeUpdate() == 1) {
+				request.setAttribute("r", "회원 가입 성공");
 			} else {
 			}
 		} catch (SQLException e) {
@@ -161,11 +165,7 @@ public class AccountDAO {
 						like.replace("128", "여행");
 					}
 					
-<<<<<<< HEAD
-					for(int i=0 ; i<arr.length; i++) {
-=======
 					for (int i = 0; i < arr.length; i++) {
->>>>>>> 45fcb75d5b2de991eb8bb32b09c5e6c41f6b2477
 						System.out.println(arr[i]);
 						cids.add(arr[i]);
 					}
