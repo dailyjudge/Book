@@ -11,11 +11,8 @@ public static Connection connect() throws SQLException {
 	
 	String url = "jdbc:oracle:thin:@localhost:1521:xe";
 
-<<<<<<< HEAD
-	return DriverManager.getConnection(url, "c##hg", "hg");
-=======
+
 	return DriverManager.getConnection(url, "c##kye", "kye");
->>>>>>> fd117764292edf116415e91e409f094be706a8fb
 
 
 }

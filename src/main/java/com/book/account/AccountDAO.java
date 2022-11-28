@@ -145,7 +145,6 @@ public class AccountDAO {
 					hs.setAttribute("accountInfo", a);
 					ArrayList<String> cids = new ArrayList<String>();
 					String[] arr = rs.getString("b_likes").split(" ");
-<<<<<<< HEAD
 					// 101 102 103 104
 					String like = "";
 					for (String ll : arr) {
@@ -162,10 +161,7 @@ public class AccountDAO {
 					}
 					
 					for (int i = 0; i < arr.length; i++) {
-=======
 					
-					for(int i=0 ; i<arr.length; i++) {
->>>>>>> fd117764292edf116415e91e409f094be706a8fb
 						System.out.println(arr[i]);
 						
 						

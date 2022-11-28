@@ -81,3 +81,20 @@ from account, usedbooks_board, comment_table, replyOfComment
 where b_id = u_author and u_no = c_boardNo and c_no = r_commentNo and c_no = 241
 
 
+
+--고유키(번호), 작성자,리뷰 제목, 리뷰 내용,리뷰 이미지, 리뷰 작성일
+create table review_board(
+	rv_no number(5) primary key,
+	rv_author varchar2(20 char) not null,
+	rv_title varchar2(20 char)not null,
+	rv_content varchar2(300 char)not null,
+	rv_img varchar2(200 char)not null,
+	rv_date date not null
+);
+
+create sequence review_board_seq;
+
+
+
+insert into review_board values(review_board.seq.nextval,'ㅇㅇ','제목1','내용1','img1',sysdate);
+insert into review_board values(review_board.seq.nextval,'rr','제목2','내용2','img2',sysdate);
