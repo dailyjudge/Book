@@ -244,7 +244,19 @@ public class AccountDAO {
 			DBManager.close(con, pstmt, null);
 		}
 	}
-
+	public boolean checkCids(HttpServletRequest request) {
+		HttpSession hs = request.getSession();
+		ArrayList<String> cids = (ArrayList<String>) hs.getAttribute("cid");
+		
+		System.out.println(cids.get(0));
+		if(cids.get(0).equals("관심사")) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+	
 	public int updateCheck(HttpServletRequest request) {
 		Account a = (Account) request.getSession().getAttribute("accountInfo");
 
@@ -305,6 +317,7 @@ public class AccountDAO {
 				String title = rs.getString("u_title");
 				String content = rs.getString("u_content");
 				String img = rs.getString("u_img");
+				System.out.println(img);
 				int price = rs.getInt("u_price");
 				Date date = rs.getDate("u_date");
 
