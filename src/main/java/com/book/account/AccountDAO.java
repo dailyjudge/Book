@@ -175,10 +175,10 @@ public class AccountDAO {
 					hs.setMaxInactiveInterval(60 * 100);
 
 				} else {
-					request.setAttribute("r", "비밀번호 오류");
+					System.out.println("로그인 -- 비밀번호 오류");
 				}
 			} else {
-				request.setAttribute("r", "존재하지 않는 회원");
+				System.out.println("로그인 -- 존재하지 않는 회원");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -201,6 +201,7 @@ public class AccountDAO {
 		mr = new MultipartRequest(request, path, 30 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
 
 		Account a = (Account) request.getSession().getAttribute("accountInfo");
+		
 		String id = mr.getParameter("id");
 		String name = mr.getParameter("name");
 		String email = mr.getParameter("email");
@@ -208,6 +209,7 @@ public class AccountDAO {
 		String oldpw = mr.getParameter("oldpw");
 		String check[] = mr.getParameterValues("chk");
 		String textcheck = new String();
+		
 		if (check != null) {
 			for (int i = 0; i < check.length; i++) {
 				textcheck += check[i] + " ";
@@ -368,7 +370,14 @@ public class AccountDAO {
 
 			if (rs.next()) {
 				String pw = rs.getString("b_pw");
-				request.setAttribute("pw", pw);
+				int len = pw.length();
+				
+				String maskedPassword = "";
+				
+				for(int i = 0; i < pw.length(); i++) 
+					maskedPassword = i < len / 2 ? maskedPassword + pw.charAt(i) : maskedPassword + "*";
+				
+				request.setAttribute("pw", maskedPassword);
 			}
 
 		} catch (SQLException e) {
