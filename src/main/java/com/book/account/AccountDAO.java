@@ -3,6 +3,7 @@ package com.book.account;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,13 +17,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.book.main.DBManager;
-import com.book.main.SlideShow;
 import com.book.usedBooks.BoardBean;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class AccountDAO {
 
+	private ArrayList<BoardBean> boards;
 	private static final AccountDAO ADAO = new AccountDAO();
 
 	private AccountDAO() {
@@ -138,32 +139,46 @@ public class AccountDAO {
 					a.setB_name(rs.getString("b_name"));
 					a.setB_email(rs.getString("b_email"));
 					a.setB_pw(rs.getString("b_pw"));
+					a.setB_pic(rs.getString("b_pic"));
+					
+					
 					String likes = rs.getString("b_likes");
 					//likes = likes.replace("!", "&nbsp;");
+					String[] arr = rs.getString("b_likes").split(" ");
+					// 101 102 103 104
+					for (int i = 0; i < arr.length; i++) {
+						if(arr[i].equals("101")) {
+							likes = likes.replace("101", "[소설] ||");
+							
+						}else if(arr[i].equals("102")) {
+							likes = likes.replace("102", "[시/에세이]");
+							
+						}else if(arr[i].equals("104")) {
+							likes = likes.replace("104", "[사회과학]");
+						}else if(arr[i].equals("105")) {
+							likes = likes.replace("105", "[역사와 문화]");
+						}else if(arr[i].equals("115")) {
+							likes = likes.replace("115", "[국어/외국어]");
+						}else if(arr[i].equals("118")) {
+							likes = likes.replace("118", "[자기계발]");
+						}else if(arr[i].equals("119")) {
+							likes = likes.replace("119", "[인문]" );
+						}else if(arr[i].equals("120")) {
+							likes = likes.replace("120", "[종교/역학]");
+						}else if(arr[i].equals("128")){
+							likes = likes.replace("128", "[여행]");
+						}
+					}
+					System.out.println("분리된 likes : " + likes);
 					a.setB_likes(likes);
-					a.setB_pic(rs.getString("b_pic"));
+					
 
 					request.setAttribute("account", a);
 
 					HttpSession hs = request.getSession();
 					hs.setAttribute("accountInfo", a);
 					ArrayList<String> cids = new ArrayList<String>();
-					String[] arr = rs.getString("b_likes").split(" ");
-					// 101 102 103 104
 					
-					String like = "";
-					for (String ll : arr) {
-						like += ll + " ";
-						like.replace("101", "소설");
-						like.replace("102", "시/에세이");
-						like.replace("104", "사회과학");
-						like.replace("105", "역사와 문화");
-						like.replace("115", "국어/외국어");
-						like.replace("118", "자기계발");
-						like.replace("119", "인문");
-						like.replace("120", "종교/역학");
-						like.replace("128", "여행");
-					}
 					
 					for (int i = 0; i < arr.length; i++) {
 						System.out.println(arr[i]);
@@ -248,7 +263,19 @@ public class AccountDAO {
 			DBManager.close(con, pstmt, null);
 		}
 	}
-
+	public boolean checkCids(HttpServletRequest request) {
+		HttpSession hs = request.getSession();
+		ArrayList<String> cids = (ArrayList<String>) hs.getAttribute("cid");
+		
+		System.out.println(cids.get(0));
+		if(cids.get(0).equals("관심사")) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+	
 	public int updateCheck(HttpServletRequest request) {
 		Account a = (Account) request.getSession().getAttribute("accountInfo");
 
@@ -301,7 +328,7 @@ public class AccountDAO {
 			rs = pstmt.executeQuery();
 
 			BoardBean b = null;
-			ArrayList<BoardBean> boards = new ArrayList<>();
+			boards = new ArrayList<BoardBean>();
 
 			while (rs.next()) {
 				int no = rs.getInt("u_no");
@@ -309,6 +336,7 @@ public class AccountDAO {
 				String title = rs.getString("u_title");
 				String content = rs.getString("u_content");
 				String img = rs.getString("u_img");
+				System.out.println(img);
 				int price = rs.getInt("u_price");
 				Date date = rs.getDate("u_date");
 
@@ -407,5 +435,27 @@ public class AccountDAO {
 			DBManager.close(con, pstmt, null);
 		}
 	}
-
+	
+	public void paging(int page, HttpServletRequest request) {
+		request.setAttribute("curPageNo", page);
+		
+		int cnt = 4;
+		int total = boards.size();
+		System.out.println(total);
+		
+		int pageCount = (int) Math.ceil(((double)total/cnt));
+		
+		request.setAttribute("pageCount", pageCount);
+		
+		int start = total - (cnt *(page - 1));
+		int end = (page == pageCount) ? -1 : start - (cnt +1);
+		
+		ArrayList<BoardBean> items = new ArrayList<BoardBean>();
+		for(int i=start-1; i> end; i--) {
+			items.add(boards.get(i));
+		}
+		
+		request.setAttribute("boards", items);
+		
+	}
 }

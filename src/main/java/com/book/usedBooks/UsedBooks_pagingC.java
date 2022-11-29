@@ -9,21 +9,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.book.account.AccountDAO;
 
-@WebServlet("/UsedBooks_delete_controller")
-public class UsedBooks_delete_controller extends HttpServlet {
-
-	
+@WebServlet("/UsedBooks_pagingC")
+public class UsedBooks_pagingC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		// 가서 삭제해라
-		UsedBooksDAO.deleteBoard(request);
-		
+		int p = Integer.parseInt(request.getParameter("p"));
 		AccountDAO.getAdao().getAllContents(request);
-		AccountDAO.getAdao().paging(1, request);
-
+		AccountDAO.getAdao().paging(p, request);
+		
 		AccountDAO.getAdao().loginCheck(request);
 		request.setAttribute("contentPage", "./jsp/jk/usedbooks.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
+		
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
