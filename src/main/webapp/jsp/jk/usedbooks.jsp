@@ -23,11 +23,13 @@
 
 	<div class="usedbooks-header-container">
 		<div class="usedbooks-board-container">
-			<span class="usedbooks-board-container-span1">중고 서적 게시판</span>
-			<span class="usedbooks-board-container-span2">후기 게시판</span>		
+			<span class="usedbooks-board-container-span1">중고 서적 게시판</span> <span
+				class="usedbooks-board-container-span2">후기 게시판</span>
 		</div>
-		<button onclick="createContent()" class="usedbooks-header-button">중고
-			서적 등록하기</button>
+		<c:if test="${sessionScope.accountInfo.b_id != null }">
+			<button onclick="createContent()" class="usedbooks-header-button">중고
+				서적 등록하기</button>
+		</c:if>
 	</div>
 	<c:forEach var="i" items="${boards }">
 		<div class="usedbooks-container">
@@ -45,9 +47,5 @@
 			</div>
 		</div>
 	</c:forEach>
-	
-	<div class="review-container">
-		아아아아아아
-	</div>
 </body>
 </html>

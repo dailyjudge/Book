@@ -21,6 +21,8 @@
 <script type="text/javascript" src="js/delCheck.js"></script>
 <script type="text/javascript" src="js/slide.js"></script>
 <script type="text/javascript" src="js/review.js"></script>
+<script type="text/javascript" src="js/usedbooks.js"></script>
+<script type="text/javascript" src="js/reply.js"></script>
 <link rel="stylesheet" href="css/slide.css">
 <link rel="stylesheet" href="css/comment.css">
 
