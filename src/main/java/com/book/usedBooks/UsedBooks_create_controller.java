@@ -24,6 +24,8 @@ public class UsedBooks_create_controller extends HttpServlet {
 		if (AccountDAO.getAdao().loginCheck(request)) {
 			UsedBooksDAO.regBoard(request);
 			AccountDAO.getAdao().getAllContents(request);
+			AccountDAO.getAdao().paging(1, request);
+
 			request.setAttribute("contentPage", "./jsp/jk/usedbooks.jsp");
 			request.getRequestDispatcher("index.jsp").forward(request, response);			
 		}

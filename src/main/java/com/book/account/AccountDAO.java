@@ -3,6 +3,7 @@ package com.book.account;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,6 +24,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class AccountDAO {
 
+	private ArrayList<BoardBean> boards;
 	private static final AccountDAO ADAO = new AccountDAO();
 
 	private AccountDAO() {
@@ -309,7 +311,7 @@ public class AccountDAO {
 			rs = pstmt.executeQuery();
 
 			BoardBean b = null;
-			ArrayList<BoardBean> boards = new ArrayList<>();
+			boards = new ArrayList<BoardBean>();
 
 			while (rs.next()) {
 				int no = rs.getInt("u_no");
@@ -416,5 +418,27 @@ public class AccountDAO {
 			DBManager.close(con, pstmt, null);
 		}
 	}
-
+	
+	public void paging(int page, HttpServletRequest request) {
+		request.setAttribute("curPageNo", page);
+		
+		int cnt = 4;
+		int total = boards.size();
+		System.out.println(total);
+		
+		int pageCount = (int) Math.ceil(((double)total/cnt));
+		
+		request.setAttribute("pageCount", pageCount);
+		
+		int start = total - (cnt *(page - 1));
+		int end = (page == pageCount) ? -1 : start - (cnt +1);
+		
+		ArrayList<BoardBean> items = new ArrayList<BoardBean>();
+		for(int i=start-1; i> end; i--) {
+			items.add(boards.get(i));
+		}
+		
+		request.setAttribute("boards", items);
+		
+	}
 }

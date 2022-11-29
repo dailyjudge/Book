@@ -207,3 +207,11 @@
 	width: 180px;
 	height: 200px;
 }
+.paging-icon{
+	width: 50px;
+	height: 50px;
+}
+.paging-icon:hover {
+	width: 60px;
+	height: 60px;
+}
