@@ -11,15 +11,16 @@
 <link rel="stylesheet" href="css/index.css" />
 <link rel="stylesheet"
 	href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css" />
-<script src="js/check.js"></script>
 </head>
 <body>
 	<div class="login-container">
 		<h1>로그인</h1>
-		<form class="login-form" name="login-form" action="Login_controller"
-			method="post" onsubmit="return login()">
-			<input type="text" name="id" placeholder="아이디"> <input
-				type="password" name="pw" placeholder="패스워드">
+		<form class="login-form" action="Login_controller" method="post"
+			onsubmit="return loginCheck()" name="myForm">
+			<input type="text" name="id" id="id" class="input_id"
+				placeholder="아이디"> <font id="checkId" size="2"></font> <input
+				type="password" name="pw" id="pw" class="input_pw"
+				placeholder="패스워드"> <font id="checkPw" size="2"></font>
 			<div class="button_area">
 				<button>로그인</button>
 			</div>
@@ -40,5 +41,55 @@
 				오셨나요?</a>
 		</div>
 	</div>
+	<script>
+		$(".input_id").focusout(function() {
+			let userId = $(".input_id").val();
+			$.ajax({
+				url : "Id_check",
+				type : "post",
+				data : {
+					userId : userId,
+				},
+				success : function(result) {
+					console.log(result);
+					if (result == 0) {
+						$("#checkId").html("아이디가 확인되었습니다.");
+						$("#checkId").attr("color", "green");
+					} else {
+						$("#checkId").html("아이디가 확인되지 않았습니다.");
+						$("#checkId").attr("color", "red");
+					}
+				},
+				error : function() {
+					alert("서버 요청 실패");
+				},
+			});
+		});
+
+		$(".input_pw").focusout(function() {
+			let userId = $(".input_id").val();
+			let userPw = $(".input_pw").val();
+			$.ajax({
+				url : "Login_check",
+				type : "post",
+				data : {
+					userId : userId,
+					userPw : userPw,
+				},
+				success : function(result) {
+					console.log(result);
+					if (result == 0) {
+						$("#checkPw").html("비밀번호가 확인되었습니다.");
+						$("#checkPw").attr("color", "green");
+					} else {
+						alert('비밀번호가 맞지 않습니다.')
+					}
+				},
+				error : function() {
+					alert("서버 요청 실패");
+				},
+			});
+		});
+	</script>
 </body>
 </html>

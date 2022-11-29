@@ -3,6 +3,7 @@ package com.book.account;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,13 +17,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.book.main.DBManager;
-import com.book.main.SlideShow;
 import com.book.usedBooks.BoardBean;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class AccountDAO {
 
+	private ArrayList<BoardBean> boards;
 	private static final AccountDAO ADAO = new AccountDAO();
 
 	private AccountDAO() {
@@ -63,7 +64,7 @@ public class AccountDAO {
 		}
 		String basicPic = mr.getParameter("basicPic");
 		String newpic = mr.getFilesystemName("file");
-		
+
 		try {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
@@ -73,7 +74,7 @@ public class AccountDAO {
 			pstmt.setString(3, email);
 			pstmt.setString(4, pw);
 			pstmt.setString(5, textcheck);
-			if (newpic == null||newpic.isEmpty()) {
+			if (newpic == null || newpic.isEmpty()) {
 				pstmt.setString(6, basicPic);
 			} else {
 				pstmt.setString(6, newpic);
@@ -138,10 +139,40 @@ public class AccountDAO {
 					a.setB_name(rs.getString("b_name"));
 					a.setB_email(rs.getString("b_email"));
 					a.setB_pw(rs.getString("b_pw"));
-					String likes = rs.getString("b_likes");
-					//likes = likes.replace("!", "&nbsp;");
-					a.setB_likes(likes);
 					a.setB_pic(rs.getString("b_pic"));
+					
+					
+					String likes = rs.getString("b_likes");
+					// likes = likes.replace("!", "&nbsp;");
+					//likes = likes.replace("!", "&nbsp;");
+					String[] arr = rs.getString("b_likes").split(" ");
+					// 101 102 103 104
+					for (int i = 0; i < arr.length; i++) {
+						if(arr[i].equals("101")) {
+							likes = likes.replace("101", "[소설] ||");
+							
+						}else if(arr[i].equals("102")) {
+							likes = likes.replace("102", "[시/에세이]");
+							
+						}else if(arr[i].equals("104")) {
+							likes = likes.replace("104", "[사회과학]");
+						}else if(arr[i].equals("105")) {
+							likes = likes.replace("105", "[역사와 문화]");
+						}else if(arr[i].equals("115")) {
+							likes = likes.replace("115", "[국어/외국어]");
+						}else if(arr[i].equals("118")) {
+							likes = likes.replace("118", "[자기계발]");
+						}else if(arr[i].equals("119")) {
+							likes = likes.replace("119", "[인문]" );
+						}else if(arr[i].equals("120")) {
+							likes = likes.replace("120", "[종교/역학]");
+						}else if(arr[i].equals("128")){
+							likes = likes.replace("128", "[여행]");
+						}
+					}
+					System.out.println("분리된 likes : " + likes);
+					a.setB_likes(likes);
+					
 
 					request.setAttribute("account", a);
 
@@ -150,7 +181,7 @@ public class AccountDAO {
 					ArrayList<String> cids = new ArrayList<String>();
 					String[] arr = rs.getString("b_likes").split(" ");
 					// 101 102 103 104
-					
+
 					String like = "";
 					for (String ll : arr) {
 						like += ll + " ";
@@ -164,6 +195,7 @@ public class AccountDAO {
 						like.replace("120", "종교/역학");
 						like.replace("128", "여행");
 					}
+
 					
 					for (int i = 0; i < arr.length; i++) {
 						System.out.println(arr[i]);
@@ -175,10 +207,10 @@ public class AccountDAO {
 					hs.setMaxInactiveInterval(60 * 100);
 
 				} else {
-					request.setAttribute("r", "비밀번호 오류");
+					System.out.println("로그인 -- 비밀번호 오류");
 				}
 			} else {
-				request.setAttribute("r", "존재하지 않는 회원");
+				System.out.println("로그인 -- 존재하지 않는 회원");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -201,6 +233,7 @@ public class AccountDAO {
 		mr = new MultipartRequest(request, path, 30 * 1024 * 1024, "utf-8", new DefaultFileRenamePolicy());
 
 		Account a = (Account) request.getSession().getAttribute("accountInfo");
+		
 		String id = mr.getParameter("id");
 		String name = mr.getParameter("name");
 		String email = mr.getParameter("email");
@@ -208,6 +241,7 @@ public class AccountDAO {
 		String oldpw = mr.getParameter("oldpw");
 		String check[] = mr.getParameterValues("chk");
 		String textcheck = new String();
+		
 		if (check != null) {
 			for (int i = 0; i < check.length; i++) {
 				textcheck += check[i] + " ";
@@ -248,7 +282,19 @@ public class AccountDAO {
 			DBManager.close(con, pstmt, null);
 		}
 	}
-
+	public boolean checkCids(HttpServletRequest request) {
+		HttpSession hs = request.getSession();
+		ArrayList<String> cids = (ArrayList<String>) hs.getAttribute("cid");
+		
+		System.out.println(cids.get(0));
+		if(cids.get(0).equals("관심사")) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+	
 	public int updateCheck(HttpServletRequest request) {
 		Account a = (Account) request.getSession().getAttribute("accountInfo");
 
@@ -286,6 +332,33 @@ public class AccountDAO {
 		return idCheck;
 	}
 
+	public int checkPw(String id, String pw) {
+		String sql = "select b_pw from Account where b_id=?";
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		int pwCheck = 0;
+		try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+
+			if (rs.next() || pw.equals("")) {
+				pwCheck = 0;
+			} else {
+				pwCheck = 1;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, pstmt, rs);
+		}
+		return pwCheck;
+	}
+
 	public void getAllContents(HttpServletRequest request) {
 
 		Connection con = null;
@@ -301,7 +374,7 @@ public class AccountDAO {
 			rs = pstmt.executeQuery();
 
 			BoardBean b = null;
-			ArrayList<BoardBean> boards = new ArrayList<>();
+			boards = new ArrayList<BoardBean>();
 
 			while (rs.next()) {
 				int no = rs.getInt("u_no");
@@ -309,6 +382,7 @@ public class AccountDAO {
 				String title = rs.getString("u_title");
 				String content = rs.getString("u_content");
 				String img = rs.getString("u_img");
+				System.out.println(img);
 				int price = rs.getInt("u_price");
 				Date date = rs.getDate("u_date");
 
@@ -368,7 +442,14 @@ public class AccountDAO {
 
 			if (rs.next()) {
 				String pw = rs.getString("b_pw");
-				request.setAttribute("pw", pw);
+				int len = pw.length();
+				
+				String maskedPassword = "";
+				
+				for(int i = 0; i < pw.length(); i++) 
+					maskedPassword = i < len / 2 ? maskedPassword + pw.charAt(i) : maskedPassword + "*";
+				
+				request.setAttribute("pw", maskedPassword);
 			}
 
 		} catch (SQLException e) {
@@ -380,23 +461,23 @@ public class AccountDAO {
 
 	public void deleteAccount(HttpServletRequest request) {
 		// 계정 삭제
-		
+
 		String id = request.getParameter("id");
-		
+
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		
+
 		String sql = "delete account Account where b_id = ?";
-		
+
 		try {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
-			
+
 			pstmt.setString(1, id);
-			
-			if(pstmt.executeUpdate() == 1) {
+
+			if (pstmt.executeUpdate() == 1) {
 				System.out.println("삭제 완료");
-				
+
 				// 로그인한 세션 삭제
 				HttpSession hs = request.getSession();
 				hs.removeAttribute("accountInfo");
@@ -407,5 +488,27 @@ public class AccountDAO {
 			DBManager.close(con, pstmt, null);
 		}
 	}
-
+	
+	public void paging(int page, HttpServletRequest request) {
+		request.setAttribute("curPageNo", page);
+		
+		int cnt = 4;
+		int total = boards.size();
+		System.out.println(total);
+		
+		int pageCount = (int) Math.ceil(((double)total/cnt));
+		
+		request.setAttribute("pageCount", pageCount);
+		
+		int start = total - (cnt *(page - 1));
+		int end = (page == pageCount) ? -1 : start - (cnt +1);
+		
+		ArrayList<BoardBean> items = new ArrayList<BoardBean>();
+		for(int i=start-1; i> end; i--) {
+			items.add(boards.get(i));
+		}
+		
+		request.setAttribute("boards", items);
+		
+	}
 }

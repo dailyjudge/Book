@@ -5,17 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
-<script>
-	function createContent() {
-		if(confirm("중고 서적 게시글을 정말 등록하시겠습니까?")) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-</script>
-
 </head>
 <body>
 	 <div class="usedbooks-create-container">
@@ -25,23 +14,23 @@
             </div>
             <div class="usedbooks-create-item">
                 <strong >제목</strong><br>
-                <input class="usedbooks-create-item-title" type="text" name="title">
+                <input id="usedbooks-create-title" class="usedbooks-create-item-title" type="text" name="title">
             </div>
             
             <div class="usedbooks-create-item">
                 <strong>내용</strong><br>
-                <textarea class="usedbooks-create-textarea"name="content"></textarea>
+                <textarea id="usedbooks-create-content" class="usedbooks-create-textarea"name="content"></textarea>
             </div>
             
             <div class="usedbooks-create-item">
                 <strong >판매 가격</strong><span>원</span><br>
-                <input class="usedbooks-create-item-price" type="number" name="price">
+                <input id="usedbooks-create-price" class="usedbooks-create-item-price" type="number" name="price">
             </div>
             
             
             <div class="usedbooks-create-item">
                 <strong>사진</strong>
-                <input type="file" name="file">
+                <input id="usedbooks-create-img" type="file" name="file" accept="image/gif, image/jpeg, image/png, image/jpg">
             </div>
             
             <div class="usedbooks-create-button-container">

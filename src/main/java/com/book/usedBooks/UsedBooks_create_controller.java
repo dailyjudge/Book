@@ -11,12 +11,13 @@ import com.book.account.AccountDAO;
 
 @WebServlet("/UsedBooks_create_controller")
 public class UsedBooks_create_controller extends HttpServlet {
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		if (AccountDAO.getAdao().loginCheck(request)) {
-			request.setAttribute("contentPage", "./jsp/jk/usedbooks_create.jsp");
-			request.getRequestDispatcher("index.jsp").forward(request, response);			
-		}
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		AccountDAO.getAdao().loginCheck(request);
+		request.setAttribute("contentPage", "./jsp/jk/usedbooks_create.jsp");
+		request.getRequestDispatcher("index.jsp").forward(request, response);
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,9 +25,11 @@ public class UsedBooks_create_controller extends HttpServlet {
 		if (AccountDAO.getAdao().loginCheck(request)) {
 			UsedBooksDAO.regBoard(request);
 			AccountDAO.getAdao().getAllContents(request);
+			AccountDAO.getAdao().paging(1, request);
+
 			request.setAttribute("contentPage", "./jsp/jk/usedbooks.jsp");
 			request.getRequestDispatcher("index.jsp").forward(request, response);			
 		}
 	}
-
+	
 }
