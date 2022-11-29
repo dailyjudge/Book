@@ -14,7 +14,7 @@ function idCheck() {
 		return false;
 	}
 	
-	if(!CheckEmail(email.value)){
+	if(!checkEmail(email.value)){
 		alert('이메일 형식이 잘못되었습니다');
 		email.focus();
 		return false;
@@ -39,7 +39,7 @@ function pwCheck() {
 		return false;
 	}
 	
-	if(!CheckEmail(email.value)){
+	if(!checkEmail(email.value)){
 		alert('이메일 형식이 잘못되었습니다');
 		email.focus();
 		return false;
@@ -48,7 +48,7 @@ function pwCheck() {
 	return true;
 }
 
-function CheckEmail(str){
+function checkEmail(str){
 	let reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
 	
 	if(!reg_email.test(str)){

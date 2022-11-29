@@ -50,15 +50,15 @@ function notEquals(input, input2) {
 // 들어있으면 false
 function notContains(input, set) {
 
-// set : 1234567890 => 숫자를 반드시 포함 시키고 싶다.
-// set :    QWERTYUIOPASDFGHJKLZXCVBNM => 대문자를 반드시 포함 시키고 싶다.
-// 비밀번호 조합
-   for(let i = 0 ; i < set.length; i++) {
-      if(input.value.indexOf(set[i]) != -1) {
-         return false;
-      }
-   }
-   return true;
+	// set : 1234567890 => 숫자를 반드시 포함 시키고 싶다.
+	// set :    QWERTYUIOPASDFGHJKLZXCVBNM => 대문자를 반드시 포함 시키고 싶다.
+	// 비밀번호 조합
+	for (let i = 0; i < set.length; i++) {
+		if (input.value.indexOf(set[i]) != -1) {
+			return false;
+		}
+	}
+	return true;
 }
 
 // <input>을 넣어서
@@ -66,14 +66,14 @@ function notContains(input, set) {
 // input: 123
 // input: aaa
 
-function isNotNumber(input){
+function isNotNumber(input) {
 	return isNaN(input.value);
 }
 
 // <input>, 확장자를 넣으면
 // 그게 아니면 true, 괜찮으면 false
 
-function isNotType(input, type){
+function isNotType(input, type) {
 	// a.mp4
 	type = "." + type; // .png
 	return input.value.indexOf(type) == -1;

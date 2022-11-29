@@ -1,6 +1,17 @@
 
-function reg_comment(no) {
+function reg_comment(no, pic, id) {
+	console.log("no: " + no);
+	console.log("pic: " + pic);
+	console.log("id: " + id);
+	
 	if (confirm("정말 댓글을 등록하시겠습니까?")) {
+		
+		if($("#comment-textarea").val() == "") {
+			alert("댓글을 입력하세요.");
+			$("#comment-textarea").focus();
+			return;
+		}
+		
 		$.ajax({
 			type: "POST",
 			url: "Comment_create_controller",
@@ -12,26 +23,56 @@ function reg_comment(no) {
 			success: function(res) {
 				console.log(res);
 				$("#comment-container2").prepend(`
-						<div class="comment-container" id="comment-container-${res.comment_number}">
-						<div>
-							<img src="fileFolder/${res.image}" alt="">
+				<div class="comment-container" id="comment-container-${res.comment_number}">
+					<div>
+						<img src="fileFolder/${res.image}" alt="">
+					</div>
+						
+					<div class="comment-container2">
+						<div class="comment-id">
+							<span>${res.author_id}</span> <span>${res.date}</span>
 						</div>
-						<div class="comment-container2">
-							<div class="comment-id">
-								<span>${res.author_id}</span> <span>${res.date}</span>
-							</div>
 							<div class="comment-text-container">
 								<textarea id="comment-modify-text-${res.comment_number }" disabled="disabled" class="comment-text">${res.comment_content }</textarea>
 								<input id="comment-modify-copyText-${res.comment_number }" value='${res.comment_content }' style="display: none">								
 								
 								<div class="comment-button-container">
 									<button id="comment-button-update-${res.comment_number }" onclick="update_click_comment('${res.comment_number}')">수정</button>
-								<button id="comment-button-delete-${res.comment_number }" onclick="del_comment(${res.comment_number })">삭제</button>
-								<button id="comment-button-update-done-${res.comment_number }" onclick="update_cooment('${res.comment_number}')" style="display:none;">완료</button>
-								<button id="comment-button-cancel-${res.comment_number }" onclick="comment_update_back('${res.comment_number}')" style="display:none;">취소</button>								
+									<button id="comment-button-delete-${res.comment_number }" onclick="del_comment(${res.comment_number })">삭제</button>
+									<button id="comment-button-update-done-${res.comment_number }" onclick="update_cooment('${res.comment_number}')" style="display:none;">완료</button>
+									<button id="comment-button-cancel-${res.comment_number }" onclick="comment_update_back('${res.comment_number}')" style="display:none;">취소</button>								
+								</div>
+							</div>
+					</div>
+							
+							<a class="more-reply reply-more-${res.comment_number }"
+							onclick="getReply(${res.comment_number})">답글 보기</a> <a
+							style="display: none"
+							class="more-reply reply-close-${res.comment_number }"
+							onclick="closeReply(${res.comment_number})">답글 닫기</a>
+					</div>	
+					<div class="reply-container-${res.comment_number } reply-reg">
+					<div
+						class="comment-container reply-reg-container-${res.comment_number } reply-reg"
+						style="display: none">
+						<div>
+							<img src="fileFolder/${pic }" alt="">
+						</div>
+						<div class="comment-container2">
+							<div class="comment-id">
+								<span>${id }</span>
+							</div>
+							<div class="comment-text-container">
+								<textarea id="comment-textarea"
+									class="comment-text-reg reply-textarea-${res.comment_number }"></textarea>
+
+								<div class="comment-button-container">
+									<button onclick="reg_reply('${res.comment_number}')">등록</button>
 								</div>
 							</div>
 						</div>
+					</div>
+				<div class="reply2-container-${res.comment_number }"></div>
 					</div>`);
 				$("#comment-textarea").val('');
 

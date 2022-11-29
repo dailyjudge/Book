@@ -62,9 +62,9 @@ public class AccountDAO {
 		} else {
 			textcheck = "관심사 없음";
 		}
-
-		String pic = mr.getFilesystemName("file");
-
+		String basicPic = mr.getParameter("basicPic");
+		String newpic = mr.getFilesystemName("file");
+		
 		try {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
@@ -74,9 +74,13 @@ public class AccountDAO {
 			pstmt.setString(3, email);
 			pstmt.setString(4, pw);
 			pstmt.setString(5, textcheck);
-			pstmt.setString(6, pic);
-
+			if (newpic == null||newpic.isEmpty()) {
+				pstmt.setString(6, basicPic);
+			} else {
+				pstmt.setString(6, newpic);
+			}
 			if (pstmt.executeUpdate() == 1) {
+				request.setAttribute("r", "회원 가입 성공");
 			} else {
 			}
 		} catch (SQLException e) {

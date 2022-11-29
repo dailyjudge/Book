@@ -34,7 +34,6 @@
 					<div class="project-thumbnail" id="project-macbook">
 						<img class="contents-img" src="fileFolder/${i.img }" alt="">
 					</div>
-
 					<div class="project-explain">
 						<div class="usedbooks-item-1">
 							<span class="usedbooks-item-title">${i.title }</span>
@@ -83,5 +82,6 @@
 		</div>
 	</div>
 	<div class="review-container">아아아아아아</div>
+
 </body>
 </html>

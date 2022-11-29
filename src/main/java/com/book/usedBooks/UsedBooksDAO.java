@@ -94,7 +94,13 @@ public class UsedBooksDAO {
 			System.out.println(path);
 			String title = mr.getParameter("title");
 			String content = mr.getParameter("content");
-			String img = mr.getFilesystemName("file");
+			String img = "";
+			if(mr.getFilesystemName("file") == null) {
+				img = "noImg";
+			} else {
+				img = mr.getFilesystemName("file");
+			}
+			
 			int price = Integer.parseInt(mr.getParameter("price"));
 			
 			
