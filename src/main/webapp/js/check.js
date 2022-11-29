@@ -99,14 +99,20 @@ $(function () {
   $("#pw").keyup(function () {
     $("#pwConfirm").html("");
   });
-
+	
   $("#pw2").keyup(function () {
     if ($("#pw").val() != $("#pw2").val()) {
+      $("#user-update-button").attr("disabled", true);
+      $("#user-update-button").css("background-color", "red");
+      
       $("#pwConfirm").html("비밀번호 일치하지 않음<br><br>");
       $("#pwConfirm").attr("color", "red");
     } else {
       $("#pwConfirm").html("비밀번호 일치함<br><br>");
       $("#pwConfirm").attr("color", "green");
+      
+      $("#user-update-button").attr("disabled", false);
+      $("#user-update-button").css("background-color", "#00541A");
     }
   });
 });

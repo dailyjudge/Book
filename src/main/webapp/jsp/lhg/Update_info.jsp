@@ -29,11 +29,22 @@
 		
 	}
 </script>
+
+<script type="text/javascript">
+function checkUpdateUser() {
+	// 오류 처리 확인
+	if(confirm("수정??")) {
+		console.log("gogo");
+	}
+	// 비밀번호 재설정을 원하지 않으시나요?
+	return false;
+}
+</script>
 </head>
 <body>
 	<div class="update-container">
 		<form class="update-form" action="Update_info_controller"
-			name="myForm" method="post" enctype="multipart/form-data">
+			name="myForm" method="post" enctype="multipart/form-data" onsubmit="return checkUpdateUser()">
 			<div id="profile-img-container">
 				<div id="image_container">
 					<img id="test-img"
@@ -87,7 +98,7 @@
 			</div>
 			</div>
 			<div class="update-button">
-				<button>수정</button>
+				<button id="user-update-button">수정</button>
 			</div>
 		</form>
 	</div>

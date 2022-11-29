@@ -43,7 +43,7 @@
 .button_area {
     width: 100%;
     display: flex;
-    justify-content: center;    
+    justify-content: center;
 }
 .button_area button {
 	margin-top: 20px;
@@ -58,6 +58,7 @@
 	letter-spacing: 2px;
 	box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4),-3px -3px 5px
 		rgba(0, 0, 0, 0.1);
+	cursor: pointer;
 }
 .register_area {
     justify-content: center;

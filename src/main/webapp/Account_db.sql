@@ -13,3 +13,5 @@ insert into Account values('mkmkmk','민규','mkmkmk@gmail.com','Dlagudrb1!','de
 drop table Account cascade constraint purge;
 
 select * from Account;
+
+update account set b_pw = '1111' where b_id = 'test3';
