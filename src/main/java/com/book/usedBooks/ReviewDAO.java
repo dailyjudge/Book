@@ -40,7 +40,7 @@ public class ReviewDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		String sql = "select * from review_board";
+		String sql = "select * from review_board order by rv_date";
 
 		try {
 			con = DBManager.connect();
