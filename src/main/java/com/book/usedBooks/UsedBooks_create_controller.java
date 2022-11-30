@@ -20,16 +20,17 @@ public class UsedBooks_create_controller extends HttpServlet {
 
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		if (AccountDAO.getAdao().loginCheck(request)) {
-			UsedBooksDAO.regBoard(request);
-			AccountDAO.getAdao().getAllContents(request);
-			AccountDAO.getAdao().paging(1, request);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-			request.setAttribute("contentPage", "./jsp/jk/usedbooks.jsp");
-			request.getRequestDispatcher("index.jsp").forward(request, response);			
-		}
+		AccountDAO.getAdao().loginCheck(request);
+		UsedBooksDAO.regBoard(request);
+		AccountDAO.getAdao().getAllContents(request);
+		AccountDAO.getAdao().paging(1, request);
+
+		request.setAttribute("contentPage", "./jsp/jk/usedbooks.jsp");
+		request.getRequestDispatcher("index.jsp").forward(request, response);
+
 	}
-	
+
 }
