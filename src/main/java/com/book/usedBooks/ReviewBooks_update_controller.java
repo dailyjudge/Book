@@ -8,25 +8,30 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.book.account.AccountDAO;
+import com.book.main.Account_register_controller;
 
-@WebServlet("/UsedBooks_main_controller")
-public class UsedBooks_main_controller extends HttpServlet {
-
+@WebServlet("/ReviewBooks_update_controller")
+public class ReviewBooks_update_controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		AccountDAO.getAdao().getAllContents(request);
+		if (request.getParameter("title") == null) {
+			request.setAttribute("contentPage", "./jsp/kye/reviews_update.jsp");
 
-		AccountDAO.getAdao().loginCheck(request);
-		
-		ReviewDAO.getALLReviews(request);
-		request.setAttribute("contentPage", "./jsp/jk/usedbooks.jsp");
+		} else {
+			ReviewDAO.updateReview(request);
+			request.setAttribute("contentPage", "./jsp/kye/reviews_detail.jsp");
+		}
+
+			AccountDAO.getAdao().loginCheck(request);
+			ReviewDAO.getReview(request);
+
 		request.getRequestDispatcher("index.jsp").forward(request, response);
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 	}
 
 }

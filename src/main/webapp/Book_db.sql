@@ -94,7 +94,7 @@ create table review_board(
 
 create sequence review_board_seq;
 
+select * from review_board;
 
-
-insert into review_board values(review_board.seq.nextval,'ㅇㅇ','제목1','내용1','img1',sysdate);
-insert into review_board values(review_board.seq.nextval,'rr','제목2','내용2','img2',sysdate);
+insert into review_board values(review_board_seq.nextval,'ㅇㅇ','제목1','내용1','img1',sysdate);
+insert into review_board values(review_board_seq.nextval,'rr','제목2','내용2','img2',sysdate);

@@ -23,11 +23,16 @@
 
 	<div class="usedbooks-header-container">
 		<div class="usedbooks-board-container">
-			<span class="usedbooks-board-container-span1">중고 서적 게시판</span>
-			<span class="usedbooks-board-container-span2">후기 게시판</span>		
+			<span class="usedbooks-board-container-span1">중고 서적 게시판</span> <span
+				class="usedbooks-board-container-span2">후기 게시판</span>
 		</div>
-		<button onclick="createContent()" class="usedbooks-header-button">중고
-			서적 등록하기</button>
+		<c:if test="${sessionScope.accountInfo != null }">
+			<button onclick="createContent()" class="usedbooks-header-button">중고
+				서적 등록하기</button>
+		<button onclick="createContentReview()"
+			class="usedbooks-header-button review-create-button">후기 등록하기</button>
+		
+		</c:if>
 	</div>
 	<c:forEach var="i" items="${boards }">
 		<div class="usedbooks-container">
@@ -45,9 +50,23 @@
 			</div>
 		</div>
 	</c:forEach>
-	
-	<div class="review-container">
-		아아아아아아
-	</div>
+
+	<c:forEach var="i" items="${reviews }">
+		<div class="usedbooks-container review-container">
+			<input style="display: none" value="${i.rv_no }" name="board-number">
+			<div class="usedbooks-item-1">
+				<span class="usedbooks-item-title"
+					onclick="location.href='ReviewBooks_detail_controller?no=${i.rv_no}'">${i.rv_title }</span>
+			</div>
+			<div class="usedbooks-item-2">
+				<span>${i.rv_author }</span>
+			</div>
+			<div class="usedbooks-item-3">
+				<span class="usedbooks-item-content">${i.rv_content }</span> <span
+					class="usedbooks-item-date">${i.rv_date }</span>
+			</div>
+		</div>
+
+	</c:forEach>
 </body>
 </html>

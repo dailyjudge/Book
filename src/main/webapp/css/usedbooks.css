@@ -165,3 +165,7 @@
 .review-container {
   display: none;
 }
+
+.review-create-button {
+	display: none;
+}
