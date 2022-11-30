@@ -15,12 +15,13 @@
 			</div>
 			<div class="usedbooks-create-item">
 				<strong>제목</strong><br> <input
+					id="reviewbooks-create-item-title"
 					class="usedbooks-create-item-title" type="text" name="title">
 			</div>
 
 			<div class="usedbooks-create-item">
 				<strong>내용</strong><br>
-				<textarea class="usedbooks-create-textarea" name="content"></textarea>
+				<textarea id="reviewbooks-create-item-content" class="usedbooks-create-textarea" name="content"></textarea>
 			</div>
 
 			<div class="usedbooks-create-item">
