@@ -10,6 +10,7 @@ create table Account(
 insert into Account values('test','test','test@gmail.com','1111','detective','master.jpg');
 insert into Account values('test2','test2','test2@gmail.com','1111','detective','master.jpg');
 insert into Account values('mkmkmk','민규','mkmkmk@gmail.com','Dlagudrb1!','detective','master.jpg');
+insert into Account values('hg','형규','frvlv6@gmail.com','1111','101','master.jpg');
 drop table Account cascade constraint purge;
 
 select * from Account;
