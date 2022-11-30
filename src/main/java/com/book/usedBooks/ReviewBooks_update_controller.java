@@ -1,4 +1,4 @@
-package com.book.main;
+package com.book.usedBooks;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,24 +8,30 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.book.account.AccountDAO;
+import com.book.main.Account_register_controller;
 
-@WebServlet("/Update_info_controller")
-public class Update_info_controller extends HttpServlet {
+@WebServlet("/ReviewBooks_update_controller")
+public class ReviewBooks_update_controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		AccountDAO.getAdao().loginCheck(request);
-		request.setAttribute("contentPage", "jsp/lhg/Update_info.jsp");
+
+		if (request.getParameter("title") == null) {
+			request.setAttribute("contentPage", "./jsp/kye/reviews_update.jsp");
+
+		} else {
+			ReviewDAO.updateReview(request);
+			request.setAttribute("contentPage", "./jsp/kye/reviews_detail.jsp");
+		}
+
+			AccountDAO.getAdao().loginCheck(request);
+			ReviewDAO.getReview(request);
+
 		request.getRequestDispatcher("index.jsp").forward(request, response);
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		AccountDAO.getAdao().loginCheck(request);
-		AccountDAO.getAdao().updateAccount(request);
-		AccountDAO.getAdao().login(request);
-
-		request.setAttribute("contentPage", "jsp/lhg/User_info.jsp");
-		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 }
