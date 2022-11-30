@@ -2,31 +2,12 @@
 $(document).ready(function() {
 
 	$(document).on("click", ".usedbooks-board-container-span2", function() {
-		$(".usedbooks-board-container-span1").css("visibility", "visible");
-		$(".usedbooks-board-container-span2").css("visibility", "hidden");
-
-		$(".usedbooks-header-button").css("display", "none");
-		$(".usedbooks-container3").css("display", "none");
-
-		$(".review-container3").css("display", "flex");
-		$(".review-create-button").css("display", "block");
+		location.href="ReviewBooks_main_controller";
 		
-		$(".reviewbooks-paging-container").css("display", "block");
-      	$(".usedbooks-paging-container").css("display", "none");
 
 	});
 	$(document).on("click", ".usedbooks-board-container-span1", function() {
-		$(".usedbooks-board-container-span2").css("visibility", "visible");
-		$(".usedbooks-board-container-span1").css("visibility", "hidden");
-
-		$(".usedbooks-header-button").css("display", "block");
-		$(".usedbooks-container3").css("display", "flex");
-
-		$(".review-container3").css("display", "none");
-		$(".review-create-button").css("display", "none");
-		$(".reviewbooks-paging-container").css("display", "none");
-      	$(".usedbooks-paging-container").css("display", "block");
-      	
+		location.href="UsedBooks_main_controller";
 	});
 })
 
