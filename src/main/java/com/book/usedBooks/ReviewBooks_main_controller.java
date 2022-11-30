@@ -9,23 +9,22 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.book.account.AccountDAO;
 
-@WebServlet("/ReviewBooks_pagingC")
-public class ReviewBooks_pagingC extends HttpServlet {
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		int p = Integer.parseInt(request.getParameter("p2"));
+@WebServlet("/ReviewBooks_main_controller")
+public class ReviewBooks_main_controller extends HttpServlet {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		ReviewDAO.getALLReviews(request);
-		ReviewDAO.paging(p, request);
-		
+		ReviewDAO.paging(1, request);
 		AccountDAO.getAdao().loginCheck(request);
+
 		request.setAttribute("contentPage", "./jsp/jk/reviewbooks.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
-	}
-	
-	
-	
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 	}
 
 }
