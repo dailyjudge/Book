@@ -16,7 +16,8 @@ public class UsedBooks_main_controller extends HttpServlet {
 			throws ServletException, IOException {
 
 		AccountDAO.getAdao().getAllContents(request);
-
+		AccountDAO.getAdao().paging(1, request);
+		
 		AccountDAO.getAdao().loginCheck(request);
 		
 		ReviewDAO.getALLReviews(request);

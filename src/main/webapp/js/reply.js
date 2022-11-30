@@ -14,11 +14,8 @@ function getReply(no) {
 		dateType: 'json',
 		success: function(res) {
 			console.log(res);
-			let button;
-			if(res.loginId != res.id) {
-				button = ``;
-			} else {
-				button = ``;
+			if(res.length == 0) {
+				$(".reply-reg-container-" + no).css("display", "block");
 			}
 			for (let i = 0; i < res.length; i++) {
 				$(".reply-reg-container-" + res[i].commentNo).css("display", "block");
@@ -88,13 +85,20 @@ function closeReply(no) {
 	$(`.reply-list-container-${no}`).remove();
 }
 
-function reg_reply(no) {
+function reg_reply(no, pic) {
 	// comment_number 받음
-	console.log(no)
+	console.log(no);
+	console.log(pic);
 	console.log(".reply-textarea-" + no);
 	console.log($(".reply-textarea-" + no).val());
 
 	if (confirm("대댓글을 등록하시겠습니까?")) {
+		if($(".reply-textarea-" + no).val() == "") {
+			alert("대댓글을 입력해주세요.");
+			$(".reply-textarea-" + no).focus();
+			return;
+		}
+		
 		$.ajax({
 			type: "POST",
 			url: "Reply_create_controller",

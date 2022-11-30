@@ -3,6 +3,7 @@ package com.book.usedBooks;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -93,7 +94,13 @@ public class UsedBooksDAO {
 			System.out.println(path);
 			String title = mr.getParameter("title");
 			String content = mr.getParameter("content");
-			String img = mr.getFilesystemName("file");
+			String img = "";
+			if(mr.getFilesystemName("file") == null) {
+				img = "noImg";
+			} else {
+				img = mr.getFilesystemName("file");
+			}
+			
 			int price = Integer.parseInt(mr.getParameter("price"));
 			
 			
@@ -122,14 +129,8 @@ public class UsedBooksDAO {
 			} else {
 				System.out.println("로그인되지 않은 상태.");
 			}
-			
-			
-			
-			
-			
-			
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		}
 	}
 
@@ -169,5 +170,6 @@ public class UsedBooksDAO {
 			DBManager.close(con, pstmt, null);
 		}
 	}
+	
 
 }

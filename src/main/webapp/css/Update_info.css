@@ -97,7 +97,8 @@
     justify-content: center;
     margin-bottom: 20px;
 }
-.update-button button {
+
+#user-update-button {
     margin-left: -20px;
     margin-top: 20px;
     width: 100px;
@@ -108,4 +109,5 @@
     color: white;
     font-weight: 600;
     border: none;
+    cursor: pointer;
 }
