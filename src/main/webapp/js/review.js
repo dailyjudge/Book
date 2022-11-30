@@ -6,9 +6,9 @@ $(document).ready(function() {
 		$(".usedbooks-board-container-span2").css("visibility", "hidden");
 
 		$(".usedbooks-header-button").css("display", "none");
-		$(".usedbooks-container").css("display", "none");
+		$(".usedbooks-container3").css("display", "none");
 
-		$(".review-container").css("display", "block");
+		$(".review-container3").css("display", "block");
 		$(".review-create-button").css("display", "block");
 
 	});
@@ -17,17 +17,14 @@ $(document).ready(function() {
 		$(".usedbooks-board-container-span1").css("visibility", "hidden");
 
 		$(".usedbooks-header-button").css("display", "block");
-		$(".usedbooks-container").css("display", "block");
+		$(".usedbooks-container3").css("display", "block");
 
-		$(".review-container").css("display", "none");
+		$(".review-container3").css("display", "none");
 		$(".review-create-button").css("display", "none");
 	});
 })
 
 function createContentReview() {
-
-	
-
 	// 등록하러 가야됨
 	if (confirm("등록하시겠습니?")) {
 		console.log("hi");
