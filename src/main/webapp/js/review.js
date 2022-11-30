@@ -12,7 +12,8 @@ $(document).ready(function() {
 		$(".review-create-button").css("display", "block");
 		
 		$(".reviewbooks-paging-container").css("display", "block");
-		$(".usedbooks-paging-container").css("display", "none");
+      	$(".usedbooks-paging-container").css("display", "none");
+
 	});
 	$(document).on("click", ".usedbooks-board-container-span1", function() {
 		$(".usedbooks-board-container-span2").css("visibility", "visible");
@@ -24,7 +25,8 @@ $(document).ready(function() {
 		$(".review-container3").css("display", "none");
 		$(".review-create-button").css("display", "none");
 		$(".reviewbooks-paging-container").css("display", "none");
-		$(".usedbooks-paging-container").css("display", "block");
+      	$(".usedbooks-paging-container").css("display", "block");
+      	
 	});
 })
 
