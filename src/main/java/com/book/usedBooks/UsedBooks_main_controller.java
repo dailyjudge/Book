@@ -21,6 +21,8 @@ public class UsedBooks_main_controller extends HttpServlet {
 		AccountDAO.getAdao().loginCheck(request);
 		
 		ReviewDAO.getALLReviews(request);
+		ReviewDAO.paging(1, request);
+		
 		request.setAttribute("contentPage", "./jsp/jk/usedbooks.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}

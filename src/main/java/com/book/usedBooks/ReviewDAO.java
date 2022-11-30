@@ -20,6 +20,12 @@ import oracle.jdbc.proxy.annotation.Pre;
 
 public class ReviewDAO {
 
+	
+	private static ArrayList<Review> reviews;
+
+	
+	
+	
 	public static void getALLReviews(HttpServletRequest request) {
 
 		// review_board 디비에서 모든 정보를 가져오기
@@ -45,7 +51,7 @@ public class ReviewDAO {
 			// 가변 배열 => ArrayList
 
 			Review r = null;
-			ArrayList<Review> reviews = new ArrayList<>();
+			reviews = new ArrayList<Review>();
 
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
@@ -253,4 +259,30 @@ public class ReviewDAO {
 
 	}
 
+	public static void paging(int page, HttpServletRequest request) {
+		request.setAttribute("curPageNo2", page);
+		
+		int cnt = 4;
+		int total = reviews.size();
+		System.out.println(total);
+		
+		int pageCount = (int) Math.ceil(((double)total/cnt));
+		
+		request.setAttribute("pageCount2", pageCount);
+		
+		int start = total - (cnt *(page - 1));
+		int end = (page == pageCount) ? -1 : start - (cnt +1);
+		
+		ArrayList<Review> items = new ArrayList<Review>();
+		for(int i=start-1; i> end; i--) {
+			items.add(reviews.get(i));
+		}
+		
+		request.setAttribute("reviews", items);
+		
+	}
+	
+	
+	
+	
 }
