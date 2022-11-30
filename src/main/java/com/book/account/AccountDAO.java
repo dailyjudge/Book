@@ -1,15 +1,12 @@
 package com.book.account;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -64,7 +61,7 @@ public class AccountDAO {
 		}
 		String basicPic = mr.getParameter("basicPic");
 		String newpic = mr.getFilesystemName("file");
-		
+
 		try {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
@@ -74,7 +71,7 @@ public class AccountDAO {
 			pstmt.setString(3, email);
 			pstmt.setString(4, pw);
 			pstmt.setString(5, textcheck);
-			if (newpic == null||newpic.isEmpty()) {
+			if (newpic == null || newpic.isEmpty()) {
 				pstmt.setString(6, basicPic);
 			} else {
 				pstmt.setString(6, newpic);
@@ -177,9 +174,7 @@ public class AccountDAO {
 
 					HttpSession hs = request.getSession();
 					hs.setAttribute("accountInfo", a);
-					ArrayList<String> cids = new ArrayList<String>();
-					
-					
+					ArrayList<String> cids = new ArrayList<String>();					
 					for (int i = 0; i < arr.length; i++) {
 						System.out.println(arr[i]);
 						cids.add(arr[i]);
@@ -315,6 +310,33 @@ public class AccountDAO {
 		return idCheck;
 	}
 
+	public int checkPw(String id, String pw) {
+		String sql = "select b_pw from Account where b_id=?";
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		int pwCheck = 1;
+		try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			System.out.println(pw);
+			if(rs.next()){
+			if(!pw.equals(rs.getString("b_pw"))){
+				pwCheck = 0; // 비번 틀린거
+				return 0;
+			}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, pstmt, rs);
+		}
+		return pwCheck;
+	}
+
 	public void getAllContents(HttpServletRequest request) {
 
 		Connection con = null;
@@ -426,23 +448,23 @@ public class AccountDAO {
 
 	public void deleteAccount(HttpServletRequest request) {
 		// 계정 삭제
-		
+
 		String id = request.getParameter("id");
-		
+
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		
+
 		String sql = "delete account Account where b_id = ?";
-		
+
 		try {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
-			
+
 			pstmt.setString(1, id);
-			
-			if(pstmt.executeUpdate() == 1) {
+
+			if (pstmt.executeUpdate() == 1) {
 				System.out.println("삭제 완료");
-				
+
 				// 로그인한 세션 삭제
 				HttpSession hs = request.getSession();
 				hs.removeAttribute("accountInfo");
