@@ -9,25 +9,20 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.book.account.AccountDAO;
 
-@WebServlet("/UsedBooks_main_controller")
-public class UsedBooks_main_controller extends HttpServlet {
-
+@WebServlet("/ReviewBooks_detail_controller")
+public class ReviewBooks_detail_controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		AccountDAO.getAdao().getAllContents(request);
-		AccountDAO.getAdao().paging(1, request);
 		
+		// 해당 번호에 해당하는 친구 데려오기
+		ReviewDAO.getReview(request);
 		AccountDAO.getAdao().loginCheck(request);
-		
-		ReviewDAO.getALLReviews(request);
-		request.setAttribute("contentPage", "./jsp/jk/usedbooks.jsp");
+		request.setAttribute("contentPage", "./jsp/kye/reviews_detail.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 	}
 
 }
