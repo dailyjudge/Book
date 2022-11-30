@@ -33,7 +33,7 @@
 <script type="text/javascript">
 function checkUpdateUser() {
 	// 오류 처리 확인
-	if(confirm("수정??")) {
+	if(confirm("정보를 수정하시겠습니까??")) {
 		console.log("gogo");
 	}
 	// 비밀번호 재설정을 원하지 않으시나요?

@@ -183,7 +183,8 @@
 }
 
 .project-thumbnail {
-  width: 100%;
+  margin: 0px auto;
+  width: 60%;
   height: 70%;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
@@ -215,4 +216,22 @@
 .paging-icon:hover {
   width: 60px;
   height: 60px;
+}
+
+.review-wrap {
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	margin: 0px auto;
+}
+
+.review-wrap-item {
+	border: 1px solid black;
+	width: 20%;
+	margin:2% 2%;
+}
+
+.review-wrap-img {
+	width: 50px;
+	height: 50px;
 }
