@@ -32,7 +32,7 @@
 					onclick="location.href='UsedBooks_detail_controller?no=${i.no}'">
 					<input style="display: none" value="${i.no }" name="board-number">
 					<div class="project-thumbnail" id="project-macbook">
-						<img class="contents-img" src="fileFolder/${i.img }" alt="">
+						<img class="contents-img" src="board_img/${i.img }" alt="">
 					</div>
 					<div class="project-explain">
 						<div class="usedbooks-item-1">

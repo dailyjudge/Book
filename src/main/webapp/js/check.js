@@ -98,6 +98,13 @@ function chkPW(str) {
 $(function () {
   $("#pw").keyup(function () {
     $("#pwConfirm").html("");
+    
+    // 두 input 값이 없을 경우 다시 사용 가능하도록
+    if($("#pw").val() == "" && ($("#pw2").val() == "")) {
+	  $("#user-update-button").attr("disabled", false);
+      $("#user-update-button").css("background-color", "#00541A");
+	}
+	
   });
 	
   $("#pw2").keyup(function () {

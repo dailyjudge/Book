@@ -16,13 +16,13 @@ public class Find_id_controller extends HttpServlet {
 	private AccountDAO a = AccountDAO.getAdao();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("loginPage", "jsp/lhg/login.jsp");
+		a.loginCheck(request);
 		request.setAttribute("contentPage", "jsp/lhg/findId.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		a.findId(request, response);
-		request.setAttribute("loginPage", "jsp/lhg/login.jsp");
+		a.loginCheck(request);
 		request.setAttribute("contentPage", "jsp/lhg/idInfo.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
