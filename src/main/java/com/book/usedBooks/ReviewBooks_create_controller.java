@@ -9,26 +9,28 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.book.account.AccountDAO;
 
-@WebServlet("/UsedBooks_create_controller")
-public class UsedBooks_create_controller extends HttpServlet {
+@WebServlet("/ReviewBooks_create_controller")
+public class ReviewBooks_create_controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
+		System.out.println("후기 게시판 입성");
 		AccountDAO.getAdao().loginCheck(request);
-		request.setAttribute("contentPage", "./jsp/jk/usedbooks_create.jsp");
+
+		request.setAttribute("contentPage", "./jsp/kye/reviews_create.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		System.out.println("후기 게시글 생성");
 		AccountDAO.getAdao().loginCheck(request);
-		UsedBooksDAO.regBoard(request);
-		AccountDAO.getAdao().getAllContents(request);
-		AccountDAO.getAdao().paging(1, request);
 
-		request.setAttribute("contentPage", "./jsp/jk/usedbooks.jsp");
+		ReviewDAO.createReview(request);
+		ReviewDAO.getCreatedReview(request);
+
+		request.setAttribute("contentPage", "./jsp/kye/reviews_detail.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 
 	}

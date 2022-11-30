@@ -13,7 +13,6 @@ pageEncoding="UTF-8"%>
     <script>
       function setThumbnail(event) {
         let reader = new FileReader();
-
         reader.onload = function (event) {
           $("#user-reg-image").remove();
           let img = document.createElement("img");
@@ -25,7 +24,6 @@ pageEncoding="UTF-8"%>
           $("#test-img").css("display", "none");
           document.querySelector("div#image_container").appendChild(img);
         };
-
         reader.readAsDataURL(event.target.files[0]);
       }
     </script>
@@ -35,7 +33,6 @@ pageEncoding="UTF-8"%>
         $(document).on("mouseover", ".reg-questionMark", function () {
           $(".user-rule-field").css("visibility", "visible");
         });
-
         $(document).on("mouseleave", ".reg-questionMark", function () {
           $(".user-rule-field").css("visibility", "hidden");
         });
@@ -43,7 +40,6 @@ pageEncoding="UTF-8"%>
         $(document).on("mouseover", ".reg-questionMark2", function () {
           $(".user-rule-field2").css("visibility", "visible");
         });
-
         $(document).on("mouseleave", ".reg-questionMark2", function () {
           $(".user-rule-field2").css("visibility", "hidden");
         });
@@ -51,7 +47,6 @@ pageEncoding="UTF-8"%>
         $(document).on("mouseover", ".reg-questionMark3", function () {
           $(".user-rule-field3").css("visibility", "visible");
         });
-
         $(document).on("mouseleave", ".reg-questionMark3", function () {
           $(".user-rule-field3").css("visibility", "hidden");
         });
@@ -59,7 +54,6 @@ pageEncoding="UTF-8"%>
         $(document).on("mouseover", ".reg-questionMark4", function () {
           $(".user-rule-field4").css("visibility", "visible");
         });
-
         $(document).on("mouseleave", ".reg-questionMark4", function () {
           $(".user-rule-field4").css("visibility", "hidden");
         });
@@ -68,7 +62,6 @@ pageEncoding="UTF-8"%>
     <link rel="stylesheet" href="css/reg.css" />
     <link rel="stylesheet" href="css/index.css" />
   </head>
-
   <body>
     <div class="reg-container">
       <form
@@ -102,6 +95,7 @@ pageEncoding="UTF-8"%>
             id="input-file"
             style="display: none"
           />
+          <input type="hidden" name="basicPic" value="default.jpg" />
         </div>
         <div>
           <h6 class="reg-field">아이디</h6>
@@ -183,29 +177,29 @@ pageEncoding="UTF-8"%>
       </div>
     </div>
     <script>
-    $(".input_id").focusout(function() {
-		let userId = $(".input_id").val();
-		$.ajax({
-			url : "Id_check",
-			type : "post",
-			data : {
-				userId : userId,
-			},
-			success : function(result) {
-				console.log(result);
-				if (result == 0) {
-					$("#checkId").html("사용할 수 없는 아이디 입니다.");
-					$("#checkId").attr("color", "red");
-				} else {
-					$("#checkId").html("사용 가능한 아이디 입니다.");
-					$("#checkId").attr("color", "green");
-				}
-			},
-			error : function() {
-				alert("서버 요청 실패");
-			},
-		});
-	});
+      $(".input_id").focusout(function () {
+        let userId = $(".input_id").val();
+        $.ajax({
+          url: "Id_check",
+          type: "post",
+          data: {
+            userId: userId,
+          },
+          success: function (result) {
+            console.log(result);
+            if (result == 0) {
+              $("#checkId").html("사용할 수 없는 아이디 입니다.");
+              $("#checkId").attr("color", "red");
+            } else {
+              $("#checkId").html("사용 가능한 아이디 입니다.");
+              $("#checkId").attr("color", "green");
+            }
+          },
+          error: function () {
+            alert("서버 요청 실패");
+          },
+        });
+      });
     </script>
   </body>
 </html>
