@@ -113,3 +113,8 @@
     color: #4e4c4c;
 }
 
+.account-user-profile-image {
+	width: 20px;
+	height: 20px;
+	border-radius: 70%;
+}

@@ -31,7 +31,7 @@ body {
 }
 
 .img-container {
-	width: 78%;
+	width: 60%;
 	margin: 10px 0px;
 }
 
@@ -58,6 +58,7 @@ body {
 	width: 40%;
 	color: #646464;
 	font-size: 14px;
+	align-items: center;
 }
 
 .item-container2 h3 {
@@ -396,4 +397,11 @@ body {
 	font-size: 22px;
 	font-weight: 700;
 	justify-content: space-between;
+}
+
+.account-user-profile-image {
+	width: 35px;
+	height: 35px;
+	margin-bottom: 10px;
+	border-radius: 70%;
 }
