@@ -29,7 +29,7 @@
 		<div class="contents-wrap review-container3" style="display: none">
 			<c:forEach var="i" items="${reviews }">
 				<div class="contents project-card"
-					onclick="location.href='UsedBooks_detail_controller?no=${i.rv_no}'">
+					onclick="location.href='ReviewBooks_detail_controller?no=${i.rv_no}'">
 					<input style="display: none" value="${i.rv_no }" name="board-number">
 					<div class="project-thumbnail" id="project-macbook">
 						<img class="contents-img" src="review_img/${i.rv_img }" alt="">

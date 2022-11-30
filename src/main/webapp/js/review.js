@@ -8,7 +8,7 @@ $(document).ready(function() {
 		$(".usedbooks-header-button").css("display", "none");
 		$(".usedbooks-container3").css("display", "none");
 
-		$(".review-container3").css("display", "block");
+		$(".review-container3").css("display", "flex");
 		$(".review-create-button").css("display", "block");
 
 	});
@@ -17,7 +17,7 @@ $(document).ready(function() {
 		$(".usedbooks-board-container-span1").css("visibility", "hidden");
 
 		$(".usedbooks-header-button").css("display", "block");
-		$(".usedbooks-container3").css("display", "block");
+		$(".usedbooks-container3").css("display", "flex");
 
 		$(".review-container3").css("display", "none");
 		$(".review-create-button").css("display", "none");
@@ -34,6 +34,22 @@ function createContentReview() {
 }
 
 function createReviewContent() {
+	let title = document.getElementById("reviewbooks-create-item-title");
+	let content = document.getElementById("reviewbooks-create-item-content");
+
+	if (title.value == "") {
+		alert("제목을 입력하세요.");
+		title.focus();
+		return false;
+	}
+
+	if (content.value == "") {
+		alert("내용을 입력하세요.");
+		content.focus();
+		return false;
+	}
+
+
 	return true;
 }
 
@@ -55,9 +71,34 @@ function onReviewUpdate(no) {
 
 		let title_input = document.getElementById("review-update-title");
 		let content_input = document.getElementById("review-update-content");
+		let title_input_old = document.getElementById("review-update-title-copy");
+		let content_input_old = document.getElementById("review-update-content-copy");
 
 		let title = title_input.value;
 		let content = content_input.value;
+		let old_title = title_input_old.value;
+		let old_content = content_input_old.value;
+
+
+		if (title == "") {
+			alert("제목을 입력하세요");
+			title_input.focus();
+			return false;
+		}
+		if (content == "") {
+			alert("내용을 입력하세요");
+			content_input.focus();
+			return false;
+		}
+
+		if ((old_title == title) && (old_content == content)) {
+
+
+			alert("수정된 내용이 없습니다!");
+			return false;
+
+		}
+
 
 		location.href = "ReviewBooks_update_controller?no=" + no + "&title=" + title + "&content=" + content;
 
