@@ -143,7 +143,10 @@ public class AccountDAO {
 					
 					
 					String likes = rs.getString("b_likes");
+<<<<<<< HEAD
 					// likes = likes.replace("!", "&nbsp;");
+=======
+>>>>>>> 03cff0417f61c55c082e153b6fa7478a72d02e10
 					//likes = likes.replace("!", "&nbsp;");
 					String[] arr = rs.getString("b_likes").split(" ");
 					// 101 102 103 104
@@ -179,6 +182,7 @@ public class AccountDAO {
 					HttpSession hs = request.getSession();
 					hs.setAttribute("accountInfo", a);
 					ArrayList<String> cids = new ArrayList<String>();
+<<<<<<< HEAD
 					String[] arr = rs.getString("b_likes").split(" ");
 					// 101 102 103 104
 
@@ -196,6 +200,9 @@ public class AccountDAO {
 						like.replace("128", "여행");
 					}
 
+=======
+					
+>>>>>>> 03cff0417f61c55c082e153b6fa7478a72d02e10
 					
 					for (int i = 0; i < arr.length; i++) {
 						System.out.println(arr[i]);
