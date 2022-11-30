@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONObject;
+
 import com.book.account.AccountDAO;
 @WebServlet("/Login_check")
 public class Login_check extends HttpServlet {
@@ -22,11 +24,10 @@ public class Login_check extends HttpServlet {
 		int pwCheck = AccountDAO.getAdao().checkPw(userId, userPw);
 		
 		if (pwCheck == 0) {
-			System.out.println("비밀번호가 맞습니다.");
-		} else if (pwCheck == 1) {
 			System.out.println("비밀번호가 맞지 않습니다.");
 		}
-				
+			
+		
 		out.write(pwCheck + "");
 		}
 	}

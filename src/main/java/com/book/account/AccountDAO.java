@@ -143,10 +143,6 @@ public class AccountDAO {
 					
 					
 					String likes = rs.getString("b_likes");
-<<<<<<< HEAD
-					// likes = likes.replace("!", "&nbsp;");
-=======
->>>>>>> 03cff0417f61c55c082e153b6fa7478a72d02e10
 					//likes = likes.replace("!", "&nbsp;");
 					String[] arr = rs.getString("b_likes").split(" ");
 					// 101 102 103 104
@@ -181,29 +177,7 @@ public class AccountDAO {
 
 					HttpSession hs = request.getSession();
 					hs.setAttribute("accountInfo", a);
-					ArrayList<String> cids = new ArrayList<String>();
-<<<<<<< HEAD
-					String[] arr = rs.getString("b_likes").split(" ");
-					// 101 102 103 104
-
-					String like = "";
-					for (String ll : arr) {
-						like += ll + " ";
-						like.replace("101", "소설");
-						like.replace("102", "시/에세이");
-						like.replace("104", "사회과학");
-						like.replace("105", "역사와 문화");
-						like.replace("115", "국어/외국어");
-						like.replace("118", "자기계발");
-						like.replace("119", "인문");
-						like.replace("120", "종교/역학");
-						like.replace("128", "여행");
-					}
-
-=======
-					
->>>>>>> 03cff0417f61c55c082e153b6fa7478a72d02e10
-					
+					ArrayList<String> cids = new ArrayList<String>();					
 					for (int i = 0; i < arr.length; i++) {
 						System.out.println(arr[i]);
 						cids.add(arr[i]);
@@ -345,19 +319,19 @@ public class AccountDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		int pwCheck = 0;
+		int pwCheck = 1;
 		try {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
-
-			if (rs.next() || pw.equals("")) {
-				pwCheck = 0;
-			} else {
-				pwCheck = 1;
+			System.out.println(pw);
+			if(rs.next()){
+			if(!pw.equals(rs.getString("b_pw"))){
+				pwCheck = 0; // 비번 틀린거
+				return 0;
 			}
-
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

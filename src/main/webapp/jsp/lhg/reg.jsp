@@ -182,5 +182,30 @@ pageEncoding="UTF-8"%>
         </div>
       </div>
     </div>
+    <script>
+    $(".input_id").focusout(function() {
+		let userId = $(".input_id").val();
+		$.ajax({
+			url : "Id_check",
+			type : "post",
+			data : {
+				userId : userId,
+			},
+			success : function(result) {
+				console.log(result);
+				if (result == 0) {
+					$("#checkId").html("사용할 수 없는 아이디 입니다.");
+					$("#checkId").attr("color", "red");
+				} else {
+					$("#checkId").html("사용 가능한 아이디 입니다.");
+					$("#checkId").attr("color", "green");
+				}
+			},
+			error : function() {
+				alert("서버 요청 실패");
+			},
+		});
+	});
+    </script>
   </body>
 </html>

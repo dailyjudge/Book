@@ -15,14 +15,13 @@
 <body>
 	<div class="login-container">
 		<h1>로그인</h1>
-		<form class="login-form" action="Login_controller" method="post"
-			onsubmit="return loginCheck()" name="myForm">
+		<form class="login-form" action="Login_controller" method="post" name="myForm">
 			<input type="text" name="id" id="id" class="input_id"
 				placeholder="아이디"> <font id="checkId" size="2"></font> <input
 				type="password" name="pw" id="pw" class="input_pw"
 				placeholder="패스워드"> <font id="checkPw" size="2"></font>
 			<div class="button_area">
-				<button>로그인</button>
+				<button type="button" id="loginBtn">로그인</button>
 			</div>
 		</form>
 		<div>
@@ -42,33 +41,12 @@
 		</div>
 	</div>
 	<script>
-		$(".input_id").focusout(function() {
-			let userId = $(".input_id").val();
-			$.ajax({
-				url : "Id_check",
-				type : "post",
-				data : {
-					userId : userId,
-				},
-				success : function(result) {
-					console.log(result);
-					if (result == 0) {
-						$("#checkId").html("아이디가 확인되었습니다.");
-						$("#checkId").attr("color", "green");
-					} else {
-						$("#checkId").html("아이디가 확인되지 않았습니다.");
-						$("#checkId").attr("color", "red");
-					}
-				},
-				error : function() {
-					alert("서버 요청 실패");
-				},
-			});
-		});
-
-		$(".input_pw").focusout(function() {
+		$("#loginBtn").click(function() {
 			let userId = $(".input_id").val();
 			let userPw = $(".input_pw").val();
+			loginCheck();
+			
+			if(userPw != ""){
 			$.ajax({
 				url : "Login_check",
 				type : "post",
@@ -78,17 +56,17 @@
 				},
 				success : function(result) {
 					console.log(result);
-					if (result == 0) {
-						$("#checkPw").html("비밀번호가 확인되었습니다.");
-						$("#checkPw").attr("color", "green");
-					} else {
+					 if (result == 0) {
 						alert('비밀번호가 맞지 않습니다.')
+					} else if(result == 1) {
+						$(".login-form").submit();
 					}
 				},
 				error : function() {
 					alert("서버 요청 실패");
 				},
 			});
+			}
 		});
 	</script>
 </body>

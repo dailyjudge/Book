@@ -111,20 +111,6 @@ function loginCheck() {
 	} return true;
 }
 
-$(function() {
-	$("#pw").keyup(function() {
-		$("#pwConfirm").html("");
-	});
-
-	$("#pw2").keyup(function() {
-		if ($("#pw").val() != $("#pw2").val()) {
-			$("#pwConfirm").html("비밀번호 일치하지 않음<br><br>");
-			$("#pwConfirm").attr("color", "red");
-		} else {
-			$("#pwConfirm").html("비밀번호 일치함<br><br>");
-			$("#pwConfirm").attr("color", "green");
-		}
-	});
 $(function () {
   $("#pw").keyup(function () {
     $("#pwConfirm").html("");
