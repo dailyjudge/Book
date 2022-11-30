@@ -321,7 +321,7 @@ public class AccountDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		String sql = "select * from usedbooks_board order by u_date desc";
+		String sql = "select * from usedbooks_board order by u_date";
 
 		try {
 			con = DBManager.connect();
@@ -373,7 +373,16 @@ public class AccountDAO {
 
 			if (rs.next()) {
 				String id = rs.getString("b_id");
-				request.setAttribute("id", id);
+				
+				int len = id.length();
+				
+				String maskedId = "";
+				
+				for(int i = 0; i < len; i++) {
+					maskedId = i < len / 2 ? maskedId + id.charAt(i) : maskedId + "*";
+				}
+				
+				request.setAttribute("id", maskedId);
 			}
 
 		} catch (SQLException e) {
