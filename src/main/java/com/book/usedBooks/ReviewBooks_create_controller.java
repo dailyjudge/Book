@@ -13,26 +13,25 @@ import com.book.account.AccountDAO;
 public class ReviewBooks_create_controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		System.out.println("후기 게시판 입성");
+		AccountDAO.getAdao().loginCheck(request);
 
-		if (AccountDAO.getAdao().loginCheck(request)) {
-			
-			request.setAttribute("contentPage", "./jsp/kye/reviews_create.jsp");
-			request.getRequestDispatcher("index.jsp").forward(request, response);
-		}
+		request.setAttribute("contentPage", "./jsp/kye/reviews_create.jsp");
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		if (AccountDAO.getAdao().loginCheck(request)) {
+		System.out.println("후기 게시글 생성");
+		AccountDAO.getAdao().loginCheck(request);
 
-			ReviewDAO.createReview(request);
-			ReviewDAO.getCreatedReview(request);
+		ReviewDAO.createReview(request);
+		ReviewDAO.getCreatedReview(request);
 
-			request.setAttribute("contentPage", "./jsp/kye/reviews_detail.jsp");
-			request.getRequestDispatcher("index.jsp").forward(request, response);
-
-		}
+		request.setAttribute("contentPage", "./jsp/kye/reviews_detail.jsp");
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 
 	}
 
