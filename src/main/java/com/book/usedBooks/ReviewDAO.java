@@ -148,7 +148,13 @@ public class ReviewDAO {
 
 			String rv_title = mr.getParameter("title");
 			String rv_content = mr.getParameter("content");
-			String rv_img = mr.getFilesystemName("file");
+			String rv_img = "";
+			
+			if (mr.getFilesystemName("file") != null) {
+				rv_img = mr.getFilesystemName("file");
+			} else {
+				rv_img = "review_default.jpg";
+			}
 
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
@@ -246,7 +252,7 @@ public class ReviewDAO {
 			pstmt.setString(1, rv_title);
 			pstmt.setString(2, rv_content);
 			pstmt.setInt(3, rv_no);
-			
+
 			if (pstmt.executeUpdate() == 1) {
 				System.out.println("수정완료");
 			}
