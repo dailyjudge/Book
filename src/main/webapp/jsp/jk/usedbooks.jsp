@@ -26,6 +26,7 @@
 					class="usedbooks-board-container-span2">후기 게시판</span>
 			</div>
 		</div>
+		<!-- 리뷰게시판 div박스 -->
 		<div class="contents-wrap review-container3" style="display: none">
 			<c:forEach var="i" items="${reviews }">
 				<div class="contents project-card"
@@ -44,12 +45,11 @@
 						<div class="usedbooks-item-2">
 							<span class="usedbooks-item-date">작성 날짜 : ${i.rv_date }</span>
 						</div>
-
-
                </div>
             </div>
          </c:forEach>
       </div>
+      <!-- 중고게시판 div박스 -->
 		<div class="contents-wrap usedbooks-container3" >
 			<c:forEach var="i" items="${boards }">
 				<div class="contents project-card"
@@ -68,41 +68,78 @@
 						<div class="usedbooks-item-2">
 							<span class="usedbooks-item-date">작성 날짜 : ${i.date }</span>
 						</div>
-
-
                </div>
             </div>
          </c:forEach>
       </div>
       
-      
-      <div style="display: flex; text-align: center; justify-content: center;">
-         <c:choose>
-            <c:when test="${curPageNo <= 1 }">
-               <div>
-                  <img class="paging-icon" alt="" src="assets/previousPage.png">
-               </div>
-            </c:when>
-            <c:otherwise>
-               <div>
-                  <a href="UsedBooks_pagingC?p=${curPageNo -1}"><img class="paging-icon" alt="" src="assets/previousPage.png"></a>
-               </div>
-            </c:otherwise>
-         </c:choose>
-         <div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
-         <c:choose>
-            <c:when test="${curPageNo >= pageCount }">
-               <div>
-                  <img class="paging-icon" alt="" src="assets/nextPage.png">
-               </div>
-            </c:when>
-            <c:otherwise>
-               <div>
-                  <a href="UsedBooks_pagingC?p=${curPageNo + 1 }"><img class="paging-icon" alt="" src="assets/nextPage.png"></a>
-               </div>
-            </c:otherwise>
-         </c:choose>
+      <div class="usedbooks-paging-container">
+         <div
+            style="display: flex; text-align: center; justify-content: center;">
+            <c:choose>
+               <c:when test="${curPageNo2 <= 1 }">
+                  <div>
+                     <img class="paging-icon" alt="" src="assets/previousPage.png">
+                  </div>
+               </c:when>
+               <c:otherwise>
+                  <div>
+                     <a href="UsedBooks_pagingC?p=${curPageNo2 -1}"><img
+                        class="paging-icon" alt="" src="assets/previousPage.png"></a>
+                  </div>
+               </c:otherwise>
+            </c:choose>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+            <c:choose>
+               <c:when test="${curPageNo2 >= pageCount2 }">
+                  <div>
+                     <img class="paging-icon" alt="" src="assets/nextPage.png">
+                  </div>
+               </c:when>
+               <c:otherwise>
+                  <div>
+                     <a href="UsedBooks_pagingC?p=${curPageNo2 + 1 }"><img
+                        class="paging-icon" alt="" src="assets/nextPage.png"></a>
+                  </div>
+               </c:otherwise>
+            </c:choose>
+         </div>
       </div>
+      <div class="reviewbooks-paging-container" style="display: none">
+         <div
+            style="display: flex; text-align: center; justify-content: center;">
+            <c:choose>
+               <c:when test="${curPageNo <= 1 }">
+                  <div>
+                     <img class="paging-icon" alt="" src="assets/previousPage.png">
+                  </div>
+               </c:when>
+               <c:otherwise>
+                  <div>
+                     <a href="ReviewBooks_pagingC?p2=${curPageNo -1}"><img
+                        class="paging-icon" alt="" src="assets/previousPage.png"></a>
+                  </div>
+               </c:otherwise>
+            </c:choose>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+            <c:choose>
+               <c:when test="${curPageNo >= pageCount }">
+                  <div>
+                     <img class="paging-icon" alt="" src="assets/nextPage.png">
+                  </div>
+               </c:when>
+               <c:otherwise>
+                  <div>
+                     <a href="ReviewBooks_pagingC?p2=${curPageNo + 1 }"><img
+                        class="paging-icon" alt="" src="assets/nextPage.png"></a>
+                  </div>
+               </c:otherwise>
+            </c:choose>
+         </div>
+      </div>
+      
+      
+      
       
       <div class="usedbooks-header-container">
          <button onclick="createContent()" class="usedbooks-header-button">중고
