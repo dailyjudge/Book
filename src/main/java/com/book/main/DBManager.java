@@ -10,7 +10,15 @@ public class DBManager {
 public static Connection connect() throws SQLException {
 	
 	String url = "jdbc:oracle:thin:@localhost:1521:xe";
+<<<<<<< HEAD
 	return DriverManager.getConnection(url, "c##hg", "hg");
+=======
+
+
+	return DriverManager.getConnection(url, "c##kye", "kye");
+
+
+>>>>>>> 596f905ce69c6187e5a6d3267b2496c41cfa6df6
 }
 // db.close(con,pstmt,rs)
 public static void close(Connection con, PreparedStatement pstmt, ResultSet rs) {
