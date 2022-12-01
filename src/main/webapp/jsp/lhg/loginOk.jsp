@@ -21,6 +21,7 @@ document.getElementById('frm').submit();
 		</div>
 		
 		<div class="item-container2">
+			<img class="account-user-profile-image" alt="" src="fileFolder/${sessionScope.accountInfo.b_pic }">
 			<h3>${sessionScope.accountInfo.b_name }님 안녕하세요!</h3>
 			<a href="User_info_controller" class="account-item">마이페이지</a>
 			<a href="Logout_controller" class="account-item">로그아웃</a>

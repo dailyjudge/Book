@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $(document).on("click", ".usedbooks-board-container-span2", function () {
     $(document).on("click", ".usedbooks-board-container-span2", function () {
-      location.href = "ReviewBooks_main_controller";
+      ;
     });
     $(document).on("click", ".usedbooks-board-container-span1", function () {
       location.href = "UsedBooks_main_controller";

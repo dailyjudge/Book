@@ -17,6 +17,7 @@ public class Login_check extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("login_check controller");
 		String userId = request.getParameter("userId");
 		String userPw = request.getParameter("userPw");
 		PrintWriter out = response.getWriter();

@@ -70,7 +70,7 @@
         let name = it.store_name;
         let adres = it.adres;
         let sns = it.sns;
-        let tel = it.tel_no;
+        let tel = it.tel_no == null ? "" : it.tel_no;
         let y = it.ydnts;
         let x = it.xcnts;
         let hmpg = it.hmpg_url;
@@ -88,7 +88,8 @@
                 map: map,
                 position: coords,
               });
-
+			
+             
               var content =
                
             	  sns != null ? 
@@ -203,12 +204,11 @@
           }
           return 0;
         });
-        console.log(newList);
  
 
        for(let i = 0; i < newList.length; i++) {
      	   let store_name= newList[i].store_name;
-    	   let tel_no= newList[i].tel_no; 
+    	   let tel_no = newList[i].tel_no == null ? "" : newList[i].tel_no; 
     	   let adres2=newList[i].adres;
     	   let adres=newList[i].adres;
     	   let sns= newList[i].sns;
@@ -228,9 +228,6 @@
         
                 
              )
-        console.log(newList[i].store_name);
-        console.log(newList[i].tel_no);
-            
   
        }
      

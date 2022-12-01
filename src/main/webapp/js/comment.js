@@ -103,6 +103,8 @@ function del_comment(no) {
 			success: function(res) {
 				alert("댓글이 성공적으로 삭제되었습니다!");
 				$(`#comment-container-${no}`).remove();
+				$(`.reply-list-container-${no}`).remove();
+				$(`.reply-reg-container-${no}`).remove();
 			},
 			error: function(request, status, error) {
 
