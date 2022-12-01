@@ -1,4 +1,6 @@
 # Git - Semi_Project
+<img src="https://img.shields.io/badge/JAVA-007396?style=for-the-badge&logo=java&logoColor=white">
+
 ### 소개
 책을 좋아하는 사람들을 위해 만든 간이 서점 사이트이다. 그동안 배운 CRUD와 Open API 활용,  Oracle DB를 통해 제작하였다.
 
