@@ -23,7 +23,6 @@ public class Update_info_controller extends HttpServlet {
 		AccountDAO.getAdao().loginCheck(request);
 		AccountDAO.getAdao().updateAccount(request);
 		AccountDAO.getAdao().login(request);
-
 		request.setAttribute("contentPage", "jsp/lhg/User_info.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}

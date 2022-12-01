@@ -35,12 +35,15 @@
                 </div>
                     
                 <div class="myPage-field myPage-additional">
-                    <a href="Update_info_controller">정보 수정</a>
+                    <a id="updateBtn" href="Update_info_controller">정보 수정</a>
                     <a onclick="delete_account('${sessionScope.accountInfo.b_id}')">회원 탈퇴</a>
                 </div>
             </div>
         </div>
-        
+        <script>
+        $("#updateBtn").click(function() {
+			alert("수정하시겠습니까?");
+        });        
+        </script>
 </body>
-</html>
 </html>
