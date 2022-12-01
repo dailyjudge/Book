@@ -264,6 +264,7 @@ public class AccountDAO {
 			DBManager.close(con, pstmt, null);
 		}
 	}
+	
 	public boolean checkCids(HttpServletRequest request) {
 		HttpSession hs = request.getSession();
 		ArrayList<String> cids = (ArrayList<String>) hs.getAttribute("cid");
