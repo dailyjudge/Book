@@ -49,6 +49,7 @@ rv_no(pk)|rv_author(작성자)|rv_title(제목)|rv_content(내용)|rv_img(이미
 2|정씨|제목2|내용이별로임|bb.jpg|2022-11-25 11:42:24.0|
 
 ### ERD
-# 여기다 ERD 붙이기
+<img src="https://user-images.githubusercontent.com/108406531/205044225-6990d46e-47ed-40d8-9b39-e9c03df3e87f.png" 
+width="200px">
 
 
