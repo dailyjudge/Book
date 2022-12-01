@@ -96,7 +96,7 @@ public class UsedBooksDAO {
 			String content = mr.getParameter("content");
 			String img = "";
 			if(mr.getFilesystemName("file") == null) {
-				img = "noImg";
+				img = "noImg.jpg";
 			} else {
 				img = mr.getFilesystemName("file");
 			}

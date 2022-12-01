@@ -11,15 +11,15 @@
 
 .usedbooks-create-container {
 	flex-direction: column;
-	font-family: "MapoFlowerIsland";
-	border: 5px double #00541a;
+	font-family: "yg-jalnan";
+	border: 1px solid black;
 	width: 50%;
 	display: flex;
 	margin: 30px auto;
 	padding: 20px 20px;
 	justify-content: center;
-	background-color: #f3f0d7;
-	color: #00541a;
+	background-color: #EBF5FF;
+	color: #000069;
 }
 
 .usedbooks-create-item {
@@ -52,18 +52,20 @@
 	height: 40px;
 	border-radius: 10px;
 	border-radius: 10px;
-	border: 5px solid #5f8d4e;
-	background-color: #00541a;
-	color: #f3f0d7;
+	border: 5px solid skyblue;
+	background-color: #EBF5FF;
+	color: black;
+	font-family: "yg-jalnan";
+	
 }
 
 .usedbooks-create-button-container button:hover {
 	color: white;
 	border-radius: 10px;
-	border: 5px double #00541a;
+	border: 1px solid #000069;
 	transition: 0.3s ease-in;
 	cursor: pointer;
-	background-color: #5f8d4e;
+	background-color: #000069;
 	color: #f3f0d7;
 }
 
@@ -157,19 +159,19 @@
 	height: 40px;
 	border-radius: 10px;
 	border-radius: 10px;
-	border: 5px solid #5f8d4e;
-	background-color: #00541a;
-	color: #f3f0d7;
+	border: 5px solid skyblue;
+	background-color: #EBF5FF;
+	color: black;
 	margin: 0px auto;
 }
 
 .usedbooks-update-button-container button:hover {
 	color: white;
 	border-radius: 10px;
-	border: 5px double #00541a;
+	border: 5px double #000069;
 	transition: 0.3s ease-in;
 	cursor: pointer;
-	background-color: #5f8d4e;
+	background-color: #000069;
 	color: #f3f0d7;
 }
 
