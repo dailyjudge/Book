@@ -54,7 +54,8 @@
 					<textarea id="comment-textarea" class="comment-text-reg"></textarea>
 
 					<div class="comment-button-container">
-						<button onclick="reg_comment('${target.no}', '${sessionScope.accountInfo.b_pic }', '${sessionScope.accountInfo.b_id }')">등록</button>
+						<button
+							onclick="reg_comment('${target.no}', '${sessionScope.accountInfo.b_pic }', '${sessionScope.accountInfo.b_id }')">등록</button>
 					</div>
 				</div>
 			</div>
@@ -107,7 +108,7 @@
 					<div
 						class="comment-container reply-reg-container-${c.comment_number }"
 						style="display: none">
-						<div>
+						<div id="comment-img">
 							<img src="fileFolder/${sessionScope.accountInfo.b_pic }" alt="">
 						</div>
 						<div class="comment-container2">
@@ -118,7 +119,8 @@
 								<textarea id="comment-textarea"
 									class="comment-text-reg reply-textarea-${c.comment_number }"></textarea>
 								<div class="comment-button-container">
-									<button onclick="reg_reply('${c.comment_number}', '${sessionScope.accountInfo.b_pic }')">등록</button>
+									<button
+										onclick="reg_reply('${c.comment_number}', '${sessionScope.accountInfo.b_pic }')">등록</button>
 								</div>
 							</div>
 						</div>
