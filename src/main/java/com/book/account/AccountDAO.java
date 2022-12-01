@@ -249,8 +249,14 @@ public class AccountDAO {
 
 			if (pstmt.executeUpdate() == 1) {
 				request.setAttribute("r", "수정 완료");
-				request.setAttribute("id2", a.getB_id());
-				request.setAttribute("pw2", a.getB_pw());
+				
+				if (pw==null||pw.isEmpty()) {					
+					request.setAttribute("id2", a.getB_id());
+					request.setAttribute("pw2", a.getB_pw());
+				}else {
+					request.setAttribute("id2", id);
+					request.setAttribute("pw2", pw);
+				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
