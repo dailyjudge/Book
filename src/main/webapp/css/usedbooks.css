@@ -23,11 +23,18 @@
 }
 
 .usedbooks-create-item {
-	margin-bottom: 20px;
-	width: 100%;
-	display: flex-end;
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex-end;
+  font-size: 20px;
 }
-
+.usedbooks-create-item-title{
+	font-size: 20px;
+	
+}
+.usedbooks-create-header{
+	font-size: 25px;
+}
 .usedbooks-create-textarea {
 	resize: none;
 }

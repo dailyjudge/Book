@@ -1,6 +1,19 @@
 @charset "UTF-8";
 
+@font-face {
+	font-family: "MapoFlowerIsland";
+	src:
+		url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff")
+		format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+
 .comment-container {
+	font-family: "MapoFlowerIsland";
+	background-color: #f0ebce;
+	border: 5px double #285430;
+	color: #00541a;
 	position: relative;
 	width: 50%;
 	margin: 10px auto;
@@ -23,10 +36,10 @@
 .comment-container2 {
 	padding-top: 2%;
 	padding-left: 2%;
+	padding-bottom: 2%;
 	margin-left: 2%;
 	display: flex;
 	width: 75%;
-	height: 50%;
 	justify-content: space-between;
 	align-items: flex-start;
 	flex-direction: column;
@@ -50,7 +63,9 @@
 	font-size: 12px;
 	resize: none;
 	border: none;
-	border-radius: 10px;
+	color: #f0ebce;
+	background-color: #00541a;
+	border-radius: 5px;
 }
 
 .comment-text-reg {
@@ -58,7 +73,7 @@
 	font-size: 12px;
 	resize: none;
 	border: 2px solid black;
-	border-radius: 10px;
+	border-radius: 5px;
 }
 
 .comment-button-container {
@@ -109,7 +124,7 @@ a {
 }
 
 .more-reply:visited {
-	color: #00541a;
+	color: #000069;
 }
 
 .more-reply:hover {

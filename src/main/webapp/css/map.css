@@ -6,7 +6,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: 'yg-jalnan';
+  font-family: "yg-jalnan";
 }
 
 .wrap {
@@ -97,14 +97,14 @@ body {
 
 .map-container {
   display: flex;
-  font-family: 'yg-jalnan';
+  font-family: "yg-jalnan";
 }
 
 #map {
   width: 65%;
   height: 500px;
   margin: 30px 3%;
-  font-family: 'yg-jalnan';
+  font-family: "yg-jalnan";
 }
 
 #newList {
@@ -122,14 +122,13 @@ body {
   overflow: auto;
   height: 500px;
   margin: 30px 3%;
-  
 }
 .link{
 	 font-family: 'yg-jalnan';
 	 color: #000069;
 }
-.link:hover{
-	text-decoration: underline;
+.link:hover {
+  text-decoration: underline;
 }
 
 #list-all::-webkit-scrollbar-thumb {

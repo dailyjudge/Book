@@ -29,7 +29,7 @@
             
             
             <div class="usedbooks-create-item">
-                <strong>사진</strong>
+                <strong>사진</strong><br>
                 <input id="usedbooks-create-img" type="file" name="file" accept="image/gif, image/jpeg, image/png, image/jpg">
             </div>
             
