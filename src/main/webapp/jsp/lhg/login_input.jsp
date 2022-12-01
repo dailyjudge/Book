@@ -42,6 +42,7 @@
 	</div>
 	<script>
 		$("#loginBtn").click(function() {
+			console.log("h");
 			let userId = $(".input_id").val();
 			let userPw = $(".input_pw").val();
 			loginCheck();

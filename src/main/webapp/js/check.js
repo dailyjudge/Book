@@ -115,6 +115,11 @@ $(function () {
   $("#pw").keyup(function () {
     $("#pwConfirm").html("");
     
+    if(($('#pw').val() != "" && ($("#pw2").val() == "")) || ($('#pw').val() == "" && ($("#pw2").val() != ""))) {
+	  $("#user-update-button").attr("disabled", true);
+      $("#user-update-button").css("background-color", "red");
+	}
+    
     // 두 input 값이 없을 경우 다시 사용 가능하도록
     if($("#pw").val() == "" && ($("#pw2").val() == "")) {
 	  $("#user-update-button").attr("disabled", false);

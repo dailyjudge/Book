@@ -52,8 +52,9 @@
 	border: 0;
 	outline: 0;
 	border-radius: 6px;
-	background: linear-gradient(to left, #233329, #63D471);
+	background: linear-gradient(to left, #2A2A72, #009FFD);
 	color: white;
+	font-family: "yg-jalnan";
 	font-size: 1.2em;
 	letter-spacing: 2px;
 	box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4),-3px -3px 5px
@@ -113,3 +114,8 @@
     color: #4e4c4c;
 }
 
+.account-user-profile-image {
+	width: 35px;
+	height: 35px;
+	border-radius: 70%;
+}

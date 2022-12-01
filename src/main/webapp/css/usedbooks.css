@@ -70,13 +70,17 @@
   padding: 10px 10px;
   margin-top: 30px;
   margin-bottom: 10px;
-  font-family: "MapoFlowerIsland";
+  font-family: 'yg-jalnan';
   border: 2px solid black;
   display: flex;
   flex-direction: column;
   background-color: #f3f0d7;
   margin-left: auto;
   margin-right: auto;
+}
+
+.usedbooks-detail-button{
+	font-family: 'yg-jalnan';
 }
 
 .usedbooks-detail-title {
@@ -167,24 +171,26 @@
 
 
 .project-card {
-  width: 400px;
-  height: 300px;
+  width: 250px;
+  height: 280px;
   border-radius: 25px;
-  border: 1px solid rgb(0, 0, 0);
   position: relative;
   box-shadow: 5px 5px 20px;
   transition: all 0.5s;
-  transition-delay: 0.4s;
+  margin: 0px 30px;
 }
 
 .project-card:hover {
-  width: 450px;
-  height: 350px;
+  width: 260px;
+  height: 270px;
+  border: 5px double black;
 }
 
 .project-thumbnail {
-  width: 100%;
+  margin: 0px auto;
+  width: 60%;
   height: 70%;
+  border-radius: 5px;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   background-size: cover;
@@ -202,11 +208,14 @@
 .contents-wrap {
   display: flex;
   margin-left: 40px;
+  justify-content: center;
+  font-family: 'yg-jalnan';
 }
 
 .contents-img {
-  width: 180px;
-  height: 200px;
+  margin-top: 10px;
+  width: 150px;
+  height: 150px;
 }
 .paging-icon {
   width: 50px;
@@ -215,4 +224,43 @@
 .paging-icon:hover {
   width: 60px;
   height: 60px;
+}
+
+.review-wrap {
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	margin: 0px auto;
+}
+
+.review-wrap-item {
+	border: 1px solid black;
+	width: 20%;
+	margin:2% 2%;
+}
+
+.review-wrap-img {
+	width: 50px;
+	height: 50px;
+}
+
+.review-container3 {
+	cursor: pointer;
+}
+
+.usedbooks-container3 {
+	cursor: pointer;
+}
+
+.usedbooks-header-container2 {
+	width: 40%;
+	margin: 0px auto;
+}
+
+.usedbooks-item-date {
+	margin-bottom: 10px;
+}
+
+.paging-icon {
+	cursor: pointer;
 }

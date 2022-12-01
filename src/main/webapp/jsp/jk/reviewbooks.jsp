@@ -22,14 +22,14 @@
 	<div style="text-align: center; justify-content: center;">
 		<div class="usedbooks-header-container">
 			<div class="usedbooks-board-container">
-				<span class="usedbooks-board-container-span1">중고 서적 게시판</span>
+				<span class="usedbooks-board-container-span1" onclick='location.href = "UsedBooks_main_controller"'>중고 서적 게시판</span>
 			</div>
 		</div>
 		<!-- 리뷰게시판 div박스 -->
 		<div class="contents-wrap review-container3"">
 			<c:forEach var="i" items="${reviews }">
 				<div class="contents project-card"
-					onclick="location.href='UsedBooks_detail_controller?no=${i.rv_no}'">
+					onclick="location.href='ReviewBooks_detail_controller?no=${i.rv_no}'">
 					<input style="display: none" value="${i.rv_no }" name="board-number">
 					<div class="project-thumbnail" id="project-macbook">
 						<img class="contents-img" src="review_img/${i.rv_img }" alt="">
@@ -82,12 +82,10 @@
          </div>
       </div>
       
-      <div class="usedbooks-header-container">
+      <div class="usedbooks-header-container2">
          <button onclick="createContent_review()" class="usedbooks-header-button">리뷰
             등록하기</button>
       </div>
    </div>
-   <div class="review-container">아아아아아아</div>
-
 </body>
 </html>
