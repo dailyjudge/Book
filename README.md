@@ -50,6 +50,6 @@ rv_no(pk)|rv_author(작성자)|rv_title(제목)|rv_content(내용)|rv_img(이미
 
 ### ERD
 <img src="https://user-images.githubusercontent.com/108406531/205044225-6990d46e-47ed-40d8-9b39-e9c03df3e87f.png" 
-width="800px" height="1000px">
+width="800px" height="600px">
 
 
