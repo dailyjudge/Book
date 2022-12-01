@@ -8,6 +8,11 @@
 3. Oracle DB와 연결하여 게시글을 작성하고, 읽고, 수정하고 삭제 할 수 있는 CRUD기반 게시판
 4. 카카오의 지도 API를 활용하여 현재 위치 주변의 서점을 보여주고 지도에 표시
 
+### ERD
+<img src="https://user-images.githubusercontent.com/108406531/205044225-6990d46e-47ed-40d8-9b39-e9c03df3e87f.png" 
+width="800px" height="600px">
+
+
 ### DB Table
 #### 회원 관련 Table
 ##### 1. Account(예시)
@@ -47,9 +52,4 @@ rv_no(pk)|rv_author(작성자)|rv_title(제목)|rv_content(내용)|rv_img(이미
 ---|---|---|---|---|---|
 1|김씨|제목1|내용이흥미로움|aa.jpg|2022-11-24 16:46:40.0|
 2|정씨|제목2|내용이별로임|bb.jpg|2022-11-25 11:42:24.0|
-
-### ERD
-<img src="https://user-images.githubusercontent.com/108406531/205044225-6990d46e-47ed-40d8-9b39-e9c03df3e87f.png" 
-width="800px" height="600px">
-
 
