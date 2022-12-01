@@ -23,7 +23,7 @@
    <div style="text-align: center; width: 100%" >
       <div class="usedbooks-header-container">
          <div class="usedbooks-board-container">
-            <span class="usedbooks-board-container-span2">후기 게시판</span>
+            <span class="usedbooks-board-container-span2" onclick='location.href = "ReviewBooks_main_controller"'>후기 게시판</span>
          </div>
       </div>
 
@@ -117,7 +117,7 @@
          </div>
       </div>
       
-      <div class="usedbooks-header-container">
+      <div class="usedbooks-header-container2">
          <button onclick="createContent()" class="usedbooks-header-button">중고
             서적 등록하기</button>
       </div>

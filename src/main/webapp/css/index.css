@@ -9,8 +9,17 @@
 	font-style: normal;
 }
 
+@font-face {
+	font-family: 'yg-jalnan';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
 body {
-	font-family: "MapoFlowerIsland";
+	font-family: "yg-jalnan";
 }
 
 .account-container {
@@ -69,7 +78,7 @@ body {
 	text-decoration: none;
 	margin-right: 10px;
 	font-size: 16px;
-	font-family: "MapoFlowerIsland";
+	font-family: "yg-jalnan";
 }
 
 .account-item:visited {
@@ -88,7 +97,7 @@ body {
 
 .menu-item {
 	width: 25%;
-	background: #f3f0d7;
+	background: #EBF5FF;
 	transition: 0.5s;
 	height: 100px;
 	display: flex;
@@ -98,10 +107,11 @@ body {
 
 .menu-item:hover {
 	width: 35%;
-	background: #00541a;
+	background: #000069;
 }
 
 .menu-link {
+	font-family: "yg-jalnan";
 	display: block;
 	padding: 1em;
 	font-size: 1.2rem;
@@ -109,6 +119,11 @@ body {
 	color: #555;
 	text-decoration: none;
 	text-align: center;
+	display: block;
+}
+
+.menu-link a {
+	font-family: "yg-jalnan";
 }
 
 .menu-link:hover {
@@ -158,6 +173,7 @@ body {
 	background-color: black;
 	display: none;
 	position: absolute;
+	font-family: "yg-jalnan";
 }
 
 .item-desc p {
@@ -169,7 +185,7 @@ body {
 }
 
 .item-more {
-	font-family: "MapoFlowerIsland";
+	font-family: "yg-jalnan";
 	width: 170px;
 	height: 50px;
 	margin-left: auto;
@@ -228,6 +244,7 @@ body {
 }
 
 .book-classification {
+	font-family: "yg-jalnan";
 	font-size: 30px;
 	font-weight: bold;
 	margin-left: 60px;
@@ -275,7 +292,7 @@ body {
 
 .usedbooks-header-container {
 	width: 40%;
-	margin: 0px auto;
+	margin-left: 40px;
 	margin-top: 50px;
 	margin-bottom: 20px;
 }
@@ -392,11 +409,15 @@ body {
 }
  */
 .usedbooks-board-container {
-	border: 1px solid black;
 	display: flex;
 	font-size: 22px;
 	font-weight: 700;
 	justify-content: space-between;
+	cursor: pointer;
+}
+
+.usedbooks-board-container span:hover {
+	border-bottom: 1px solid black;
 }
 
 .account-user-profile-image {
@@ -404,4 +425,15 @@ body {
 	height: 35px;
 	margin-bottom: 10px;
 	border-radius: 70%;
+}
+
+.slick-slider {
+	margin-top: 80px;
+}
+
+.usedbooks-board-container-span1 {
+	font-family: 'yg-jalnan';
+}
+.usedbooks-board-container-span2 {
+	font-family: 'yg-jalnan';
 }
