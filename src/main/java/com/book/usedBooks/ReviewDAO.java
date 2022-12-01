@@ -153,7 +153,7 @@ public class ReviewDAO {
 			if (mr.getFilesystemName("file") != null) {
 				rv_img = mr.getFilesystemName("file");
 			} else {
-				rv_img = "review_default.jpg";
+				rv_img = "./assets/review_default.jpg";
 			}
 
 			con = DBManager.connect();
