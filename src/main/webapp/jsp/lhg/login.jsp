@@ -14,6 +14,7 @@
 				src="assets/main.png"
 				alt=""></a>
 		</div>
+		 <div class="item-container4" onclick="location.href='HC'"><span>BooKs</span></div>
 		<div class="item-container">
 			<a class="account-item" href="Login_controller">로그인</a> <a
 				class="account-item" href="Account_register_controller">회원가입</a>

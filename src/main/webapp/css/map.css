@@ -20,12 +20,14 @@ body {
   overflow: hidden;
   font-size: 12px;
   font-family: "Malgun Gothic", dotum, "돋움", sans-serif;
+  font-family: 'yg-jalnan';
   line-height: 1.5;
 }
 
 .wrap * {
   padding: 0;
   margin: 0;
+  font-family: 'yg-jalnan';
 }
 
 .wrap .info {
@@ -106,30 +108,31 @@ body {
 }
 
 #newList {
-  border: 2px solid #00541a;
+  border: 2px solid #000069;
   border-radius: 10px;
-  background-color: #f3f0d7;
+  background-color: #EBF5FF;
   padding: 10px 10px;
   margin-bottom: 10px;
 }
 
 #list-all {
-  border: 10px solid #00541a;
-  background-color: #00541a;
-  font-family: "yg-jalnan";
+  border: 10px solid #000069;
+  background-color: #000069;
+  font-family: 'yg-jalnan';
   overflow: auto;
   height: 500px;
   margin: 30px 3%;
 }
-.link {
-  font-family: "yg-jalnan";
+.link{
+	 font-family: 'yg-jalnan';
+	 color: #000069;
 }
 .link:hover {
   text-decoration: underline;
 }
 
 #list-all::-webkit-scrollbar-thumb {
-  background-color: #f3f0d7;
+  background-color: #EBF5FF;
   border-radius: 5px;
   background-clip: padding-box;
 }
@@ -137,3 +140,4 @@ body {
 #list-all::-webkit-scrollbar {
   background-color: #5f8d4e;
 }
+

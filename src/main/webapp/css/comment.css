@@ -10,10 +10,10 @@
 }
 
 .comment-container {
-	font-family: "MapoFlowerIsland";
-	background-color: #f0ebce;
-	border: 5px double #285430;
-	color: #00541a;
+	font-family: "yg-jalnan";
+	background-color: #EBF5FF;
+	border: 1px solid black;
+	color: #000069;
 	position: relative;
 	width: 50%;
 	margin: 10px auto;
@@ -22,7 +22,6 @@
 	font-size: 14px;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
 	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px
 		rgba(0, 0, 0, 0.22);
 }
@@ -65,7 +64,7 @@
 	resize: none;
 	border: none;
 	color: #f0ebce;
-	background-color: #00541a;
+	background-color: #000069;
 	border-radius: 5px;
 }
 
@@ -93,8 +92,9 @@
 	border: none;
 	padding: 5px 0px;
 	cursor: pointer;
-	background-color: #00541a;
+	background-color: #000069;
 	color: #e2e2e2;
+	font-family: 'yg-jalnan';
 }
 
 .commentOfComment-container {
@@ -121,11 +121,10 @@
 
 a {
 	text-decoration: none;
-	color: #00541a;
 }
 
 .more-reply:visited {
-	color: #00541a;
+	color: #000069;
 }
 
 .more-reply:hover {
