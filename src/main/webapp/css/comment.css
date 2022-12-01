@@ -10,10 +10,10 @@
 }
 
 .comment-container {
-	font-family: "MapoFlowerIsland";
-	background-color: #f0ebce;
-	border: 5px double #285430;
-	color: #00541a;
+	font-family: "yg-jalnan";
+	background-color: #EBF5FF;
+	border: 1px solid black;
+	color: #000069;
 	position: relative;
 	width: 50%;
 	margin: 10px auto;
@@ -64,7 +64,7 @@
 	resize: none;
 	border: none;
 	color: #f0ebce;
-	background-color: #00541a;
+	background-color: #000069;
 	border-radius: 5px;
 }
 

@@ -1,21 +1,25 @@
 @charset "UTF-8";
 /* account */
 @font-face {
-  font-family: "MapoFlowerIsland";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff")
-    format("woff");
-  font-weight: normal;
-  font-style: normal;
+	font-family: "MapoFlowerIsland";
+	src:
+		url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff")
+		format("woff");
+	font-weight: normal;
+	font-style: normal;
 }
+
 @font-face {
-  font-family: "yg-jalnan";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff")
-    format("woff");
-  font-weight: normal;
-  font-style: normal;
+	font-family: "yg-jalnan";
+	src:
+		url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff")
+		format("woff");
+	font-weight: normal;
+	font-style: normal;
 }
+
 body {
-  font-family: "yg-jalnan";
+	font-family: "yg-jalnan";
 }
 
 .account-container {
@@ -29,18 +33,18 @@ body {
 }
 
 .account-container2 {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  height: 100px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	height: 100px;
 }
 
 .item-container4 {
-    width: 20%;
-    font-size: 56px;
-    cursor: pointer;
-    font-weight: bold;
-    font-family: "Constantia";
+	width: 20%;
+	font-size: 56px;
+	cursor: pointer;
+	font-weight: bold;
+	font-family: "Constantia";
 }
 
 .img-container {
@@ -49,143 +53,143 @@ body {
 }
 
 .img-container2 {
-  width: 60%;
-  margin: 10px 0px;
+	width: 60%;
+	margin: 10px 0px;
 }
 
 .account-img {
-  width: 100px;
-  height: 85px;
-  cursor: pointer;
+	width: 100px;
+	height: 85px;
+	cursor: pointer;
 }
 
 .item-container {
-  display: flex;
-  justify-content: flex-end;
-  width: 40%;
+	display: flex;
+	justify-content: flex-end;
+	width: 40%;
 }
 
 .item-container2 {
-  display: flex;
-  justify-content: flex-end;
-  width: 40%;
-  color: #646464;
-  font-size: 14px;
-  align-items: center;
+	display: flex;
+	justify-content: flex-end;
+	width: 40%;
+	color: #646464;
+	font-size: 14px;
+	align-items: center;
 }
 
 .item-container2 h3 {
-  margin-right: 10px;
+	margin-right: 10px;
 }
 
 .account-item {
-  text-decoration: none;
-  margin-right: 10px;
-  font-size: 16px;
-  font-family: "yg-jalnan";
+	text-decoration: none;
+	margin-right: 10px;
+	font-size: 16px;
+	font-family: "yg-jalnan";
 }
 
 .account-item:visited {
-  color: #646464;
+	color: #646464;
 }
 
 .account-item:hover {
-  color: black;
+	color: black;
 }
 
 .menu {
-  display: flex;
-  color: #e9d5ca;
-  width: 100%;
+	display: flex;
+	color: #e9d5ca;
+	width: 100%;
 }
 
 .menu-item {
-  width: 25%;
-  background: #ebf5ff;
-  transition: 0.5s;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	width: 25%;
+	background: #ebf5ff;
+	transition: 0.5s;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .menu-item:hover {
-  width: 35%;
-  background: #000069;
+	width: 35%;
+	background: #000069;
 }
 
 .menu-link {
-  font-family: "yg-jalnan";
-  display: block;
-  padding: 1em;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #555;
-  text-decoration: none;
-  text-align: center;
-  display: block;
+	font-family: "yg-jalnan";
+	display: block;
+	padding: 1em;
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: #555;
+	text-decoration: none;
+	text-align: center;
+	display: block;
 }
 
 .menu-link a {
-  font-family: "yg-jalnan";
+	font-family: "yg-jalnan";
 }
 
 .menu-link:hover {
-  color: white;
+	color: white;
 }
 
 .book-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  width: 100vw;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	width: 100vw;
 }
 
 .book-items {
-  width: 80vw;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+	width: 80vw;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .book-item {
-  cursor: pointer;
-  width: 200px;
-  height: 300px;
-  position: relative;
-  margin: 50px 80px;
+	cursor: pointer;
+	width: 200px;
+	height: 300px;
+	position: relative;
+	margin: 50px 80px;
 }
 
 .item-img {
-  margin: 0px auto;
-  width: 200px;
-  border: 1px solid black;
-  height: 300px;
-  position: absolute;
+	margin: 0px auto;
+	width: 200px;
+	border: 1px solid black;
+	height: 300px;
+	position: absolute;
 }
 
 .item-img img {
-  width: 200px;
+	width: 200px;
 }
 
 .item-desc {
-  margin: 0px auto;
-  padding-top: 15px;
-  width: 200px;
-  border: 1px solid black;
-  height: 285px;
-  background-color: black;
-  display: none;
-  position: absolute;
-  font-family: "yg-jalnan";
+	margin: 0px auto;
+	padding-top: 15px;
+	width: 200px;
+	border: 1px solid black;
+	height: 285px;
+	background-color: black;
+	display: none;
+	position: absolute;
+	font-family: "yg-jalnan";
 }
 
 .item-desc p {
-  font-size: 12px;
-  letter-spacing: 1px;
-  margin-top: 20px;
-  margin-left: 10px;
-  color: rgb(227, 223, 223);
+	font-size: 12px;
+	letter-spacing: 1px;
+	margin-top: 20px;
+	margin-left: 10px;
+	color: rgb(227, 223, 223);
 }
 
 .item-more {
@@ -214,17 +218,15 @@ body {
 	border-radius: 10px;
 	cursor: pointer;
 	color: #f3f0d7;
-
 }
 
 .search {
-  position: relative;
-  margin-top: 50px;
-  margin-bottom: 50px;
+	position: relative;
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 
 .search-input {
-<<<<<<< HEAD
 	font-family: 'yg-jalnan';
 	width: 30%;
 	margin-top: 30px;
@@ -236,104 +238,122 @@ body {
 }
 
 .search-img {
-  position: absolute;
-  width: 17px;
-  top: 40px;
-  left: 65%;
-  margin: 0;
-  cursor: pointer;
+	position: absolute;
+	width: 17px;
+	top: 40px;
+	left: 65%;
+	margin: 0;
+	cursor: pointer;
 }
 
 .more-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+	width: 100%;
+	display: flex;
+	justify-content: center;
 }
 
 .book-classification {
-  font-family: "yg-jalnan";
-  font-size: 30px;
-  font-weight: bold;
-  margin-left: 60px;
-  margin-top: 100px;
+	font-family: "yg-jalnan";
+	font-size: 30px;
+	font-weight: bold;
+	margin-left: 60px;
+	margin-top: 100px;
 }
 
 .bestseller {
-  display: none;
+	display: none;
 }
 
 .usedbooks-container {
-  border: 2px solid black;
-  padding: 10px 10px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  width: 40%;
-  margin-left: auto;
-  margin-right: auto;
+	border: 2px solid black;
+	padding: 10px 10px;
+	margin-bottom: 20px;
+	border-radius: 10px;
+	width: 40%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .usedbooks-item-1 {
-  border-bottom: 2px solid #858383;
-  margin-bottom: 10px;
-  font-size: 18px;
-  font-weight: bold;
+	border-bottom: 2px solid #858383;
+	margin-bottom: 10px;
+	font-size: 18px;
+	font-weight: bold;
 }
 
 .usedbooks-item-2 {
-  margin-bottom: 10px;
-  font-size: 14px;
+	margin-bottom: 10px;
+	font-size: 14px;
 }
 
 .usedbooks-item-3 {
-  display: flex;
-  justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
 
 .usedbooks-item-content {
-  font-size: 14px;
+	font-size: 14px;
 }
 
 .usedbooks-item-date {
-  color: #646464;
+	color: #646464;
 }
 
 .usedbooks-header-container {
-  width: 40%;
-  margin-left: 40px;
-  margin-top: 50px;
-  margin-bottom: 20px;
+	width: 40%;
+	margin-left: 40px;
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+
+.usedbooks-header-button {
+	font-family: "yg-jalnan";
+	width: 100%;
+	margin: 0px auto;
+	padding: 20px 10px;
+	background-color: #EBF5FF;
+	font-size: 24px;
+	border-radius: 10px;
+	transition: 0.3s ease-in;
+	cursor: pointer;
+}
+
+.usedbooks-header-button:hover {
+	background-color: #000069;
+	color: white;
 }
 
 .usedbooks-item-title:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .usedbooks-board-container {
-  display: flex;
-  font-size: 22px;
-  font-weight: 700;
-  justify-content: space-between;
-  cursor: pointer;
+	display: flex;
+	font-size: 22px;
+	font-weight: 700;
+	justify-content: space-between;
+	cursor: pointer;
 }
 
 .usedbooks-board-container span:hover {
-  border-bottom: 1px solid black;
+	border-bottom: 1px solid black;
 }
 
 .account-user-profile-image {
-  width: 35px;
-  height: 35px;
-  margin-bottom: 10px;
-  border-radius: 70%;
+	width: 35px;
+	height: 35px;
+	margin-bottom: 10px;
+	border-radius: 70%;
 }
 
 .slick-slider {
-  margin-top: 80px;
+	margin-top: 80px;
 }
 
 .usedbooks-board-container-span1 {
-  font-family: "yg-jalnan";
+	font-family: "yg-jalnan";
 }
+
 .usedbooks-board-container-span2 {
-  font-family: "yg-jalnan";
+	font-family: "yg-jalnan";
 }
