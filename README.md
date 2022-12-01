@@ -8,6 +8,13 @@
 3. Oracle DB와 연결하여 게시글을 작성하고, 읽고, 수정하고 삭제 할 수 있는 CRUD기반 게시판
 4. 카카오의 지도 API를 활용하여 현재 위치 주변의 서점을 보여주고 지도에 표시
 
+
+### 개발환경
+MVC 패턴 모델2로 개발하였고, WAS는 Apache Tomcat 9.0버전으로 개발하였다.
+IDE는 Eclipse와 소스 코드 편집기 VScode를 사용했다.
+DB 는 Oracle database 21c  Oracle_11 환경에서 개발하였다.
+그동안 배운 JSP와 JSTL, JS를 활용하여 CRUD게시판을 만들고 Open API를 적극 활용하였다.
+
 ### ERD
 <img src="https://user-images.githubusercontent.com/108406531/205044225-6990d46e-47ed-40d8-9b39-e9c03df3e87f.png" 
 width="800px" height="600px">
