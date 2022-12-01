@@ -140,16 +140,14 @@ public class AccountDAO {
 					
 					
 					String likes = rs.getString("b_likes");
-					//likes = likes.replace("!", "&nbsp;");
+//					likes = likes.replace("!", "&nbsp;");
 					String[] arr = rs.getString("b_likes").split(" ");
 					// 101 102 103 104
 					for (int i = 0; i < arr.length; i++) {
 						if(arr[i].equals("101")) {
-							likes = likes.replace("101", "[소설] ||");
-							
+							likes = likes.replace("101", "[소설]");
 						}else if(arr[i].equals("102")) {
 							likes = likes.replace("102", "[시/에세이]");
-							
 						}else if(arr[i].equals("104")) {
 							likes = likes.replace("104", "[사회과학]");
 						}else if(arr[i].equals("105")) {
@@ -170,10 +168,10 @@ public class AccountDAO {
 					a.setB_likes(likes);
 					
 
-					request.setAttribute("account", a);
 
 					HttpSession hs = request.getSession();
 					hs.setAttribute("accountInfo", a);
+					hs.setAttribute("accountLikess", arr);
 					ArrayList<String> cids = new ArrayList<String>();					
 					for (int i = 0; i < arr.length; i++) {
 						System.out.println(arr[i]);
@@ -251,8 +249,14 @@ public class AccountDAO {
 
 			if (pstmt.executeUpdate() == 1) {
 				request.setAttribute("r", "수정 완료");
-				request.setAttribute("id2", a.getB_id());
-				request.setAttribute("pw2", a.getB_pw());
+				
+				if (pw==null||pw.isEmpty()) {					
+					request.setAttribute("id2", a.getB_id());
+					request.setAttribute("pw2", a.getB_pw());
+				}else {
+					request.setAttribute("id2", id);
+					request.setAttribute("pw2", pw);
+				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
