@@ -4,7 +4,7 @@
 	margin-top: 10%; 
 	margin-bottom : 20px;
 	border-radius: 10px;
-	width: 40%;
+	width: 20%;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 20px;
@@ -43,9 +43,10 @@
 	border: 0;
 	outline: 0;
 	border-radius: 6px;
-	background: linear-gradient(to left, #233329, #63d471);
+	background: linear-gradient(to left, #2A2A72, #009FFD);
 	color: white;
 	font-size: 1.2em;
+	font-family: "yg-jalnan";
 	letter-spacing: 2px;
 	box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4), -3px -3px 5px
 		rgba(0, 0, 0, 0.1);

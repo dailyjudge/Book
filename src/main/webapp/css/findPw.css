@@ -1,35 +1,35 @@
-.find-pw-container{
+.find-pw-container {
 	border: 2px solid black;
 	padding: 10px 10px;
-	margin-top: 10%; 
-	margin-bottom : 20px;
+	margin-top: 10%;
+	margin-bottom: 20px;
 	border-radius: 10px;
-	width: 40%;
+	width: 20%;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 20px;
 }
 
-.find-pw{
+.find-pw {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.find-id{
+.find-id {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin-top: 10%;
 }
 
-.find-email{
+.find-email {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.find-button{
+.find-button {
 	margin-top: 5%;
 	display: flex;
 	justify-content: center;
@@ -43,8 +43,9 @@
 	border: 0;
 	outline: 0;
 	border-radius: 6px;
-	background: linear-gradient(to left, #233329, #63d471);
+	background: linear-gradient(to left, #2A2A72, #009FFD);
 	color: white;
+	font-family: "yg-jalnan";
 	font-size: 1.2em;
 	letter-spacing: 2px;
 	box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4), -3px -3px 5px
