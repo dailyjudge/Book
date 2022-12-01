@@ -8,9 +8,15 @@
 	font-weight: normal;
 	font-style: normal;
 }
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 body {
-	font-family: "MapoFlowerIsland";
+	 font-family: 'yg-jalnan';
 }
 
 .account-container {
@@ -68,7 +74,7 @@ body {
 	text-decoration: none;
 	margin-right: 10px;
 	font-size: 16px;
-	font-family: "MapoFlowerIsland";
+	 font-family: 'yg-jalnan';
 }
 
 .account-item:visited {
@@ -81,13 +87,13 @@ body {
 
 .menu {
 	display: flex;
-	color: #f3f0d7;
+	color: #E9D5CA;
 	width: 100%;
 }
 
 .menu-item {
 	width: 25%;
-	background: #f3f0d7;
+	background: #E9D5CA;
 	transition: 0.5s;
 	height: 100px;
 	display: flex;
@@ -97,7 +103,7 @@ body {
 
 .menu-item:hover {
 	width: 35%;
-	background: #00541a;
+	background: #363062;
 }
 
 .menu-link {
@@ -322,7 +328,7 @@ body {
 	background-color: #f3f0d7;
 	border: none;
 	border-radius: 15px;
-	font-family: "MapoFlowerIsland";
+	font-family: "'yg-jalnan'";
 	font-size: 18px;
 	font-weight: 900;
 }

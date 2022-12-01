@@ -113,13 +113,13 @@ body {
 #list-all {
   border: 10px solid #00541a;
   background-color: #00541a;
-  font-family: "MapoFlowerIsland";
+   font-family: 'yg-jalnan';
   overflow: auto;
   height: 500px;
   margin: 30px 3%;
 }
 .link{
-	 font-family: "MapoFlowerIsland";
+	  font-family: 'yg-jalnan';
 }
 .link:hover{
 	text-decoration: underline;
