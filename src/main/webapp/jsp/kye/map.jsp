@@ -16,11 +16,9 @@
 	<div class="map-container">
 		<div id="map" style="width: 65%; height: 500px;"></div>
 		<div id="list-all">
-			<h2 style="color: #f3f0d7">가까운서점</h2>
+			<h2 style="color: #EBF5FF">가까운서점</h2>
 		</div>
 	</div>
-
-
 
 	<script src="js/bookstoreinfo.js"></script>
 

@@ -19,7 +19,7 @@ document.getElementById('frm').submit();
 					src="assets/main.png" alt="">
 					</a>
 		</div>
-		
+		 <div class="item-container4" onclick="location.href='HC'"><span>BooKs</span></div>
 		<div class="item-container2">
 			<img class="account-user-profile-image" alt="" src="fileFolder/${sessionScope.accountInfo.b_pic }">
 			<h3>${sessionScope.accountInfo.b_name }님 안녕하세요!</h3>

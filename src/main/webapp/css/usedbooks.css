@@ -67,7 +67,7 @@
   border: 2px solid black;
   display: flex;
   flex-direction: column;
-  background-color: #f3f0d7;
+  background-color: #EBF5FF;
   margin-left: auto;
   margin-right: auto;
 }
@@ -78,7 +78,7 @@
 
 .usedbooks-detail-title {
   padding: 5px 5px;
-  background-color: #00541a;
+  background-color: #000069;
   color: #f3f0d7;
   display: inline-flex;
   justify-content: space-between;
@@ -106,7 +106,7 @@
   justify-content: flex-end;
   width: 100%;
   color: #f3f0d7;
-  background-color: #00541a;
+  background-color: #000069;
 }
 
 .usedbooks-detail-button {
@@ -116,24 +116,25 @@
 }
 
 .usedbooks-detail-button button {
-  font-family: "MapoFlowerIsland";
-  background-color: #00541a;
-  color: #f3f0d7;
+  cursor: pointer;
+  font-family: 'yg-jalnan';
+  background-color: #EBF5FF;
+  color: #000069;
   width: 200px;
   height: 40px;
   margin: 5px 10px;
   border-radius: 10px;
-  border: 5px solid #5f8d4e;
+  border: 5px solid #50C8FF;
 }
 
 .usedbooks-detail-button button:hover {
-  background-color: #5f8d4e;
+  background-color: #000069;
   color: #f3f0d7;
   width: 200px;
   height: 40px;
   margin: 5px 10px;
   border-radius: 10px;
-  border: 5px solid #00541a;
+  border: 5px solid #000069;
   transition: 0.5s;
 }
 

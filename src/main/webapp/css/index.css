@@ -26,7 +26,7 @@ body {
 	width: 100%;
 	background-color: white;
 	display: flex;
-	justify-content: flex-end;
+	justify-content: flex-start;
 	align-items: center;
 	height: 100px;
 	border-bottom: 1px solid #646464;
@@ -39,8 +39,16 @@ body {
 	height: 100px;
 }
 
+.item-container4 {
+    width: 20%;
+    font-size: 56px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: "Constantia";
+}
+
 .img-container {
-	width: 60%;
+	width: 45%;
 	margin: 10px 0px;
 }
 
@@ -191,7 +199,7 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 20px;
-	background: #f3f0d7;
+	background-color: #EBF5FF;
 	border: none;
 	font-size: 20px;
 	border-radius: 10px;
@@ -205,7 +213,7 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 20px;
-	background: #00541a;
+	background-color: #000069;
 	border: none;
 	border-radius: 10px;
 	cursor: pointer;
@@ -219,6 +227,7 @@ body {
 }
 
 .search-input {
+	font-family: 'yg-jalnan';
 	width: 30%;
 	margin-top: 30px;
 	margin-left: 35%;
@@ -337,16 +346,16 @@ body {
 	width: 100%;
 	margin-top: 20px;
 	padding: 20px 10px;
-	background-color: #f3f0d7;
+	background-color: #EBF5FF;
 	border: none;
 	border-radius: 15px;
-	font-family: "MapoFlowerIsland";
+	font-family: 'yg-jalnan';
 	font-size: 18px;
 	font-weight: 900;
 }
 
 .usedbooks-header-button:hover {
-	background-color: #00541a;
+	background-color: #000069;
 	color: white;
 	transition: 0.3s ease-in;
 	cursor: pointer;
