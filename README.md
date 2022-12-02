@@ -1,9 +1,9 @@
-#  📗 BooKs
+#  📗 BooKs 📕
 
-### 소개
+### 📚 소개
 책을 좋아하는 사람들을 위해 만든 간이 서점 사이트이다. 서적에 관련된 정보를 제공하고, 신간 도서 / 베스트 셀러 등의 정보를 사용자의 선호도에 맞춰 보여준다.그동안 배운 CRUD와 Open API 활용,  Oracle DB를 통해 제작하였다.
 
-### 주요 기능
+### 📚 주요 기능
 1. 인터파크 베스트셀러 API를 이용하여 국내/외 베스트셀러와 개인 맞춤 서적 추천 베스트 셀러 정보 및 구매 링크 제공 
 2. slick.js 슬라이더와 인터파크 신간도서 API를 이용한 신간 도서 정보 제공
 3. 카카오 검색 REST API를 활용하여 서적 검색 기능 제공
@@ -11,7 +11,7 @@
 5. 카카오 지도 API와 HTML Geolocation API를 이용하여 현재 위치에서의 지도 정보를 제공하고, 서울 열린데이터 광장에서 제공하는 서울 서점 데이터셋을 이용하여, 현재 위치 기준으로 가장 가까운 서점을 리스트 형태로 출력 및 마커 표시 기능 제공
 
 
-### 기술스택
+### :hammer: 기술스택 
 <img src="https://img.shields.io/badge/JAVA-007396?style=for-the-badge&logo=java&logoColor=white"><img src="https://img.shields.io/badge/oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white">
 <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
 <img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=white">
