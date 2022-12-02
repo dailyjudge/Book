@@ -81,7 +81,6 @@ $.ajax({
 		maxPageNum1 = msg.item.length;
 
 		let list = msg.item;
-		console.log(list[0]);
 		// 30개 
 		for (let i = 0; i < list.length; i++) {
 
