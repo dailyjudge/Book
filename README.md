@@ -1,5 +1,4 @@
-# Git - Semi_Project
-
+# :heartpulse: BooKs :heartpulse:
 
 ### 소개
 책을 좋아하는 사람들을 위해 만든 간이 서점 사이트이다. 서적에 관련된 정보를 제공하고, 신간 도서 / 베스트 셀러 등의 정보를 사용자의 선호도에 맞춰 보여준다.그동안 배운 CRUD와 Open API 활용,  Oracle DB를 통해 제작하였다.
