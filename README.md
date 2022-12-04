@@ -24,6 +24,18 @@
 <img src="https://img.shields.io/badge/discord-purple?style=for-the-badge&logo=discord&logoColor=white">
 <img src="https://img.shields.io/badge/eclipse-brown?style=for-the-badge&logo=eclipse&logoColor=white">
 <img src="https://img.shields.io/badge/vscode-skyblue?style=for-the-badge&logo=vscode&logoColor=white">
+
+### 📚 담당업무
+:bulb: 정민규 : [팀장, 베스트셀러, 서적 검색, 게시판 댓글/대댓글, DB 설계]
+
+:bulb: 김문종 : [메인 페이지, 베스트셀러, 커뮤니티, 회원관리]
+
+:bulb: 김예은 : [메인 페이지, 커뮤니티(후기 게시판), 내 주변 서점]
+
+:bulb: 임형규 : [회원 관리(로그인, 가입 정보, 회원 탈퇴 등)]
+
+:bulb: 정권 : [커뮤니티(중고서적 게시판)]
+
 ### 📚 ERD
 <img src="https://user-images.githubusercontent.com/108406531/205044225-6990d46e-47ed-40d8-9b39-e9c03df3e87f.png"
 width="800px" height="600px">
